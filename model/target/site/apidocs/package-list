@@ -1,0 +1,6 @@
+hu.gaborkolozsy.model
+hu.gaborkolozsy.model.abstractClasses
+hu.gaborkolozsy.model.abstractClasses.ext
+hu.gaborkolozsy.model.interfaces
+hu.gaborkolozsy.model.interfaces.impl
+hu.gaborkolozsy.model.listener
