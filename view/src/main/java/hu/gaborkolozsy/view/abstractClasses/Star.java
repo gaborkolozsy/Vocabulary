@@ -17,7 +17,7 @@ import javax.swing.ImageIcon;
  * @see javax.swing.Icon
  * @see javax.swing.ImageIcon
  */
-abstract public class Star {
+public abstract class Star {
     
     /** Az első felirat. */
     protected String toolTipText1;

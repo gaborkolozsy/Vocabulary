@@ -20,6 +20,7 @@ import hu.gaborkolozsy.view.abstractClasses.ext.Star4;
 import hu.gaborkolozsy.view.abstractClasses.ext.Star5;
 import hu.gaborkolozsy.view.abstractClasses.ext.Star6;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -222,6 +223,7 @@ public class Vocabulary extends JFrame {
     public Vocabulary() {
         initComponents();
         setLocationRelativeTo(null);
+        setMaximumSize(new Dimension(1000, 280));
         
         if (System.getProperty("os.name").startsWith("Win")) {
             setResizable(false);
@@ -244,7 +246,7 @@ public class Vocabulary extends JFrame {
                                      lcs.getReverseCombo());
             } catch (IOException | ClassNotFoundException ex) {
                 JOptionPane.showMessageDialog(rootPane, ex.getMessage(),
-                        "Hiba", JOptionPane.ERROR_MESSAGE);
+                        "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
         
@@ -258,7 +260,7 @@ public class Vocabulary extends JFrame {
         }
         
         answerTxtField.addKeyListener(ls.getKeyListener());
-     }
+    }
     
     /**
      * This method is called from within the constructor to
