@@ -3955,7 +3955,7 @@ public class Vocabulary extends JFrame {
             }
             
             // a felhasználónak
-            if (text.equals("$show my congrat")) {
+            if (text.equals("show my congrat")) {
                 showSumOfCongratulation(ds.getCongratulation());
             }
         }
