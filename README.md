@@ -1,3 +1,10 @@
 # Vocabulary
 
-Angol és német szókincs bővítésére alkalmas program
+## Maven alapú `pom` projekt Java nyelven
+
+### Felépítés
+
+
+
+## Leírás
+
