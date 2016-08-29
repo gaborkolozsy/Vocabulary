@@ -20,6 +20,7 @@ import hu.gaborkolozsy.view.abstractClasses.ext.Star4;
 import hu.gaborkolozsy.view.abstractClasses.ext.Star5;
 import hu.gaborkolozsy.view.abstractClasses.ext.Star6;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -222,6 +223,7 @@ public class Vocabulary extends JFrame {
     public Vocabulary() {
         initComponents();
         setLocationRelativeTo(null);
+        setMaximumSize(new Dimension(1000, 280));
         
         if (System.getProperty("os.name").startsWith("Win")) {
             setResizable(false);
@@ -244,7 +246,7 @@ public class Vocabulary extends JFrame {
                                      lcs.getReverseCombo());
             } catch (IOException | ClassNotFoundException ex) {
                 JOptionPane.showMessageDialog(rootPane, ex.getMessage(),
-                        "Hiba", JOptionPane.ERROR_MESSAGE);
+                        "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
         
@@ -258,7 +260,7 @@ public class Vocabulary extends JFrame {
         }
         
         answerTxtField.addKeyListener(ls.getKeyListener());
-     }
+    }
     
     /**
      * This method is called from within the constructor to
@@ -3505,7 +3507,7 @@ public class Vocabulary extends JFrame {
         ep.addHyperlinkListener(ls.getHyperlinkListener());
         ep.setEditable(false);
         ep.setBackground(getBackground());
-        JOptionPane.showMessageDialog(rootPane, ep, "Üdvözlés", 
+        JOptionPane.showMessageDialog(rootPane, ep, "Greeting", 
                 JOptionPane.PLAIN_MESSAGE);
     }// </editor-fold> 
     
@@ -3529,7 +3531,7 @@ public class Vocabulary extends JFrame {
             ifs = new ConfigService(iniFile[0], iniFile[1], fileName[2]);
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), 
-                    "Hiba", JOptionPane.ERROR_MESSAGE);
+                    "Error", JOptionPane.ERROR_MESSAGE);
             System.exit(0);
         }
     }// </editor-fold>
@@ -3545,7 +3547,7 @@ public class Vocabulary extends JFrame {
             vs.setKeyList();
         } catch (IOException | ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), 
-                    "Hiba", JOptionPane.ERROR_MESSAGE);
+                    "Error", JOptionPane.ERROR_MESSAGE);
             System.exit(0);
         }
     }// </editor-fold>
@@ -3596,7 +3598,7 @@ public class Vocabulary extends JFrame {
                     .getResource(PATH + "lock.png"));
             JOptionPane.showMessageDialog(rootPane, 
                     "Csak \"Start\" előtt lehet nyelvet váltani!", 
-                    "Figyelmeztetés", JOptionPane.PLAIN_MESSAGE, lock);
+                    "Warning", JOptionPane.PLAIN_MESSAGE, lock);
             
             if (from.equals(ENG) || to.equals(ENG)) {
                 languageComboBox.setSelectedIndex(0);
@@ -3907,7 +3909,7 @@ public class Vocabulary extends JFrame {
                             Thread.sleep(10);
                         } catch (InterruptedException ex) {
                             JOptionPane.showMessageDialog(rootPane, ex.getMessage(),
-                                    "Hiba", JOptionPane.PLAIN_MESSAGE);
+                                    "Error", JOptionPane.PLAIN_MESSAGE);
                         }
                     }
                 }).start();
@@ -3953,7 +3955,7 @@ public class Vocabulary extends JFrame {
             }
             
             // a felhasználónak
-            if (text.equals("$show my congrat")) {
+            if (text.equals("show my congrat")) {
                 showSumOfCongratulation(ds.getCongratulation());
             }
         }
@@ -3985,7 +3987,7 @@ public class Vocabulary extends JFrame {
         JEditorPane ep = new JEditorPane("text/html", is.getAdvice());
         ep.setEditable(false);
         ep.setBackground(getBackground());
-        JOptionPane.showMessageDialog(rootPane, ep, "Tanács", 
+        JOptionPane.showMessageDialog(rootPane, ep, "Advice", 
                 JOptionPane.PLAIN_MESSAGE);
     }// </editor-fold> 
     
@@ -3999,7 +4001,7 @@ public class Vocabulary extends JFrame {
         JEditorPane ep = new JEditorPane("text/html", iS.getCongratulation());
         ep.setEditable(false);
         ep.setBackground(getBackground());
-        JOptionPane.showMessageDialog(rootPane, ep, "Gratuláció", 
+        JOptionPane.showMessageDialog(rootPane, ep, "Congratulation", 
                 JOptionPane.PLAIN_MESSAGE);
     }// </editor-fold> 
     
@@ -4013,7 +4015,7 @@ public class Vocabulary extends JFrame {
         JEditorPane ep = new JEditorPane("text/html", iS.getExtra());
         ep.setEditable(false);
         ep.setBackground(getBackground());
-        JOptionPane.showMessageDialog(rootPane, ep, "Extrák", 
+        JOptionPane.showMessageDialog(rootPane, ep, "Extra", 
                 JOptionPane.PLAIN_MESSAGE);
     }// </editor-fold> 
     
@@ -4043,7 +4045,7 @@ public class Vocabulary extends JFrame {
             Icon lock = new ImageIcon(getClass().getResource(PATH + "lock.png"));
             JOptionPane.showMessageDialog(rootPane, 
                     "Csak \"Start\" előtt lehet a nyelveket felcserélni!", 
-                    "Figyelmeztetés", JOptionPane.PLAIN_MESSAGE, lock);
+                    "Warning", JOptionPane.PLAIN_MESSAGE, lock);
         }
     }// </editor-fold> 
     
@@ -4057,7 +4059,7 @@ public class Vocabulary extends JFrame {
         try {
             ps.save(lcs.getCurrentCombo());
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Hiba", 
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", 
                 JOptionPane.PLAIN_MESSAGE);
         }
     }// </editor-fold>
@@ -4096,7 +4098,7 @@ public class Vocabulary extends JFrame {
             Icon lock = new ImageIcon(getClass().getResource(PATH + "lock.png"));
             JOptionPane.showMessageDialog(rootPane, 
                     "Csak \"Start\" előtt válthatsz futamszámot!", 
-                    "Figyelmeztetés", JOptionPane.PLAIN_MESSAGE, lock);
+                    "Warning", JOptionPane.PLAIN_MESSAGE, lock);
         }
     }// </editor-fold>//GEN-LAST:event_raceComboBoxActionPerformed
 
@@ -4139,7 +4141,7 @@ public class Vocabulary extends JFrame {
         JEditorPane ep = new JEditorPane("text/html", iS.getAddingItenToRaceComboBox());
         ep.setEditable(false);
         ep.setBackground(getBackground());
-        JOptionPane.showMessageDialog(rootPane, ep, "Futamszám++", 
+        JOptionPane.showMessageDialog(rootPane, ep, "Combo Box Plus", 
                 JOptionPane.PLAIN_MESSAGE);
     }// </editor-fold>
     
@@ -4154,7 +4156,7 @@ public class Vocabulary extends JFrame {
         JEditorPane ep = new JEditorPane("text/html", iS.getCutItemFromRaceComboBox());
         ep.setEditable(false);
         ep.setBackground(getBackground());
-        JOptionPane.showMessageDialog(rootPane, ep, "Futamszám--", 
+        JOptionPane.showMessageDialog(rootPane, ep, "Combo Box Cut", 
                 JOptionPane.PLAIN_MESSAGE);
     }// </editor-fold>
     
@@ -4185,7 +4187,7 @@ public class Vocabulary extends JFrame {
                     Thread.sleep(10);
                 } catch (InterruptedException ex) {
                     JOptionPane.showMessageDialog(rootPane, ex.getMessage(),
-                            "Hiba", JOptionPane.PLAIN_MESSAGE);
+                            "Error", JOptionPane.PLAIN_MESSAGE);
                 }
             }
             
@@ -4201,7 +4203,7 @@ public class Vocabulary extends JFrame {
                             Thread.sleep(10);
                         } catch (InterruptedException ex) {
                             JOptionPane.showMessageDialog(rootPane, 
-                                    ex.getMessage(), "Hiba", 
+                                    ex.getMessage(), "Error", 
                                     JOptionPane.PLAIN_MESSAGE);
                         }
                     }
@@ -4211,7 +4213,7 @@ public class Vocabulary extends JFrame {
                     Thread.sleep(10);
                 } catch (InterruptedException ex) {
                     JOptionPane.showMessageDialog(rootPane, ex.getMessage(),
-                            "Hiba", JOptionPane.PLAIN_MESSAGE);
+                            "Error", JOptionPane.PLAIN_MESSAGE);
                 }
             }
         }).start();
@@ -4231,7 +4233,7 @@ public class Vocabulary extends JFrame {
                     Thread.sleep(10);
                 } catch (InterruptedException e) {
                     JOptionPane.showMessageDialog(rootPane, 
-                            e.getMessage(), "Hiba", 
+                            e.getMessage(), "Error", 
                             JOptionPane.PLAIN_MESSAGE);
                 }
             }
@@ -4245,7 +4247,7 @@ public class Vocabulary extends JFrame {
                     Thread.sleep(10);
                 } catch (InterruptedException e) {
                     JOptionPane.showMessageDialog(rootPane, 
-                            e.getMessage(), "Hiba", 
+                            e.getMessage(), "Error", 
                             JOptionPane.PLAIN_MESSAGE);
                 }
             }
@@ -4259,7 +4261,7 @@ public class Vocabulary extends JFrame {
                     Thread.sleep(10);
                 } catch (InterruptedException e) {
                     JOptionPane.showMessageDialog(rootPane, 
-                            e.getMessage(), "Hiba", 
+                            e.getMessage(), "Error", 
                             JOptionPane.PLAIN_MESSAGE);
                 }
             }
@@ -4284,7 +4286,7 @@ public class Vocabulary extends JFrame {
                             Thread.sleep(10);
                         } catch (InterruptedException e) {
                             JOptionPane.showMessageDialog(rootPane, 
-                                e.getMessage(), "Hiba", 
+                                e.getMessage(), "Error", 
                                 JOptionPane.PLAIN_MESSAGE);
                         }
                     }
@@ -4294,7 +4296,7 @@ public class Vocabulary extends JFrame {
                     Thread.sleep(10);
                 } catch (InterruptedException e) {
                     JOptionPane.showMessageDialog(rootPane, 
-                        e.getMessage(), "Hiba", 
+                        e.getMessage(), "Error", 
                         JOptionPane.PLAIN_MESSAGE);
                 }
             }
@@ -4607,7 +4609,7 @@ public class Vocabulary extends JFrame {
         ep.setEditable(false);
         ep.setBackground(getBackground());
         //JScrollPane jsp=new JScrollPane(ep);
-        JOptionPane.showMessageDialog(rootPane, ep, "Vocabulary - Névjegy", 
+        JOptionPane.showMessageDialog(rootPane, ep, "Vocabulary", 
                 JOptionPane.PLAIN_MESSAGE);
     }// </editor-fold>//GEN-LAST:event_helpLabelMouseClicked
 
@@ -4651,7 +4653,7 @@ public class Vocabulary extends JFrame {
             }
         } catch (ClassNotFoundException | InstantiationException | 
                  IllegalAccessException | UnsupportedLookAndFeelException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Hiba", 
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", 
                     JOptionPane.PLAIN_MESSAGE);
         }//</editor-fold>//</editor-fold>
         
@@ -4667,7 +4669,7 @@ public class Vocabulary extends JFrame {
             try {
                 ds.saveAllData(DATAFILE);
             } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, ex.getMessage(), "Hiba", 
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", 
                     JOptionPane.PLAIN_MESSAGE);
             }
             saveProposalIfIs();
