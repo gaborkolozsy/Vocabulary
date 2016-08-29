@@ -21,27 +21,30 @@ import org.junit.Test;
 public class LanguageCombinationsServiceTest {
     
     /** {@code LanguageCombinationsService} objektum. */
-    private static LanguageCombinationsService instance;
+    private static final LanguageCombinationsService instance = 
+            new LanguageCombinationsService();
+    
     /** A nyelvkombinációk listája. */
-    private List<String> languageCombinations;
-    /** A nyelvkombináció lista létrehozható. */
-    private static boolean addLanguageCombinations;
+    private static final List<String> languageCombinations = new ArrayList<>();
     
     /**
-     * Minden teszt metódus elött lefut.
+     * Minden teszt metódus előtt lefut.
      * Konstruktor.
      */
-    public LanguageCombinationsServiceTest() {
-    }
+    public LanguageCombinationsServiceTest() {}
     
     /**
-     * Lefut a tesztek futása elött 1x.
-     * Az osztály adattagjainak példányosítása a teszt futása elött.
+     * Lefut a tesztek futása előtt 1x.
+     * Az osztály adattagjainak példányosítása a teszt futása előtt.
      */
     @BeforeClass
     public static void setUpClass() {
-        instance = new LanguageCombinationsService() {};
-        addLanguageCombinations = false;
+        languageCombinations.add("HUN-ENG");
+        languageCombinations.add("HUN-GER");
+        languageCombinations.add("GER-HUN");
+        languageCombinations.add("GER-ENG");
+        languageCombinations.add("ENG-GER");
+        languageCombinations.add("ENG-HUN");
     }
     
     /**
@@ -49,45 +52,30 @@ public class LanguageCombinationsServiceTest {
      */
     @AfterClass
     public static void tearDownClass() {
+        languageCombinations.clear();
     }
     
     /**
-     * Lefut minden teszt metódus elött a konstruktor után.
+     * Lefut minden teszt metódus előtt a konstruktor után.
      * A nyelvkombinációk lista példányosítása és feltőltése.
      */
     @Before
-    public void setUp() {
-        if (addLanguageCombinations) {
-            languageCombinations = new ArrayList<>();
-            languageCombinations.add("HUN-ENG");
-            languageCombinations.add("HUN-GER");
-            languageCombinations.add("GER-HUN");
-            languageCombinations.add("GER-ENG");
-            languageCombinations.add("ENG-GER");
-            languageCombinations.add("ENG-HUN");
-            addLanguageCombinations = false;
-        }
-    }
+    public void setUp() {}
     
     /**
      * Lefut minden teszt metódus után.
      */
     @After
-    public void tearDown() {
-        if (languageCombinations != null) {
-            languageCombinations.clear();
-        }
-    }
+    public void tearDown() {}
 
     /**
      * Test of getHUNGARIAN method, of class LanguageCombinationsService.
      */
     @Test
     public void testGetHUNGARIAN() {
-        String expResult = "HUN";
         String result = instance.getHUNGARIAN();
-        assertEquals(expResult, result);
-        assertFalse(result.equals(instance.getENGLISH()));
+        assertEquals("HUN", result);
+        assertFalse("hun".equals(result));
     }
 
     /**
@@ -95,10 +83,9 @@ public class LanguageCombinationsServiceTest {
      */
     @Test
     public void testGetENGLISH() {
-        String expResult = "ENG";
         String result = instance.getENGLISH();
-        assertEquals(expResult, result);
-        assertFalse(result.equals(instance.getHUNGARIAN()));
+        assertEquals("ENG", result);
+        assertFalse("eng".equals(result));
     }
 
     /**
@@ -106,10 +93,9 @@ public class LanguageCombinationsServiceTest {
      */
     @Test
     public void testGetGERMAN() {
-        String expResult = "GER";
         String result = instance.getGERMAN();
-        assertEquals(expResult, result);
-        assertFalse(result.equals(instance.getENGLISH()));
+        assertEquals("GER", result);
+        assertFalse("ger".equals(result));
     }
 
     /**
@@ -117,10 +103,9 @@ public class LanguageCombinationsServiceTest {
      */
     @Test
     public void testGetDefaultCombo() {
-        String expResult = "ENG-HUN";
         String result = instance.getDefaultCombo();
-        assertEquals(expResult, result);
-        assertFalse(result.equals("ENGHUN"));
+        assertEquals("ENG-HUN", result);
+        assertFalse("ENGHUN".equals(result));
     }
 
     /**
@@ -128,10 +113,9 @@ public class LanguageCombinationsServiceTest {
      */
     @Test
     public void testGetCurrentCombo() {
-        String expResult = "ENG-HUN";
         String result = instance.getCurrentCombo();
-        assertEquals(expResult, result);
-        assertFalse(result.equals("ENGHUN"));
+        assertEquals("ENG-HUN", result);
+        assertFalse("ENGHUN".equals(result));
     }
     
     /**
@@ -140,11 +124,20 @@ public class LanguageCombinationsServiceTest {
     @Test
     public void testSetCurrentCombo() {
         instance.setCurrentCombo("first", "second");
-        String expResult = "first-second";
         String result = instance.getCurrentCombo();
-        assertEquals(expResult, result);
-        assertFalse(result.equals("second-first"));
-        addLanguageCombinations = true;
+        assertEquals("first-second", result);
+        assertFalse("firstsecond".equals(result));
+    }
+    
+    /**
+     * Test of getReverseCombo method, of class LanguageCombinationsService.
+     */
+    @Test
+    public void testGetReverseCombo() {
+        instance.setCurrentCombo("first", "second");
+        String result = instance.getReverseCombo();
+        assertEquals("second-first", result);
+        assertFalse("secondfirst".equals(result));
     }
     
     /**
@@ -152,24 +145,23 @@ public class LanguageCombinationsServiceTest {
      */
     @Test
     public void testGetComboList() {
-        List<String> expResult = languageCombinations;
         List<String> result = instance.getComboList();
-        assertEquals(expResult, result);
+        assertEquals(languageCombinations, result);
         
-        expResult.remove(0);
-        assertFalse(result.equals(expResult));
+        result.remove(0);
+        assertFalse(languageCombinations.equals(result));
     }
 
     /**
-     * Test of getReverseCombo method, of class LanguageCombinationsService.
+     * Test of makeComboList method, of class LanguageCombinationsService.
      */
     @Test
-    public void testGetReverseCombo() {
-        instance.setCurrentCombo("first", "second");
-        String expResult = "second-first";
-        String result = instance.getReverseCombo();
-        assertEquals(expResult, result);
-        String combo = "first-second";
-        assertFalse(result.equals(combo));
+    public void testMakeComboList() {
+        LanguageCombinationsService lcs = new LanguageCombinationsService();
+        List<String> result = lcs.getComboList();
+        assertEquals(languageCombinations, result);
+        
+        result.remove(0);
+        assertFalse(languageCombinations.equals(result));
     }
 }

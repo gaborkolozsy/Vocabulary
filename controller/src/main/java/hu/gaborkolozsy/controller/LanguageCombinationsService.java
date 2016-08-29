@@ -91,20 +91,20 @@ public class LanguageCombinationsService extends LanguageCombination {
     }
     
     /**
-     * Visszaadja az elérhető nyelvkombinációk listáját.
-     * @return nyelvkombinációk listája
-     */
-    public List<String> getComboList() {
-        return comboList;
-    }
-    
-    /**
      * Visszaadja az aktuális nyelvkombináció fordítottját.
      * @return az aktuális nyelvkombonáció fordítottja
      */
     public String getReverseCombo() {
         String[] str = currentCombo.split("-");
         return str[1] + "-" + str[0];
+    }
+    
+    /**
+     * Visszaadja az elérhető nyelvkombinációk listáját.
+     * @return nyelvkombinációk listája
+     */
+    public List<String> getComboList() {
+        return comboList;
     }
     
     /**
@@ -122,8 +122,7 @@ public class LanguageCombinationsService extends LanguageCombination {
                 // a lista manipulációja
                 if (j == comboList.size() - 1) {
                     comboList.add(0, comboList.get(j));
-                    comboList.remove(
-                        comboList.lastIndexOf(comboList.get(0)));
+                    comboList.remove(comboList.lastIndexOf(comboList.get(0)));
                 }
             }
         }

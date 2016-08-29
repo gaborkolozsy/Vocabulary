@@ -25,49 +25,41 @@ import org.junit.Test;
 public class VocabularyServiceTest {
     
     /** {@code Binary} objektum. */
-    private static Binary binary;
+    private static final Binary binary = new Binary();
     /** {@code VocabularyService} objektum. */
-    private static VocabularyService instance;
-    /** A "test" fájlba kerülő mappa. */
-    private static Map<String, Object> map;
+    private static final VocabularyService instance = new VocabularyService();
     /** A fájl neve. */
-    private static String fileName;
-    /** A mappa megfordíthatósága. */
-    private static boolean reverse;
+    private static final String FILENAME  = "test.bin";
+    /** A "test" fájlba kerülő mappa. */
+    private static final Map<String, Object> map = new HashMap<>();
     /** A megfordított mappa. */
-    private Map<String, Object> reverseMap;
+    private static final Map<String, Object> reverseMap = new HashMap<>();
     /** A mappa kulcslistája. */
-    private static List<String> keyList;
-    
+    private static final List<String> keyList = new ArrayList<>();
     
     /**
-     * Minden teszt metodus elött lefut.
+     * Minden teszt metódus előtt lefut.
      * Konstruktor.
      */
-    public VocabularyServiceTest() {
-    }
+    public VocabularyServiceTest() {}
     
     /**
-     * Lefut a tesztek futása elött 1x.
+     * Lefut a tesztek futása előtt 1x.
      * Beállítja az teszt osztály adattagjait.
      * @throws IOException fájlhiba esetén
      * @throws ClassNotFoundException osztályhiba esetén
      */
     @BeforeClass
     public static void setUpClass() throws IOException, ClassNotFoundException {
-        binary = new Binary();
-        instance = new VocabularyService();
-        fileName = "test";
-        map = new HashMap<>();
         map.put("1", "first");
         map.put("2", "second");
         map.put("3", "third");
-        binary.saveData(map, fileName);
-        instance.setVocabulary(fileName);
+        binary.saveData(map, FILENAME);
         
-        reverse = false;
+        reverseMap.put("first", "1");
+        reverseMap.put("second", "2");
+        reverseMap.put("third", "3");
         
-        keyList = new ArrayList<>();
         keyList.addAll(map.keySet());
     }
     
@@ -77,33 +69,22 @@ public class VocabularyServiceTest {
      */
     @AfterClass
     public static void tearDownClass() {
-        binary.delete(fileName);
+        binary.delete(FILENAME);
         keyList.clear();
+        reverseMap.clear();
     }
     
     /**
-     * Lefut minden teszt metodus elött a konstruktor után.
+     * Lefut minden teszt metódus előtt a konstruktor után.
      */
     @Before
-    public void setUp() {
-        if (reverse) {
-            reverseMap = new HashMap<>();
-            reverseMap.put("first", "1");
-            reverseMap.put("second", "2");
-            reverseMap.put("third", "3");
-            reverse = false;
-        }
-    }
+    public void setUp() {}
     
     /**
-     * Lefut minden teszt metodus után.
+     * Lefut minden teszt metódus után.
      */
     @After
-    public void tearDown() {
-        if (reverseMap != null) {
-            reverseMap.clear();
-        }
-    }
+    public void tearDown() {}
 
     /**
      * Test of setVocabulary method, of class VocabularyService.
@@ -111,10 +92,11 @@ public class VocabularyServiceTest {
      */
     @Test
     public void testSetVocabulary() throws Exception {
+        instance.setVocabulary(FILENAME);
         assertEquals("first", instance.getVocabularyValue("1"));
         assertEquals("second", instance.getVocabularyValue("2"));
         assertTrue("third".equals(instance.getVocabularyValue("3")));
-        assertFalse(map.get("1").equals("second"));
+        assertFalse("first".equals(instance.getVocabularyValue("3")));
     }
 
     /**
@@ -122,12 +104,9 @@ public class VocabularyServiceTest {
      */
     @Test
     public void testGetVocabularyValue() {
-        String key = "1";
-        String expResult = "first";
-        String result = instance.getVocabularyValue(key);
-        assertEquals(expResult, result);
-        assertFalse(expResult.equals(instance.getVocabularyValue("2")));
-        reverse = true;
+        String result = instance.getVocabularyValue("1");
+        assertEquals("first", result);
+        assertFalse("second".equals(result));
     }
 
     /**
@@ -137,7 +116,7 @@ public class VocabularyServiceTest {
     public void testReverseVocabulary() {
         Map<String, Object> result = instance.reverseVocabulary();
         assertEquals(reverseMap, result);
-        assertFalse(map.equals(reverseMap));
+        assertFalse(map.equals(result));
     }
 
     /**
@@ -145,12 +124,9 @@ public class VocabularyServiceTest {
      */
     @Test
     public void testSetKeyList() {
-        boolean expResult = true;
         boolean result = instance.setKeyList();
-        assertEquals(expResult, result);
-        
-        VocabularyService uj = new VocabularyService();
-        assertFalse(expResult == uj.setKeyList());
+        assertEquals(true, result);
+        assertFalse(false == result);
     }
 
     /**
@@ -160,11 +136,9 @@ public class VocabularyServiceTest {
      */
     @Test
     public void testGetKeyListElem() {
-        int index = 0;
-        String expResult = "first";
-        String result = instance.getKeyListElem(index);
-        assertEquals(expResult, result);
-        assertFalse(expResult.equals(instance.getKeyListElem(1)));
+        String result = instance.getKeyListElem(0);
+        assertEquals("first", result);
+        assertFalse("second".equals(result));
     }
 
     /**
@@ -172,10 +146,9 @@ public class VocabularyServiceTest {
      */
     @Test
     public void testGetKeyListSize() {
-        int expResult = keyList.size();
         int result = instance.getKeyListSize();
-        assertEquals(expResult, result);
-        assertFalse(expResult == instance.getKeyListSize() - 1);
+        assertEquals(keyList.size(), result);
+        assertFalse(keyList.size() == result - 1);
     }
     
 }

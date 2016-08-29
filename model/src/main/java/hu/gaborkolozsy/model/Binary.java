@@ -68,4 +68,14 @@ public class Binary {
             new File(fileName).delete();
         }
     }
+    
+    /**
+     * Ellenőrzi, hogy létezik-e a fájl a kiválasztott névvel.
+     * @param fileName a fájl neve
+     * @return <b>true</b> ha létezik a fájl<br>
+     * <b>false</b> máskülönben
+     */
+    public boolean isFileExists(String fileName) {
+        return new File(fileName).exists();
+    }
 }
