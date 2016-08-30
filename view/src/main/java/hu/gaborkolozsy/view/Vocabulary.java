@@ -35,7 +35,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
- * Szókincs bővítésére alkalmas program. Angol, német és magyar nyelvek.<br>
+ * Angol és német szókincs bővítésére alkalmas program.<br>
  * 1000 szót tartalmaz.
  * 
  * <h2>Leírás</h2>
@@ -89,10 +89,11 @@ import javax.swing.UnsupportedLookAndFeelException;
  * <ol>
  *  <li>Nyelvkombinációkként és futamszámonként az első 100%-os 
  *      teljesítményhez egy felugró kis ablakban gratulál a program. Ebből 42-t 
- *      lehet összegyüjteni(6x7). Az addig elért gratulációk számát meg is 
- *      jeleníti. Ezt a felhasználó le is kérdezheti a <b>$show my congrat</b> 
- *      szöveg válasz mezőbe történő bevitele és az {@code Enter} lenyomásával 
- *      ha a "<b>Start</b>" gombon a "Start" felirat olvasható.
+ *      lehet összegyüjteni(6 nyelvkombináció x 7 választható futamszám). 
+ *      Az addig elért gratulációk számát meg is jeleníti. Ezt a felhasználó le 
+ *      is kérdezheti a "<b>show my congrat</b>" szöveg válasz mezőbe történő 
+ *      bevitele és az {@code Enter} lenyomásával ha a "<b>Start</b>" gombon a 
+ *      "Start" felirat olvasható.
  *  </li>
  *  <li>A feldolgozottság mértékét a program kis csillagokkal is "jutalmazza". 
  *      Ezekből négy féle van egy-egy {@code toolTipText}-el. 250 helyes 
@@ -109,26 +110,27 @@ import javax.swing.UnsupportedLookAndFeelException;
  * <ol>
  *  <li>Ha a kurzor a válasz mezőben van, akkor "<b>Ctrl</b> + <b>J</b>" 
  *      billentyűkombinációval a felhasználó javaslatot(fordítási, stb.) tehet.
- *      A javaslatokat {@code .ini} kiterjesztésű fájlba menti 
+ *      A program a javaslatokat {@code .ini} kiterjesztésű fájlba menti 
  *      nyelvkombinációnként, nyelv váltás és csere alkalmával ill. kilépéskor.
- *      (A programban megtalálható email címre kattintva a fájl mellékletként 
- *      el is küldhető.)
+ *      A programban megtalálható email címre kattintva a fájl akár mellékletként 
+ *      el is küldhető (ha van beállított email kliens). 
  *  </li>
  * </ol>
  * 
  * <h2>Informálás</h2>
+ * A program felugró ablakokban informálja a felhasználót a következőkről:
  * <ol>
- *  <li>Eredményről.</li>
- *  <li>Figyelmeztetés.</li>
- *  <li>Tanács.</li>
+ *  <li>Eredményr</li>
+ *  <li>Figyelmeztetés</li>
+ *  <li>Tanács</li>
  * </ol>
  * 
  * <h2>Terv</h2>
  * <ol>
- *  <li>Akasztófa játék.</li>
- *  <li>Nehézségi szintek.</li>
- *  <li>Saját szószedet feltöltése.</li>
- *  <li>Gyorsbillentyűre segítség.</li>
+ *  <li>Akasztófa játék</li>
+ *  <li>Nehézségi szintek</li>
+ *  <li>Saját szószedet feltöltése</li>
+ *  <li>Gyorsbillentyűre segítség</li>
  * </ol>
  * 
  * <h2>Figyelmeztetés</h2>
@@ -3932,7 +3934,7 @@ public class Vocabulary extends JFrame {
                 raceComboBox.addItem(str[1]);
             }
             
-            if (Pattern.matches("#remove (20|30|40|50|100)", text)) {
+            if (Pattern.matches("#delete (20|30|40|50|100)", text)) {
                 str = text.split(" ");
                 raceComboBox.removeItem(str[1]);
             }
@@ -3950,7 +3952,7 @@ public class Vocabulary extends JFrame {
                 languageComboBox.addItem("MIX");
             }
             
-            if (text.equals("#hide MIX")) {
+            if (text.equals("#delete MIX")) {
                 languageComboBox.removeItem("MIX");
             }
             
