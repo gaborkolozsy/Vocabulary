@@ -21,11 +21,13 @@ import org.junit.Test;
 public class LanguageCombinationsServiceTest {
     
     /** {@code LanguageCombinationsService} objektum. */
-    private static final LanguageCombinationsService instance = 
-            new LanguageCombinationsService();
+    private static LanguageCombinationsService instance;
     
     /** A nyelvkombinációk listája. */
     private static final List<String> languageCombinations = new ArrayList<>();
+    
+    /** Egy teszt lista. */
+    private static final List<String> testCombinations = new ArrayList<>();
     
     /**
      * Minden teszt metódus előtt lefut.
@@ -45,6 +47,13 @@ public class LanguageCombinationsServiceTest {
         languageCombinations.add("GER-ENG");
         languageCombinations.add("ENG-GER");
         languageCombinations.add("ENG-HUN");
+        
+        testCombinations.add("1-2");
+        testCombinations.add("1-3");
+        testCombinations.add("3-1");
+        testCombinations.add("3-2");
+        testCombinations.add("2-3");
+        testCombinations.add("2-1");
     }
     
     /**
@@ -60,7 +69,9 @@ public class LanguageCombinationsServiceTest {
      * A nyelvkombinációk lista példányosítása és feltőltése.
      */
     @Before
-    public void setUp() {}
+    public void setUp() {
+        instance = new LanguageCombinationsService();
+    }
     
     /**
      * Lefut minden teszt metódus után.
@@ -157,11 +168,14 @@ public class LanguageCombinationsServiceTest {
      */
     @Test
     public void testMakeComboList() {
-        LanguageCombinationsService lcs = new LanguageCombinationsService();
-        List<String> result = lcs.getComboList();
-        assertEquals(languageCombinations, result);
+        List<String> test = new ArrayList<>();
+        test.add("1");
+        test.add("2");
+        test.add("3");
+        List<String> result = instance.makeComboList(test);
+        assertEquals(testCombinations, result);
         
         result.remove(0);
-        assertFalse(languageCombinations.equals(result));
+        assertFalse(testCombinations.equals(result));
     }
 }

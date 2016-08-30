@@ -21,6 +21,8 @@ import java.util.List;
 public class LanguageCombinationsService extends LanguageCombination {
     
     /** Az elérhetö nyelvkombinaciok listája. */
+    private final List<String> languageList = new ArrayList<>();
+    /** Az elérhetö nyelvkombinaciok listája. */
     private List<String> comboList = new ArrayList<>();
 
     /**
@@ -28,11 +30,12 @@ public class LanguageCombinationsService extends LanguageCombination {
      * Feltőlti a <b>comboList</b> adattagot és egy listát készít a 
      * lehetséges nyelvkombinációkról ugyanoda.
      */
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public LanguageCombinationsService() {
-        this.comboList.add(HUNGARIAN);
-        this.comboList.add(ENGLISH);
-        this.comboList.add(GERMAN);
-        this.comboList = makeComboList();
+        this.languageList.add(HUNGARIAN);
+        this.languageList.add(ENGLISH);
+        this.languageList.add(GERMAN);
+        this.comboList = makeComboList(languageList);
     }
     
     /**
@@ -110,19 +113,20 @@ public class LanguageCombinationsService extends LanguageCombination {
     /**
      * Nyelvkombináció listát készít az elérhetö és paraméterként átadott 
      * nyelvekböl.
+     * @param languageList nyelv lista
      * @return a lehetséges nyelvkombinációk teljes listája
      */
-    private List<String> makeComboList() {
+    public List<String> makeComboList(List<String> languageList) {
         List<String> cl = new ArrayList<>();
-        for (int i = 0; i < comboList.size(); i++) {
-            for (int j = 1; j <= comboList.size() - 1; j++) {
-                setCurrentCombo(comboList.get(0), comboList.get(j));
+        for (int i = 0; i < languageList.size(); i++) {
+            for (int j = 1; j <= languageList.size() - 1; j++) {
+                setCurrentCombo(languageList.get(0), languageList.get(j));
                 cl.add(getCurrentCombo());
                 
                 // a lista manipulációja
-                if (j == comboList.size() - 1) {
-                    comboList.add(0, comboList.get(j));
-                    comboList.remove(comboList.lastIndexOf(comboList.get(0)));
+                if (j == languageList.size() - 1) {
+                    languageList.add(0, languageList.get(j));
+                    languageList.remove(languageList.lastIndexOf(languageList.get(0)));
                 }
             }
         }
