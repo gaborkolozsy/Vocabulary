@@ -3867,7 +3867,7 @@ public class Vocabulary extends JFrame {
                 IDXMAXVALUE = Integer.parseInt(str[1]);
             }
             
-            if (Pattern.matches("#\\d{3,4}", text)) {
+            if (Pattern.matches("#\\d{3}", text)) {
                 int size = Integer.parseInt(text.substring(1));
                 chooseStar(kombo, size, Math.max(0, ds.getRound()));
                 
