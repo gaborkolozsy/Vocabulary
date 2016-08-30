@@ -169,7 +169,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @see javax.swing.JOptionPane
  * @see javax.swing.UIManager
  * @see javax.swing.UnsupportedLookAndFeelException
- */
+ */   
 public class Vocabulary extends JFrame {
      
     /** /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ */
