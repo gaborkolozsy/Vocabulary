@@ -48,16 +48,16 @@ kapcsolatban.
 
 A `View` gyökerében található a kézzel megszerkesztett két `.ini` fájl (szószedet).
 
-1. `English-1000.ini`
-2. `German-1000.ini`
+* `English-1000.ini`
+* `German-1000.ini`
 
 A program ide menti a felhasználó elért eredményeit, adatait is.
 
-1. `data.bin`
+* `data.bin`
 
 A javaslatok szintén ide kerülnek.
 
-1. `proposal(XXX-YYY 123456).ini` 
+* `proposal(XXX-YYY 123456).ini` 
 
 ## Leírás
 
