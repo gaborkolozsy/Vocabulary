@@ -57,7 +57,7 @@ A program ide menti a felhasználó elért eredményeit, adatait is.
 
 A javaslatok szintén ide kerülnek.
 
-* `proposal(XXX-YYY 123456).ini` 
+* `proposal(XXX-YYY, 1970.01.01 123456).ini` 
 
 ## Leírás
 
