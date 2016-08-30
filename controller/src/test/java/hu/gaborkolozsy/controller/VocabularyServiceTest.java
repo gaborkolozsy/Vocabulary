@@ -27,7 +27,7 @@ public class VocabularyServiceTest {
     /** {@code Binary} objektum. */
     private static final Binary binary = new Binary();
     /** {@code VocabularyService} objektum. */
-    private static final VocabularyService instance = new VocabularyService();
+    private static VocabularyService instance;
     /** A fájl neve. */
     private static final String FILENAME  = "test.bin";
     /** A "test" fájlba kerülő mappa. */
@@ -76,9 +76,14 @@ public class VocabularyServiceTest {
     
     /**
      * Lefut minden teszt metódus előtt a konstruktor után.
+     * @throws java.io.IOException
+     * @throws java.lang.ClassNotFoundException
      */
     @Before
-    public void setUp() {}
+    public void setUp() throws IOException, ClassNotFoundException {
+        instance = new VocabularyService();
+        instance.setVocabulary(FILENAME);
+    }
     
     /**
      * Lefut minden teszt metódus után.
@@ -88,11 +93,9 @@ public class VocabularyServiceTest {
 
     /**
      * Test of setVocabulary method, of class VocabularyService.
-     * @throws java.lang.Exception
      */
     @Test
-    public void testSetVocabulary() throws Exception {
-        instance.setVocabulary(FILENAME);
+    public void testSetVocabulary() {
         assertEquals("first", instance.getVocabularyValue("1"));
         assertEquals("second", instance.getVocabularyValue("2"));
         assertTrue("third".equals(instance.getVocabularyValue("3")));
@@ -136,9 +139,10 @@ public class VocabularyServiceTest {
      */
     @Test
     public void testGetKeyListElem() {
+        instance.setKeyList();
         String result = instance.getKeyListElem(0);
-        assertEquals("first", result);
-        assertFalse("second".equals(result));
+        assertEquals("1", result);
+        assertFalse("2".equals(result));
     }
 
     /**
@@ -146,6 +150,7 @@ public class VocabularyServiceTest {
      */
     @Test
     public void testGetKeyListSize() {
+        instance.setKeyList();
         int result = instance.getKeyListSize();
         assertEquals(keyList.size(), result);
         assertFalse(keyList.size() == result - 1);
