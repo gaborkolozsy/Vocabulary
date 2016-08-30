@@ -10,6 +10,55 @@ elkülönülő három rétegét.
 A `View`réteg csak a `Controller`, a `Controller`réteg csak a `Model`réteggel van 
 kapcsolatban.
 
+## Függőségek
+
+* `Vocabulary`- <dependency>
+                    <groupId>org.eclipse.swt.org.eclipse.swt.win32.win32.x86_64.4.3.swt</groupId>
+                    <artifactId>org.eclipse.swt.win32.win32.x86_64</artifactId>
+                    <version>4.3</version>
+                </dependency>
+
+
+* `view`- <dependency> 
+              <groupId>hu.gaborkolozsy</groupId> 
+              <artifactId>controller</artifactId> 
+              <version>2.2.1</version>
+          </dependency>
+
+* `controller`- <dependency> 
+                    <groupId>hu.gaborkolozsy</groupId> 
+                    <artifactId>model</artifactId> 
+                    <version>2.2.1</version>
+                </dependency>  
+              - <dependency>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                    <version>4.10</version>
+                    <scope>test</scope>
+                </dependency>
+
+* `model`- <dependency>
+               <groupId>junit</groupId>
+               <artifactId>junit</artifactId>
+               <version>4.10</version>
+               <scope>test</scope>
+           </dependency>
+
+## Fájlok
+
+A `View` gyökerében található a kézzel megszerkesztett két `.ini` fájl (szószedet).
+
+1. `English-1000.ini`
+2. `German-1000.ini`
+
+A program ide menti a felhasználó elért eredményeit, adatait is.
+
+1. `data.bin`
+
+A javaslatok szintén ide kerülnek.
+
+1. `proposal(XXX-YYY 123456).ini` 
+
 ## Leírás
 
 ### Angol és német szókincs bővítésére alkalmas program. 1000 szót tartalmaz.
@@ -85,18 +134,41 @@ A szavakat körönként(*minden tartalmazott szó vagy szóösszetétel helyes f
   mellékletként el is küldhető (ha van beállított email kliens). 
 
 ## Informálás
- 
-* Eredményről.
-* Figyelmeztetés.
-* Tanács.
+
+A program felugró ablakokban informálja a felhasználót a következőkről:
+
+* Eredmény
+* Figyelmeztetés
+* Tanács
+
+## Egyéb
+
+#### `RegExp` minták - a tesztelés megkönnyítésére kiadható "parancsok" a válasz mezőben, ha a **Start** gombon a "Start" felirat olvasható -
+
+1. `#answer [1-2]` - 1 körben Nx kell lefordítani helyesen egy szót
+2. `#\\d{3,4}`- beállítja az aktuális nyelvkombináción a tanult indexek lista méretét és ennek megfelelően a "jutalom csillag" is megjelenik
+3. `#race [0-6]`- beállítja a `Futam` combo box maximális indexét
+4. `#add (20|30|40|50|100)`- hozzáadja a kiválasztott tételt a `Futam`combo boxhoz
+5. `#delete (20|30|40|50|100)` - törli a kiválasztott tételt a `Futam`combo boxból
+
+#### `String`-ek - a tesztelés megkönnyítésére kiadható "parancsok" a válasz mezőben, ha a **Start** gombon a "Start" felirat olvasható -
+
+1. `#reset`- reseteli az aktuális nyelvkombinációt
+2. `#round++`- növeli az aktális nyelvkombináción a teljesített körök számát
+3. `#show flag` - lefut a kör végén megjelenő "LED zászló"
+4. `#delete flag`- törli a "LED zászló"-t
+5. `#add MIX` - hozzáadja a "MIX" feliratott a `Nyelv`combo boxhoz és így elérhető a "**ENG-GER**" és a "**GER-ENG**" nyelvkombináció
+6. `#delete MIX` - törli a "MIX" feliratot a `Nyelv`combo boxból
+7. `show my congrat` - informál az összegyüjtött gratulációk számáról
 
 ## Terv
  
-* Akasztófa játék.
-* Nehézségi szintek.
-* Saját szószedet feltöltése.
-* Gyorsbillentyűre segítség.
+* Akasztófa játék
+* Nehézségi szintek
+* Saját szószedet feltöltése
+* Gyorsbillentyűre segítség
 
 ## Figyelmeztetés
 
-* A **`data.bin`** fájl törlése az adatok elvesztésével jár!
+* A `View` modul gyökerében található **`data.bin`** fájl törlése az adatok 
+  elvesztésével jár!
