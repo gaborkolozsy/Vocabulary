@@ -59,7 +59,7 @@ A javaslatok szintén ide kerülnek.
 
 * `proposal(XXX-YYY, 1970.01.01 123456).ini` 
 
-## Leírás
+# Leírás
 
 ### Angol és német szókincs bővítésére alkalmas program. 1000 szót tartalmaz.
 
