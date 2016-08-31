@@ -65,7 +65,7 @@ A javaslatok szintén ide kerülnek.
 
 
 Kézzel szerkesztett `.ini` kiterjesztésű fájlokból készít `.bin` kiterjesztésű 
-fájlokat az első indítás alkalmával. A továbbiakban onnan tőlti be a használni 
+fájlokat az első indítás alkalmával. A továbbiakban onnan tölti be a használni 
 kívánt szószedetet.
 
 
@@ -84,20 +84,20 @@ nyelvkombinációval indul. Ezt megváltoztatni a "**Nyelv**" combo box-ból ill
 A "**Futam**" combo box-ból választható ki, hogy egy futam alkalmával mennyi legyen
 a fordítandó szavak száma. Kezdetben ez csak `5` és `10` lehet. A "folyamatos" jó 
 teljesítmény(**T%**) eredményeként ezek kiegészülnek a `20`, `30`, `40`, `50` és `100`-as 
-tételekkel. pl.: `10`-es futam **90 ≤ T ≤ 100 3x** = `20`-as hozzáadva stb.
+tételekkel. pl.: `10`-es futam **90 ≤ T ≤ 100 3x** = `20`-as tétel hozzáadva stb.
 
 ## Használat
 
-A "**Start**" gombra való kattintás után elindul a kérdezz-felelek. Ha a válasz 
-mezőbe gépelt fordítás helyes, akkor az `Enter` lenyomása után zöld színű lesz az. 
+A "**Start**" gombra való kattintás után elindul a kérdezz-felelek. Ha a válaszmezőbe 
+gépelt fordítás helyes, akkor az `Enter` lenyomása után zöld színű lesz az. 
 Máskülönben megjelenik a helyes fordítás pirossal. Az `Enter` ismételt lenyomásával 
 kérhető a következő fordítandó szó.
 
 
-A rontott szavak a futam végén újra sorra kerülnek. Ez megy mindaddig amig minden 
+A rontott szavak a futam végén újra sorra kerülnek. Ez megy mindaddig amíg minden 
 a futamban fordításra váró szó helyesen le nem lesz fordítva. A következő futam az 
 "**Újra**" feliratú gombra való kattintással kezdeményezhető. Ezzel egyidőben 
-resetelésre kerülnek a futam egyes információi.
+reszetelésre kerülnek a futam egyes információi.
 
 
 A szavakat körönként(*minden tartalmazott szó vagy szóösszetétel helyes fordítása*
@@ -106,7 +106,7 @@ A szavakat körönként(*minden tartalmazott szó vagy szóösszetétel helyes f
 
 ## Szabályok
 
-1. Csak ékezet nélküli betűk használhatók.
+1. Csak ékezet nélküli betűk használhatóak.
 2. A **`'ß'`** karaktert **`'ss'`** karakterrel kell helyetesíteni.
 
 ## Jutalmazás
@@ -145,7 +145,7 @@ A program felugró ablakokban informálja a felhasználót a következőkről:
 
 #### `RegExp` minták - a tesztelés megkönnyítésére kiadható "parancsok" a válasz mezőben, ha a **Start** gombon a "Start" felirat olvasható -
 
-1. `#answer [1-2]` - 1 körben Nx kell lefordítani helyesen egy szót
+1. `#answer [1-2]` - 1 körben N alakalommal kell lefordítani helyesen egy szót
 2. `#\\d{3}`- beállítja az aktuális nyelvkombináción a tanult indexek lista méretét és ennek megfelelően a "jutalom csillag" is megjelenik
 3. `#race [0-6]`- beállítja a `Futam` combo box maximális indexét
 4. `#add (20|30|40|50|100)`- hozzáadja a kiválasztott tételt a `Futam`combo boxhoz
@@ -153,13 +153,13 @@ A program felugró ablakokban informálja a felhasználót a következőkről:
 
 #### `String`-ek - a tesztelés megkönnyítésére kiadható "parancsok" a válasz mezőben, ha a **Start** gombon a "Start" felirat olvasható -
 
-1. `#reset`- reseteli az aktuális nyelvkombinációt
+1. `#reset`- reszeteli az aktuális nyelvkombinációt
 2. `#round++`- növeli az aktális nyelvkombináción a teljesített körök számát
 3. `#show flag` - lefut a kör végén megjelenő "LED zászló"
 4. `#delete flag`- törli a "LED zászló"-t
 5. `#add MIX` - hozzáadja a "MIX" feliratott a `Nyelv`combo boxhoz és így elérhető a "**ENG-GER**" és a "**GER-ENG**" nyelvkombináció
 6. `#delete MIX` - törli a "MIX" feliratot a `Nyelv`combo boxból
-7. `show my congrat` - informál az összegyüjtött gratulációk számáról
+7. `show my congrat` - informál az összegyűjtött gratulációk számáról
 
 ## Terv
  
