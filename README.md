@@ -126,7 +126,7 @@ kapcsolatban.
 ## Fájlok
 
 A `view` modul gyökerében található a kézzel megszerkesztett két `.ini` fájl.
-Ezeket a program a `ConfigService` osztályban alakítja át és menti bináris fájlba.
+Ezeket a program a `ConfigService` osztályban alakítja át és menti bináris fájlba. 
 A felhasználó már nem találkozik majd velük, így azt megváltoztatni nem tudja.
 
 * `English-1000.ini`
@@ -139,13 +139,13 @@ verzióba. Ezen fájlokat a `VocabularyService` osztály olvassa be.
 * `GER-HUN.bin`
 * `ENG-GER.bin`
 
-A program ide menti a felhasználó elért eredményeit, adatait is.
+A program ide menti a felhasználó elért eredményeit, adatait is. 
 A `DataService` osztály olvassa be indításkor(**Vocabulary konstruktor**) és írja ki
 leállításkor(**Vocabulary main**).
 
 * `data.bin`
 
-A javaslatok szintén ide kerülnek.
+A javaslatok szintén ide kerülnek. 
 A `ProposalService` osztály menti kilépéskor ill. a nyelvkombináció megváltozásakor.
 
 * `proposal(XXX-YYY, 1970.01.01 123456).ini` 
