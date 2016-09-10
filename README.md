@@ -193,7 +193,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 * `congratulation` - az összes megszerzett gratulációk száma<br><br>
 
 **[`1`]**. - Nem szavakat tárol a program hanem a listában elfoglalt indexüket. Ezen
-indexek mindig ugyan ahoz a szóhoz tartoznak. A már megtanult szavak indexeit a 
+indexek mindig ugyanahhoz a szóhoz tartoznak. A már megtanult szavak indexeit a 
 program törli egy ideiglenesen létrehozott tárolóból ami 0-1000 között tartalmazz 
 "indexeket". A maradékból(a még meg nem tanult szavak indexei) pedig véletlenszerüen 
 választja ki a futamszámnak megfelelő számú indexet. Ezen indexek alatt található 
