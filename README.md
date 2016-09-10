@@ -163,7 +163,7 @@ tanult szavak indexeit tároló listához.
 * A **Futam** combo box legmagasabb indexe, hogy indításkor a már egyszer megkapott plusz
 (`20`, `30`, `40`, `50`, `100`) futamszámok elérhetőek legyenek.
 
-* A futamokon elért eredmény ha 90% felett van. 3-nál növeli a program a **Futam** 
+* A futamon elért legalább 90%-os teljesítmények száma. 3-nál növeli a program a **Futam** 
 combo box indexét.(lásd feljebb)
 
 * A tanult szavak indexeinek listája.(lásd lejebb)
