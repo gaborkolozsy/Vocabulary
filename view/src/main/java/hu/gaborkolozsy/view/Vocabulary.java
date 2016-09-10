@@ -179,7 +179,7 @@ public class Vocabulary extends JFrame {
     private static final String DATAFILE = "data.bin";
     private static final String PATH = "/hu/gaborkolozsy/icons/";
     
-    private static ConfigService ifs;
+    private static ConfigService cs;
     private static final LanguageCombinationsService lcs = new LanguageCombinationsService();
     private static DataService ds;
     private static final VocabularyService vs = new VocabularyService();
@@ -3514,7 +3514,7 @@ public class Vocabulary extends JFrame {
     }// </editor-fold> 
     
     /**
-     * GYAKORLÁS - once to .bin.
+     * GYAKORLÁS - once .ini to .bin.
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="once to .bin">
@@ -3528,9 +3528,10 @@ public class Vocabulary extends JFrame {
                              ENG + "-" + GER + ".bin"};
         try {
             for (int i = 0; i < iniFile.length; i++) {
-                ifs = new ConfigService(iniFile[i], fileName[i]);
+                cs = new ConfigService(iniFile[i], fileName[i]);
             }
-            ifs = new ConfigService(iniFile[0], iniFile[1], fileName[2]);
+            // MIX
+            cs = new ConfigService(iniFile[0], iniFile[1], fileName[2]);
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), 
                     "Error", JOptionPane.ERROR_MESSAGE);
