@@ -177,22 +177,22 @@ a **Nyelv** combo box-hoz a **MIX** feliratott. Így onnantól bármikor elérhe
 a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 * Gratulációk száma. A nyelvpárok futamszámain elért első 100%-os eredményért.
-**6** nyelvpár és **7** futamszám esetén az összegyűjthető gratulációk száma **42**.
+**`6`** nyelvpár és **`7`** futamszám esetén az összegyűjthető gratulációk száma **`42`**.
 
-Az adatokat a **`DataService`** osztály kezeli.
+### Az adatokat a `DataService` osztály kezeli.
 
-A **`Container`** interface-t megvalósító osztályok.
+### A `Container` interface-t megvalósító osztályok.
 
 * **`DataContainerImpl`** - tárol minden adatot
 * **`IndexValueContainerImpl`** - a szavak listában elfoglalt helye szerinti index(minden indításkor ua.) értéke(0, 1, 2)
 * **`RaceComboBoxContainerImpl`** - a futam combo box legmagasabb indexét tárolja nyelvpáronként
 * **`PerformanceContainerImpl`** - az egyes futamszámokon elért teljesítmény(T > 90%) számát tárolja nyelvpáronként
 
-**`List`**-ben tárolt adat.
+### `List`-ben tárolt adat.
 
-* **`learnedIdxs`****`¹`** - a **körben** már "***megtanult***" szavak listában elfoglalt helye szerinti indexüket tárolja
+* **`learnedIdxs`****`¹`** - a **körben** már ***"megtanult"*** szavak listában elfoglalt helye szerinti indexüket tárolja
 
-**`Integer`**-ként tárolt adatok.
+### `Integer`-ként tárolt adatok.
 
 * **`round`** - a teljesített körök száma nyelvpáronként
 * **`congratulation`** - az összes megszerzett gratulációk száma
