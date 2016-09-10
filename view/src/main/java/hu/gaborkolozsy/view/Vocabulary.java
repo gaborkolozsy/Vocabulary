@@ -41,7 +41,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  * <h2>Leírás</h2>
  * Kézzel szerkesztett {@code .ini} kiterjesztésű fájlokból készít
  * {@code .bin} kiterjesztésű fájlokat az első indítás alkalmával.<br>
- * A továbbiakban onnan tőlti be a használni kívánt szószedetet.<br>
+ * A továbbiakban onnan tölti be a használni kívánt szószedetet.<br>
  * <p>
  * Az alapból három {@code .bin} kiterjesztésű szószedetből elöször csak kettő
  * érhető el. A kevert <b>MIX</b> nyelvek, "<b>ENG-GER</b>" és "<b>GER-ENG</b>"
@@ -81,13 +81,13 @@ import javax.swing.UnsupportedLookAndFeelException;
  * 
  * <h2>Szabályok</h2>
  * <ol>
- *  <li>Csak ékezet nélküli betűk használhatók.</li>
+ *  <li>Csak ékezet nélküli betűk használhatóak.</li>
  *  <li>A '<b>ß</b>' karaktert '<b>ss</b>' karakterrel kell helyetesíteni.</li>
  * </ol>
  * 
  * <h2>Jutalmazás</h2>
  * <ol>
- *  <li>Nyelvkombinációkként és futamszámonként az első 100%-os 
+ *  <li>Nyelvkombinációnként és futamszámonként az első 100%-os 
  *      teljesítményhez egy felugró kis ablakban gratulál a program. Ebből 42-t 
  *      lehet összegyüjteni(6 nyelvkombináció x 7 választható futamszám). 
  *      Az addig elért gratulációk számát meg is jeleníti. Ezt a felhasználó le 
@@ -4657,7 +4657,7 @@ public class Vocabulary extends JFrame {
                  IllegalAccessException | UnsupportedLookAndFeelException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", 
                     JOptionPane.PLAIN_MESSAGE);
-        }//</editor-fold>//</editor-fold>
+        }//</editor-fold>
         
         /**
          * Create and display the form.
