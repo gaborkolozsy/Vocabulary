@@ -44,24 +44,34 @@ public class DataService {
     
     /** {@code Binary} objektum. */
     private final Binary binary = new Binary();
+    
     /** {@code Data} objektum. */
     private Data data = new Data();
+    
     /** {@code DataContainerImpl} objektum. */
     private final Container dataContainer = new DataContainerImpl();
-    /** {@code RaceComboBoxContainerImpl} objektum. */
-    private final Container raceComboBoxContainer = new RaceComboBoxContainerImpl();
+    
     /** {@code IndexValueContainerImpl} objektum. */
     private final Container indexValueContainer = new IndexValueContainerImpl();
+    
+    /** {@code RaceComboBoxContainerImpl} objektum. */
+    private final Container raceComboBoxContainer = new RaceComboBoxContainerImpl();
+    
     /** {@code PerformanceContainerImpl} objektum. */
     private final Container performanceContainer = new PerformanceContainerImpl();
+    
     /** A megtanult szavak indexei az aktuális nyelvkombináción. */
     private List<Integer> learnedIdxs = new ArrayList<>();
+    
     /** A megtanult szavak indexlisájának mérete a nyelvkombináció fordítottján. */
     private int learnedIdxsSizeByReverseCombo;
+    
     /** Az aktuális nyelvkombináción teljesített teljes kör. */
     private int round;
+    
     /** A körszám változás esetén az összehasonlításához. */
     private int previousRound;
+    
     /** Kombo és futamszámonként az első 100%-os teljesítményért járó gratuláció. */
     private int congratulation;
     
@@ -89,7 +99,7 @@ public class DataService {
     /**
      * Ha már létezik a "<b>data.bin</b>" fájl, akkor beolvassa az adatokat 
      * példányosításkor.<br>
-     * A {@code learnedIdxs} lista a <b>setLearnedIdxs(..)</b> a {@code round} 
+     * A {@code learnedIdxs} lista a <b>setLearnedIdxs(..)</b>, a {@code round} 
      * a <b>setRound(..)</b> metódusban lesz beállítva.
      * Ezek hívása a Main konstruktorából a <b>setStars()</b> metóduson 
      * keresztül közvetve történik.
@@ -109,15 +119,16 @@ public class DataService {
         
         this.dataContainer.setMap(binary.getData(file));
         
-        this.data = (Data) dataContainer.get(RACEMAXINDEX);
-        this.raceComboBoxContainer.setMap(data.getMap());
-        
         this.data = (Data) dataContainer.get(INDEXVALUE);
         this.indexValueContainer.setMap(data.getMap());
+        
+        this.data = (Data) dataContainer.get(RACEMAXINDEX);
+        this.raceComboBoxContainer.setMap(data.getMap());
         
         this.data = (Data) dataContainer.get(PERFORMANCE);
         this.performanceContainer.setMap(data.getMap());
         
+        // a passzív oldali(to) LED-ek kigyújtásához
         this.data = (Data) dataContainer.get(reverseCombo);
         this.learnedIdxsSizeByReverseCombo = data.getList().size();
         
@@ -170,8 +181,8 @@ public class DataService {
      * @throws java.io.IOException fájlhiba esetén
      */
     public void saveAllData(String file) throws IOException {
-        dataContainer.add(RACEMAXINDEX, new Data(raceComboBoxContainer.getMap()));
         dataContainer.add(INDEXVALUE, new Data(indexValueContainer.getMap()));
+        dataContainer.add(RACEMAXINDEX, new Data(raceComboBoxContainer.getMap()));
         dataContainer.add(PERFORMANCE, new Data(performanceContainer.getMap()));
         dataContainer.add(CONGRAT, new Data(congratulation));
         binary.saveData(dataContainer.getMap(), file);
@@ -219,43 +230,6 @@ public class DataService {
      */
     public void removIndexValue(String indexID) {
         indexValueContainer.remove(indexID);
-    }
-    
-    /**
-     * <b>True</b> ha a kiválasztott azonosítót tartalmazza a tároló, 
-     * <b>false</b> máskülönben.
-     * @param key a futam azonosítója
-     * @return <b>true</b> ha a tároló tartalmazza a kiválasztott azonosítót
-     */
-    public boolean containsPerformance(String key) {
-        return performanceContainer.containsKey(key);
-    }
-    
-    /**
-     * Növeli a futamon elért teljesítmény(T%) értékét a kiválasztott 
-     * azonosítónál.<br>
-     * <b>90≤T≤100</b>
-     * Kezdő érték 0.
-     * @param key a futam azonosítója
-     */
-    public void addingPerformanceValue(String key) {
-        performanceContainer.add(key, new Performance(getPerformanceValue(key) + 1));
-    }
-    
-    /**
-     * Visszaadja a futamon elért teljesítmény(T%) értékét a kiválasztott 
-     * azonosítónál.
-     * <b>90≤T≤100</b>
-     * @param key a futam azonosítója
-     * @return a teljesítmény értéke
-     */
-    public int getPerformanceValue(String key) {
-        Performance  t = (Performance) performanceContainer.get(key);
-        if (t != null) {
-            return t.getCounter();
-        } else {
-            return 0;
-        }
     }
     
     /**
@@ -339,6 +313,43 @@ public class DataService {
      */
     public String getRaceComboBoxItem(int index) {
         return new RaceComboBox().getItems(index);
+    }
+    
+    /**
+     * <b>True</b> ha a kiválasztott azonosítót tartalmazza a tároló, 
+     * <b>false</b> máskülönben.
+     * @param key a futam azonosítója
+     * @return <b>true</b> ha a tároló tartalmazza a kiválasztott azonosítót
+     */
+    public boolean containsPerformance(String key) {
+        return performanceContainer.containsKey(key);
+    }
+    
+    /**
+     * Növeli a futamon elért teljesítmény(T%) értékét a kiválasztott 
+     * azonosítónál.<br>
+     * <b>90≤T≤100</b>
+     * Kezdő érték 0.
+     * @param key a futam azonosítója
+     */
+    public void addingPerformanceValue(String key) {
+        performanceContainer.add(key, new Performance(getPerformanceValue(key) + 1));
+    }
+    
+    /**
+     * Visszaadja a futamon elért teljesítmény(T%) értékét a kiválasztott 
+     * azonosítónál.
+     * <b>90≤T≤100</b>
+     * @param key a futam azonosítója
+     * @return a teljesítmény értéke
+     */
+    public int getPerformanceValue(String key) {
+        Performance  t = (Performance) performanceContainer.get(key);
+        if (t != null) {
+            return t.getCounter();
+        } else {
+            return 0;
+        }
     }
     
     /**
@@ -468,7 +479,7 @@ public class DataService {
     }
     
     /**
-     * Az aktuális nyelvkombináció.
+     * Az aktuális nyelvkombináció feldolgozottsága.
      * @param keyListSize a kulcs lista(amiből kérdez) mérete
      * @return az aktuális nyelvkombináció feldolgozottsága %-ban
      */
@@ -477,7 +488,7 @@ public class DataService {
     }
     
     /**
-     * Az aktuális nyelvkombináció fordítottja.
+     * Az aktuális nyelvkombináció fordítottjának feldolgozottsága.
      * @param keyListSize a kulcs lista(amiből kérdez) mérete
      * @return az aktuális nyelvkombináció fordítottjának feldolgozottsága %-ban
      */

@@ -7,27 +7,27 @@ package hu.gaborkolozsy.model.abstractClasses;
 /**
  * A programból elérhető nyelvkombinációk.
  * <blockquote>
- * <table border=1 style="background-color: black" summary="Adat tárolási módok">
+ * <table border=1 style="border-color: black" summary="Adat tárolási módok">
  *  <tr>
- *      <th style="color:white">nyelvkombinaciok</th>
- *      <th style="color:white">ENGLISH</th>
- *      <th style="color:white">GERMAN</th>
- *      <th style="color:white">HUNGARIAN</th>
+ *      <th style="color:black">nyelvkombinaciok</th>
+ *      <th style="color:black">ENGLISH</th>
+ *      <th style="color:black">GERMAN</th>
+ *      <th style="color:black">HUNGARIAN</th>
  *  </tr>
  *  <tr>
- *      <td style="color:white"><b>ENGLISH</b></td>
+ *      <td style="color:black"><b>ENGLISH</b></td>
  *      <td style="color:red"><center><b>x</b></center></td>
  *      <td style="color:red"><center>ENG-GER²</center></td>
  *      <td style="color:red"><center>ENG-HUN¹</center></td>
  *  </tr>
  *  <tr>
- *      <td style="color:white"><b>GERMAN</b></td>
+ *      <td style="color:black"><b>GERMAN</b></td>
  *      <td style="color:red"><center>GER-ENG²</center></td>
  *      <td style="color:red"><center><b>x</b></center></td>
  *      <td style="color:red"><center>GER-HUN</center></td>
  *  </tr>
  *  <tr>
- *      <td style="color:white"><b>HUNGARIAN</b></td>
+ *      <td style="color:black"><b>HUNGARIAN</b></td>
  *      <td style="color:red"><center>HUN-ENG</center></td>
  *      <td style="color:red"><center>HUN-GER</center></td>
  *      <td style="color:red"><center><b>x</b></center></td>
