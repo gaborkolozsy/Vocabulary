@@ -6,28 +6,32 @@
 
 ### Angol és német szókincs bővítésére alkalmas program. 1000 szót tartalmaz.
 
-
-Kézzel szerkesztett `.ini` kiterjesztésű fájlokból készít `.bin` kiterjesztésű 
-fájlokat az első indítás alkalmával. A továbbiakban onnan tölti be a használni 
-kívánt szószedetet.
-
-
-Az alapból három `.bin` kiterjesztésű szószedetből elöször csak kettő érhető el. 
-A kevert ***MIX*** nyelvek, "**ENG-GER**" és "**GER-ENG**" szószedetek csak akkor, 
-ha a felhasználó teljesített legalább egy-egy kört két különböző nyelvkombináción.
-A három szószedet fájl hat különböző és elérhető nyelvkombinációt takar. A program 
-kérésre(klikk a "**Csere**" gombon) megfordítja az aktuális szószedetet.
-
+A program feltesz egy kérdést az egyik nyelven, és meg kell válaszolni a másikon. 
+Egy sorozatnyi ilyen kérdés-válasz neve a programban "**Futam**".
 
 A program, egy egyszer megjelenő üdvözlő ablakkal és alapértelmezetten az "**ENG-HUN**"
 nyelvkombinációval indul. Ezt megváltoztatni a "**Nyelv**" combo box-ból ill. a 
 "**Csere**" gombra való kattintással lehet.
 
-
 A "**Futam**" combo box-ból választható ki, hogy egy futam alkalmával mennyi legyen
 a fordítandó szavak száma. Kezdetben ez csak `5` és `10` lehet. A "folyamatos" jó 
 teljesítmény(**T%**) eredményeként ezek kiegészülnek a `20`, `30`, `40`, `50` és `100`-as 
 tételekkel. pl.: `10`-es futam **90 ≤ T ≤ 100 3x** = `20`-as tétel hozzáadva stb.
+
+A "**view**" modul gyökerében található két, kézzel szerkesztett `.ini` fájlban 
+ugyanaz az 1000 magyar szó került lefordításra mind német mind angol nyelvre.
+A program ezekből készít `.bin` kiterjesztésű fájlokat az első indítás alkalmával. 
+A továbbiakban onnan tölti be a használni kívánt szószedetet.
+
+Az alapból három `.bin` kiterjesztésű szószedetből elöször csak kettő érhető el
+(de az első indításkor létrehozza mindhármat). 
+A kevert ***MIX*** nyelv, "**ENG-GER**" és annak fordítottja, "**GER-ENG**" szószedetek csak akkor, 
+ha a felhasználó teljesített legalább egy-egy "***kört***" két különböző nyelvkombináción.
+
+A "**Kör**" fogalma itt a maximális 1000 jó választ takarja nyelvkombinációnként.
+Az aktuális információ elérhető minden nyelvpáron(**0/1000**).
+
+A három szószedet fájl tehát hat különböző és elérhető nyelvkombinációt takar.
 
 ## Használat
 
@@ -36,16 +40,13 @@ gépelt fordítás helyes, akkor az `Enter` lenyomása után zöld színű lesz 
 Máskülönben megjelenik a helyes fordítás pirossal. Az `Enter` ismételt lenyomásával 
 kérhető a következő fordítandó szó.
 
-
 A rontott szavak a futam végén újra sorra kerülnek. Ez megy mindaddig amíg minden 
 a futamban fordításra váró szó helyesen le nem lesz fordítva. A következő futam az 
 "**Újra**" feliratú gombra való kattintással kezdeményezhető. Ezzel egyidőben 
 reszetelésre kerülnek a futam egyes információi.
 
-
-A szavakat körönként(*minden tartalmazott szó vagy szóösszetétel helyes fordítása*
-*az előre meghatározott alkalommal*), itt **legalább 2x** kell helyesen lefordítani, 
-**legalább két különböző** futamban. 
+A szavakat körönként **legalább 2x** kell helyesen lefordítani, **legalább két különböző** 
+futamban. 
 
 ## Szabályok
 
@@ -84,7 +85,7 @@ A program felugró ablakokban informálja a felhasználót a következőkről:
 * Figyelmeztetés
 * Tanács
 
-## Felépítés
+# Felépítés
 
 A programszerkezet felépítése a `MVC`(Model-View-Controller) architektúra alapján 
 történt.  
@@ -123,18 +124,90 @@ kapcsolatban.
 
 ## Fájlok
 
-A `View` gyökerében található a kézzel megszerkesztett két `.ini` fájl (szószedet).
+A **`view`** modul gyökerében található a kézzel megszerkesztett két `.ini` fájl.
 
-* `English-1000.ini`
-* `German-1000.ini`
+* **`English-1000.ini`**
+* **`German-1000.ini`**
+
+Ezeket a program a **`ConfigService`** osztályban alakítja át és menti bináris fájlba.
+A felhasználó már nem találkozik majd velük, így azt megváltoztatni nem tudja.
+
+A hibalehetőségek csökkentése érdekében csak a következő fájlok kerülnek a "végleges"
+verzióba.
+
+* **`ENG-HUN.bin`**
+* **`GER-HUN.bin`**
+* **`ENG-GER.bin`**
+
+Ezen fájlokat a **`VocabularyService`** osztály olvassa be. Indításkor alapértelmezett
+nyelvpárként a `ENG-HUN.bin`-t.
 
 A program ide menti a felhasználó elért eredményeit, adatait is.
 
-* `data.bin`
+* **`data.bin`**
+
+A **`DataService`** osztály olvassa be indításkor(Vocabulary konstruktor) és írja ki
+leállításkor(Vocabulary main).
 
 A javaslatok szintén ide kerülnek.
 
 * `proposal(XXX-YYY, 1970.01.01 123456).ini` 
+
+A **`ProposalService`** osztály menti kilépéskor ill. a nyelvkombináció megváltozásakor.
+
+## Adatok
+
+Az adatok a program használatakor keletkeznek és a **`data.bin`** fájlban tárolódnak.
+
+* A tanult szavak azonosító indexei, hogy ne kérdezze ki a program többször körönként 
+mint a beállított érték(itt 2). Ha az érték 2, akkor törlödik és hozzáadodik a 
+tanult szavak indexeit tároló listához.
+
+* A **Futam** combo box legmagasabb indexe, hogy indításkor a már egyszer megkapott plusz
+(`20`, `30`, `40`, `50`, `100`) futamszámok elérhetőek legyenek.
+
+* A futamokon elért eredmény ha 90% felett van. 3-nál növeli a program a **Futam** 
+combo box indexét.(lásd feljebb)
+
+* A tanult szavak indexeinek listája.(lásd lejebb)
+
+* Körök száma, hogy a program indításkor ellenőrizze van-e olyan nyelvpár ami már 
+legalább 1x teljesítve lett. Teszi ezt azért, mert ha legalább 2 igen, akkor hozzáadja
+a **Nyelv** combo box-hoz a **MIX** feliratott. Így onnantól bármikor elérhető lesz
+a **ENG-GER** nyelvkombináció ill. annak fordítottja.
+
+* Gratulációk száma. A nyelvpárok futamszámain elért első 100%-os eredményért.
+**6** nyelvpár és **7** futamszám esetén az összegyűjthető gratulációk száma **42**.
+
+Az adatokat a **`DataService`** osztály kezeli.
+
+A **`Container`** interface-t megvalósító osztályok.
+
+* **`DataContainerImpl`** - tárol minden adatot
+* **`IndexValueContainerImpl`** - a szavak listában elfoglalt helye szerinti index(minden indításkor ua.) értéke(0, 1, 2)
+* **`RaceComboBoxContainerImpl`** - a futam combo box legmagasabb indexét tárolja nyelvpáronként
+* **`PerformanceContainerImpl`** - az egyes futamszámokon elért teljesítmény(T > 90%) számát tárolja nyelvpáronként
+
+**`List`**-ben tárolt adat.
+
+* **`learnedIdxs`****`¹`** - a **körben** már "***megtanult***" szavak listában elfoglalt helye szerinti indexüket tárolja
+
+**`Integer`**-ként tárolt adatok.
+
+* **`round`** - a teljesített körök száma nyelvpáronként
+* **`congratulation`** - az összes megszerzett gratulációk száma
+
+**[`1`]**. - Nem szavakat tárol a program hanem a listában elfoglalt indexüket. Ezen
+indexek mindig ugyan ahoz a szóhoz tartoznak. A már megtanult szavak indexeit a 
+program törli egy ideiglenesen létrehozott tárolóból ami 0-1000 között tartalmazz 
+"indexeket". A maradékból(a még meg nem tanult szavak indexei) pedig véletlenszerüen 
+választja ki a futamszámnak megfelelő számú indexet. Ezen indexek alatt található 
+szavak kerülnek a **keyList**-ből a **kérdés** mezőbe és ezen szavakhoz(kulcs) 
+tartozó értékekkel(**VocabularyService** **vocabulary** **Map** adattagja) hasonlítja 
+össze a program a **válasz** mezőben található szavakat.<br>
+
+A helyes válaszok számát figyelembe véve az indexeket eltárolja a program és a 
+lehetséges következő futamokban már nem kérdezi ki ugyanazon körben.
 
 ## Egyéb
 
@@ -156,14 +229,14 @@ A javaslatok szintén ide kerülnek.
 6. `#delete MIX` - törli a "MIX" feliratot a `Nyelv`combo boxból
 7. `show my congrat` - informál az összegyűjtött gratulációk számáról
 
-## Terv
+# Terv
  
 * Akasztófa játék
 * Nehézségi szintek
 * Saját szószedet feltöltése
 * Gyorsbillentyűre segítség
 
-## Figyelmeztetés
+# Figyelmeztetés
 
 * A `View` modul gyökerében található **`data.bin`** fájl törlése az adatok 
   elvesztésével jár!
