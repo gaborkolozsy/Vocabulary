@@ -126,35 +126,29 @@ kapcsolatban.
 ## Fájlok
 
 A `view` modul gyökerében található a kézzel megszerkesztett két `.ini` fájl.
+Ezeket a program a `ConfigService` osztályban alakítja át és menti bináris fájlba.
+A felhasználó már nem találkozik majd velük, így azt megváltoztatni nem tudja.
 
 * `English-1000.ini`
 * `German-1000.ini`
 
-Ezeket a program a `ConfigService` osztályban alakítja át és menti bináris fájlba.
-A felhasználó már nem találkozik majd velük, így azt megváltoztatni nem tudja.<br><br>
-
 A hibalehetőségek csökkentése érdekében csak a következő fájlok kerülnek a ***"végleges"***
-verzióba.
+verzióba. Ezen fájlokat a `VocabularyService` osztály olvassa be.
 
-* `ENG-HUN.bin`
+* `ENG-HUN.bin` (alapértelmezett)
 * `GER-HUN.bin`
 * `ENG-GER.bin`
 
-Ezen fájlokat a `VocabularyService` osztály olvassa be. Indításkor alapértelmezett
-nyelvpárként a `ENG-HUN.bin`-t.<br><br>
-
 A program ide menti a felhasználó elért eredményeit, adatait is.
+A `DataService` osztály olvassa be indításkor(**Vocabulary konstruktor**) és írja ki
+leállításkor(**Vocabulary main**).
 
 * `data.bin`
 
-A `DataService` osztály olvassa be indításkor(Vocabulary konstruktor) és írja ki
-leállításkor(Vocabulary main).<br><br>
-
 A javaslatok szintén ide kerülnek.
+A `ProposalService` osztály menti kilépéskor ill. a nyelvkombináció megváltozásakor.
 
 * `proposal(XXX-YYY, 1970.01.01 123456).ini` 
-
-A `ProposalService` osztály menti kilépéskor ill. a nyelvkombináció megváltozásakor.
 
 ## Adatok
 
@@ -185,9 +179,9 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 #### A `Container` interface-t megvalósító osztályok.
 
 * `DataContainerImpl` - tárol minden adatot
-* `IndexValueContainerImpl` - a szavak listában elfoglalt helye szerinti index(minden indításkor ua.) értéke(0, 1, 2)
+* `IndexValueContainerImpl` - a szavak listában elfoglalt helye szerinti index(minden indításkor ua.) értéke(**0, 1, 2**)
 * `RaceComboBoxContainerImpl` - a futam combo box legmagasabb indexét tárolja nyelvpáronként
-* `PerformanceContainerImpl` - az egyes futamszámokon elért teljesítmény(T > 90%) számát tárolja nyelvpáronként
+* `PerformanceContainerImpl` - az egyes futamszámokon elért teljesítmény(**T > 90%**) számát tárolja nyelvpáronként
 
 #### `List`-ben tárolt adat.
 
