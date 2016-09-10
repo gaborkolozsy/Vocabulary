@@ -177,7 +177,7 @@ legalább 1x teljesítve lett. Teszi ezt azért, mert ha legalább 2 igen, akkor
 a **Nyelv** combo box-hoz a **MIX** feliratott. Így onnantól bármikor elérhető lesz
 a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
-* Gratulációk száma. A nyelvpárok futamszámain elért első 100%-os eredményért.
+* Gratulációk száma. A nyelvpárok futamszámain elért első 100%-os eredményért jár.
 `6` nyelvpár és `7` futamszám esetén az összegyűjthető gratulációk száma `42`.
 
 #### Az adatokat a `DataService` osztály kezeli.
@@ -206,7 +206,6 @@ választja ki a futamszámnak megfelelő számú indexet. Ezen indexek alatt tal
 szavak kerülnek a **keyList**-ből a **kérdés** mezőbe és ezen szavakhoz(kulcs) 
 tartozó értékekkel(**VocabularyService** **vocabulary** **Map** adattagja) hasonlítja 
 össze a program a **válasz** mezőben található szavakat.<br>
-
 A helyes válaszok számát figyelembe véve az indexeket eltárolja a program és a 
 lehetséges következő futamokban már nem kérdezi ki ugyanazon körben.
 
