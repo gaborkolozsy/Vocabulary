@@ -18,71 +18,57 @@ import java.util.Map;
  *  <tr>
  *      <th style="color:black">model</th>
  *      <th style="color:black">container</th>
- *      <th style="background-color:gray"></th>
  *      <th>{@code Map}</th>
  *      <th>{@code List}</th>
  *      <th>{@code Integer}</th>
- *      <th style="background-color:gray"></th>
  *      <th>{@code DataContainerImpl}</th>
  *  </tr>
  *  <tr>
  *      <td><b>{@code RaceComboBox}</b></td>
  *      <td><b>{@code RaceComboBoxContainerImpl}</b></td>
- *      <td style="background-color:gray"></td>
  *      <td style="color:red"><center><b>x</b></center></td>
  *      <td><center></center></td>
  *      <td><center></center></td>
- *      <td style="background-color:gray"></td>
  *      <td style="color:red"><center><b>x</b></center></td>
  *  </tr>
  *  <tr>
  *      <td><b>{@code IndexValue}</b></td>
  *      <td><b>{@code IndexValueContainerImpl}</b></td>
- *      <td style="background-color:gray"></td>
  *      <td style="color:red"><center><b>x</b></center></td>
  *      <td><center></center></td>
  *      <td><center></center></td>
- *      <td style="background-color:gray"></td>
  *      <td style="color:red"><center><b>x</b></center></td>
  *  </tr>
  *  <tr>
  *      <td><b>{@code Performance}</b></td>
  *      <td><b>{@code PerformanceContainerImpl}</b></td>
- *      <td style="background-color:gray"></td>
  *      <td style="color:red"><center><b>x</b></center></td>
  *      <td><center></center></td>
  *      <td><center></center></td>
- *      <td style="background-color:gray"></td>
  *      <td style="color:red"><center><b>x</b></center></td>
  *  </tr>
  *  <tr>
  *      <td><center><b>---</b></center></td>
  *      <td><b>{@code learnedIdxs}</b></td>
- *      <td style="background-color:gray"></td>
  *      <td><center></center></td>
  *      <td style="color:red"><center><b>x</b></center></td>
  *      <td><center></center></td>
- *      <td style="background-color:gray"></td>
  *      <td style="color:red"><center><b>x</b></center></td>
  *  </tr>
  *  <tr>
  *      <td><center><b>---</b></center></td>
  *      <td><b>{@code round}</b></td>
- *      <td style="background-color:gray"></td>
  *      <td><center></center></td>
  *      <td><center></center></td>
  *      <td style="color:red"><center><b>x</b></center></td>
- *      <td style="background-color:gray"></td>
  *      <td style="color:red"><center><b>x</b></center></td>
  *  </tr>
  *  <tr>
  *      <td><center><b>---</b></center></td>
  *      <td><b>{@code congratulation}</b></td>
- *      <td style="background-color:gray"></td>
  *      <td><center></center></td>
  *      <td><center></center></td>
  *      <td style="color:red"><center><b>x</b></center></td>
- *      <td style="background-color:gray"></td>
  *      <td style="color:red"><center><b>x</b></center></td>
  *  </tr>
  * </table>
