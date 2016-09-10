@@ -1,5 +1,7 @@
 # Vocabulary - `Maven` alapú `pom` projekt Java nyelven
 
+![](http://gitlab.com/KolozsyGabor/Vocabulary/raw/master/view/src/main/resources/hu/gaborkolozsy/images/Vocabulary_Greeting.png)
+
 ## Felépítés
 
 A programszerkezet felépítése a `MVC`(Model-View-Controller) architektúra alapján 
