@@ -28,7 +28,7 @@ Az alapból három `.bin` kiterjesztésű szószedetből elöször csak kettő �
 A kevert ***MIX*** nyelv, "**ENG-GER**" és annak fordítottja, "**GER-ENG**" szószedetek csak akkor, 
 ha a felhasználó teljesített legalább egy-egy ***"kört"*** két különböző nyelvkombináción.
 
-A "**Kör**" itt jelenti, hogy a nyelvpáron elérhető minden szót legalább
+A "**Kör**" itt azt jelenti, hogy a nyelvpáron elérhető minden szót legalább
 2x jól lefordított a felhasználó.<br>
 Az aktuális információ elérhető minden nyelvpáron(pl.: **131/1000**).
 
