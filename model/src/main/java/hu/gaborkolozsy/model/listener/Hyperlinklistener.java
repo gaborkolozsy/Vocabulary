@@ -41,8 +41,7 @@ public class Hyperlinklistener {
                 try {
                     // ha url, akkor megnyitja az oldalt a böngészöbe
                     if (e.getURL() != null) {
-                        Desktop.getDesktop()
-                                .browse(e.getURL().toURI());
+                        Desktop.getDesktop().browse(e.getURL().toURI()); System.out.println(e.getURL().toURI());
                     } else {
                         // ha nem, akkor a email klienst nyitja meg
                         Desktop.getDesktop()
