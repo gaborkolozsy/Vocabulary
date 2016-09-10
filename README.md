@@ -139,14 +139,14 @@ verzióba. Ezen fájlokat a `VocabularyService` osztály olvassa be.
 * `GER-HUN.bin`
 * `ENG-GER.bin`
 
-A program ide menti a felhasználó elért eredményeit, adatait is. 
-A `DataService` osztály olvassa be indításkor(**Vocabulary konstruktor**) és írja ki
+A program ide menti a felhasználó elért eredményeit, adatait is. A `DataService` 
+osztály olvassa be indításkor(**Vocabulary konstruktor**) és írja ki 
 leállításkor(**Vocabulary main**).
 
 * `data.bin`
 
-A javaslatok szintén ide kerülnek. 
-A `ProposalService` osztály menti kilépéskor ill. a nyelvkombináció megváltozásakor.
+A javaslatok szintén ide kerülnek. A `ProposalService` osztály menti kilépéskor 
+ill. a nyelvkombináció megváltozásakor.
 
 * `proposal(XXX-YYY, 1970.01.01 123456).ini` 
 
