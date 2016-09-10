@@ -1,6 +1,6 @@
 # Vocabulary - `Maven` alapú `pom` projekt Java nyelven
 
-![](http://gitlab.com/KolozsyGabor/Vocabulary/tree/master/view/src/main/resources/hu/gaborkolozsy/icons/Vocabulary.png)
+![](http://gitlab.com/KolozsyGabor/Vocabulary/raw/master/view/src/main/resources/hu/gaborkolozsy/icons/Vocabulary.png)
 
 ## Felépítés
 
@@ -13,13 +13,6 @@ A `View`réteg csak a `Controller`, a `Controller`réteg csak a `Model`réteggel
 kapcsolatban.
 
 ## Függőségek
-
-* `Vocabulary`- <dependency>
-                    <groupId>org.eclipse.swt.org.eclipse.swt.win32.win32.x86_64.4.3.swt</groupId>
-                    <artifactId>org.eclipse.swt.win32.win32.x86_64</artifactId>
-                    <version>4.3</version>
-                </dependency>
-
 
 * `view`- <dependency> 
               <groupId>hu.gaborkolozsy</groupId> 
