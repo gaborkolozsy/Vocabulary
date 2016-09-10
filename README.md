@@ -2,58 +2,6 @@
 
 ![](http://gitlab.com/KolozsyGabor/Vocabulary/raw/master/view/src/main/resources/hu/gaborkolozsy/images/Vocabulary.png)
 
-## Felépítés
-
-A programszerkezet felépítése a `MVC`(Model-View-Controller) architektúra alapján 
-történt.  
-
-A szülő `pom`(***Vocabulary***) moduljai valósítják meg a `MVC` tervezési modell
-elkülönülő három rétegét.  
-A `View`réteg csak a `Controller`, a `Controller`réteg csak a `Model`réteggel van 
-kapcsolatban.
-
-## Függőségek
-
-* `view`- <dependency> 
-              <groupId>hu.gaborkolozsy</groupId> 
-              <artifactId>controller</artifactId> 
-              <version>2.2.1</version>
-          </dependency>
-
-* `controller`- <dependency> 
-                    <groupId>hu.gaborkolozsy</groupId> 
-                    <artifactId>model</artifactId> 
-                    <version>2.2.1</version>
-                </dependency>  
-              - <dependency>
-                    <groupId>junit</groupId>
-                    <artifactId>junit</artifactId>
-                    <version>4.10</version>
-                    <scope>test</scope>
-                </dependency>
-
-* `model`- <dependency>
-               <groupId>junit</groupId>
-               <artifactId>junit</artifactId>
-               <version>4.10</version>
-               <scope>test</scope>
-           </dependency>
-
-## Fájlok
-
-A `View` gyökerében található a kézzel megszerkesztett két `.ini` fájl (szószedet).
-
-* `English-1000.ini`
-* `German-1000.ini`
-
-A program ide menti a felhasználó elért eredményeit, adatait is.
-
-* `data.bin`
-
-A javaslatok szintén ide kerülnek.
-
-* `proposal(XXX-YYY, 1970.01.01 123456).ini` 
-
 # Leírás
 
 ### Angol és német szókincs bővítésére alkalmas program. 1000 szót tartalmaz.
@@ -135,6 +83,58 @@ A program felugró ablakokban informálja a felhasználót a következőkről:
 * Eredmény
 * Figyelmeztetés
 * Tanács
+
+## Felépítés
+
+A programszerkezet felépítése a `MVC`(Model-View-Controller) architektúra alapján 
+történt.  
+
+A szülő `pom`(***Vocabulary***) moduljai valósítják meg a `MVC` tervezési modell
+elkülönülő három rétegét.  
+A `View`réteg csak a `Controller`, a `Controller`réteg csak a `Model`réteggel van 
+kapcsolatban.
+
+## Függőségek
+
+* `view`- <dependency> 
+              <groupId>hu.gaborkolozsy</groupId> 
+              <artifactId>controller</artifactId> 
+              <version>2.2.1</version>
+          </dependency>
+
+* `controller`- <dependency> 
+                    <groupId>hu.gaborkolozsy</groupId> 
+                    <artifactId>model</artifactId> 
+                    <version>2.2.1</version>
+                </dependency>  
+              - <dependency>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                    <version>4.10</version>
+                    <scope>test</scope>
+                </dependency>
+
+* `model`- <dependency>
+               <groupId>junit</groupId>
+               <artifactId>junit</artifactId>
+               <version>4.10</version>
+               <scope>test</scope>
+           </dependency>
+
+## Fájlok
+
+A `View` gyökerében található a kézzel megszerkesztett két `.ini` fájl (szószedet).
+
+* `English-1000.ini`
+* `German-1000.ini`
+
+A program ide menti a felhasználó elért eredményeit, adatait is.
+
+* `data.bin`
+
+A javaslatok szintén ide kerülnek.
+
+* `proposal(XXX-YYY, 1970.01.01 123456).ini` 
 
 ## Egyéb
 
