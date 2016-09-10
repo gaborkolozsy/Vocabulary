@@ -152,6 +152,8 @@ ill. a nyelvkombináció megváltozásakor.
 
 ## Adatok
 
+#### Az adatokat a `DataService` osztály kezeli.
+
 Az adatok a program használatakor keletkeznek és a `data.bin` fájlban tárolódnak.
 
 * A tanult szavak azonosító indexei, hogy ne kérdezze ki a program többször körönként 
@@ -173,8 +175,6 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 * Gratulációk száma. A nyelvpárok futamszámain elért első 100%-os eredményért jár.
 `6` nyelvpár és `7` futamszám esetén az összegyűjthető gratulációk száma `42`.
-
-#### Az adatokat a `DataService` osztály kezeli.
 
 #### A `Container` interface-t megvalósító osztályok.
 
