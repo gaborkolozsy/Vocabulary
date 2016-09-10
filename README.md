@@ -26,10 +26,11 @@ A továbbiakban onnan tölti be a használni kívánt szószedetet.
 Az alapból három `.bin` kiterjesztésű szószedetből elöször csak kettő érhető el
 (de az első indításkor létrehozza mindhármat). 
 A kevert ***MIX*** nyelv, "**ENG-GER**" és annak fordítottja, "**GER-ENG**" szószedetek csak akkor, 
-ha a felhasználó teljesített legalább egy-egy "***kört***" két különböző nyelvkombináción.
+ha a felhasználó teljesített legalább egy-egy ***"kört"*** két különböző nyelvkombináción.
 
-A "**Kör**" fogalma itt a maximális 1000 jó választ takarja nyelvkombinációnként.
-Az aktuális információ elérhető minden nyelvpáron(**0/1000**).
+A "**Kör**" itt jelenti, hogy a nyelvpáron elérhető minden szót legalább
+2x jól lefordított a felhasználó.<br>
+Az aktuális információ elérhető minden nyelvpáron(pl.: **131/1000**).
 
 A három szószedet fájl tehát hat különböző és elérhető nyelvkombinációt takar.
 
@@ -124,40 +125,40 @@ kapcsolatban.
 
 ## Fájlok
 
-A **`view`** modul gyökerében található a kézzel megszerkesztett két `.ini` fájl.
+A `view` modul gyökerében található a kézzel megszerkesztett két `.ini` fájl.
 
-* **`English-1000.ini`**
-* **`German-1000.ini`**
+* `English-1000.ini`
+* `German-1000.ini`
 
-Ezeket a program a **`ConfigService`** osztályban alakítja át és menti bináris fájlba.
-A felhasználó már nem találkozik majd velük, így azt megváltoztatni nem tudja.
+Ezeket a program a `ConfigService` osztályban alakítja át és menti bináris fájlba.
+A felhasználó már nem találkozik majd velük, így azt megváltoztatni nem tudja.<br><br>
 
-A hibalehetőségek csökkentése érdekében csak a következő fájlok kerülnek a "végleges"
+A hibalehetőségek csökkentése érdekében csak a következő fájlok kerülnek a ***"végleges"***
 verzióba.
 
-* **`ENG-HUN.bin`**
-* **`GER-HUN.bin`**
-* **`ENG-GER.bin`**
+* `ENG-HUN.bin`
+* `GER-HUN.bin`
+* `ENG-GER.bin`
 
-Ezen fájlokat a **`VocabularyService`** osztály olvassa be. Indításkor alapértelmezett
-nyelvpárként a `ENG-HUN.bin`-t.
+Ezen fájlokat a `VocabularyService` osztály olvassa be. Indításkor alapértelmezett
+nyelvpárként a `ENG-HUN.bin`-t.<br><br>
 
 A program ide menti a felhasználó elért eredményeit, adatait is.
 
-* **`data.bin`**
+* `data.bin`
 
-A **`DataService`** osztály olvassa be indításkor(Vocabulary konstruktor) és írja ki
-leállításkor(Vocabulary main).
+A `DataService` osztály olvassa be indításkor(Vocabulary konstruktor) és írja ki
+leállításkor(Vocabulary main).<br><br>
 
 A javaslatok szintén ide kerülnek.
 
 * `proposal(XXX-YYY, 1970.01.01 123456).ini` 
 
-A **`ProposalService`** osztály menti kilépéskor ill. a nyelvkombináció megváltozásakor.
+A `ProposalService` osztály menti kilépéskor ill. a nyelvkombináció megváltozásakor.
 
 ## Adatok
 
-Az adatok a program használatakor keletkeznek és a **`data.bin`** fájlban tárolódnak.
+Az adatok a program használatakor keletkeznek és a `data.bin` fájlban tárolódnak.
 
 * A tanult szavak azonosító indexei, hogy ne kérdezze ki a program többször körönként 
 mint a beállított érték(itt 2). Ha az érték 2, akkor törlödik és hozzáadodik a 
@@ -177,25 +178,25 @@ a **Nyelv** combo box-hoz a **MIX** feliratott. Így onnantól bármikor elérhe
 a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 * Gratulációk száma. A nyelvpárok futamszámain elért első 100%-os eredményért.
-**`6`** nyelvpár és **`7`** futamszám esetén az összegyűjthető gratulációk száma **`42`**.
+`6` nyelvpár és `7` futamszám esetén az összegyűjthető gratulációk száma `42`.
 
-### Az adatokat a `DataService` osztály kezeli.
+#### Az adatokat a `DataService` osztály kezeli.
 
-### A `Container` interface-t megvalósító osztályok.
+#### A `Container` interface-t megvalósító osztályok.
 
-* **`DataContainerImpl`** - tárol minden adatot
-* **`IndexValueContainerImpl`** - a szavak listában elfoglalt helye szerinti index(minden indításkor ua.) értéke(0, 1, 2)
-* **`RaceComboBoxContainerImpl`** - a futam combo box legmagasabb indexét tárolja nyelvpáronként
-* **`PerformanceContainerImpl`** - az egyes futamszámokon elért teljesítmény(T > 90%) számát tárolja nyelvpáronként
+* `DataContainerImpl` - tárol minden adatot
+* `IndexValueContainerImpl` - a szavak listában elfoglalt helye szerinti index(minden indításkor ua.) értéke(0, 1, 2)
+* `RaceComboBoxContainerImpl` - a futam combo box legmagasabb indexét tárolja nyelvpáronként
+* `PerformanceContainerImpl` - az egyes futamszámokon elért teljesítmény(T > 90%) számát tárolja nyelvpáronként
 
-### `List`-ben tárolt adat.
+#### `List`-ben tárolt adat.
 
-* **`learnedIdxs`****`¹`** - a **körben** már ***"megtanult"*** szavak listában elfoglalt helye szerinti indexüket tárolja
+* `learnedIdxs`**`¹`** - a **körben** már ***"megtanult"*** szavak listában elfoglalt helye szerinti indexüket tárolja
 
-### `Integer`-ként tárolt adatok.
+#### `Integer`-ként tárolt adatok.
 
-* **`round`** - a teljesített körök száma nyelvpáronként
-* **`congratulation`** - az összes megszerzett gratulációk száma
+* `round` - a teljesített körök száma nyelvpáronként
+* `congratulation` - az összes megszerzett gratulációk száma<br><br>
 
 **[`1`]**. - Nem szavakat tárol a program hanem a listában elfoglalt indexüket. Ezen
 indexek mindig ugyan ahoz a szóhoz tartoznak. A már megtanult szavak indexeit a 
