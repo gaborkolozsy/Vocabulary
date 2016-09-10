@@ -1,6 +1,6 @@
 # Vocabulary - `Maven` alapú `pom` projekt Java nyelven
 
-![](http://gitlab.com/KolozsyGabor/Vocabulary/raw/master/view/src/main/resources/hu/gaborkolozsy/images/Vocabulary_Greeting.png)
+![](http://gitlab.com/KolozsyGabor/Vocabulary/tree/master/view/src/main/resources/hu/gaborkolozsy/icons/Vocabulary.png)
 
 ## Felépítés
 
