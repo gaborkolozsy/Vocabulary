@@ -30,7 +30,7 @@ ha a felhasználó teljesített legalább egy-egy ***"kört"*** két különböz
 
 A "**Kör**" itt azt jelenti, hogy a nyelvpáron elérhető minden szót legalább
 2x jól lefordított a felhasználó.<br>
-Az aktuális információ elérhető minden nyelvpáron(pl.: **131/1000**).
+Az aktuális információ elérhető a programban(pl.: **131/1000**).
 
 A három szószedet fájl tehát hat különböző és elérhető nyelvkombinációt takar.
 
@@ -89,12 +89,9 @@ A program felugró ablakokban informálja a felhasználót a következőkről:
 # Felépítés
 
 A programszerkezet felépítése a `MVC`(Model-View-Controller) architektúra alapján 
-történt.  
-
-A szülő `pom`(***Vocabulary***) moduljai valósítják meg a `MVC` tervezési modell
-elkülönülő három rétegét.  
-A `View`réteg csak a `Controller`, a `Controller`réteg csak a `Model`réteggel van 
-kapcsolatban.
+történt. A szülő `pom`(***Vocabulary***) moduljai valósítják meg a `MVC` tervezési 
+modell elkülönülő három rétegét. A `View`réteg csak a `Controller`, a `Controller`
+réteg csak a `Model`réteggel van kapcsolatban.
 
 ## Függőségek
 
@@ -125,14 +122,14 @@ kapcsolatban.
 
 ## Fájlok
 
-A `view` modul gyökerében található a kézzel megszerkesztett két `.ini` fájl.
+A `view` modul gyökerében található a kézzel megszerkesztett két `.ini` fájl. 
 Ezeket a program a `ConfigService` osztályban alakítja át és menti bináris fájlba. 
 A felhasználó már nem találkozik majd velük, így azt megváltoztatni nem tudja.
 
 * `English-1000.ini`
 * `German-1000.ini`
 
-A hibalehetőségek csökkentése érdekében csak a következő fájlok kerülnek a ***"végleges"***
+A hibalehetőségek csökkentése érdekében csak a következő fájlok kerülnek a ***"végleges"*** 
 verzióba. Ezen fájlokat a `VocabularyService` osztály olvassa be.
 
 * `ENG-HUN.bin` (alapértelmezett)
@@ -185,7 +182,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 #### `List`-ben tárolt adat.
 
-* `learnedIdxs`**`¹`** - a **körben** már ***"megtanult"*** szavak listában elfoglalt helye szerinti indexüket tárolja
+* `learnedIdxs`**`¹`** - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexüket tárolja
 
 #### `Integer`-ként tárolt adatok.
 
@@ -230,7 +227,7 @@ lehetséges következő futamokban már nem kérdezi ki ugyanazon körben.
 * Saját szószedet feltöltése
 * Gyorsbillentyűre segítség
 
-# Figyelmeztetés
+# `Figyelmeztetés`
 
 * A `View` modul gyökerében található **`data.bin`** fájl törlése az adatok 
   elvesztésével jár!
