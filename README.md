@@ -182,7 +182,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 #### `List`-ben tárolt adat.
 
-* `learnedIdxs<b>¹</b>` - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
+* `learnedIdxs¹` - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
 
 #### `Integer`-ként tárolt adatok.
 
