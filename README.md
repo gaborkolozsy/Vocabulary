@@ -182,14 +182,14 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 #### `List`-ben tárolt adat.
 
-* `learnedIdxs`**`¹`** - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexüket tárolja
+* `learnedIdxs`**`¹`** - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
 
 #### `Integer`-ként tárolt adatok.
 
 * `round` - a teljesített körök száma nyelvpáronként
 * `congratulation` - az összes megszerzett gratulációk száma<br><br>
 
-**[`1`]**. - Nem szavakat tárol a program hanem a listában elfoglalt indexüket. Ezen
+**[`1`]**. - Nem szavakat tárol a program hanem a listában elfoglalt indexeiket. Ezen
 indexek mindig ugyanahhoz a szóhoz tartoznak. A már megtanult szavak indexeit a 
 program törli egy ideiglenesen létrehozott tárolóból ami 0-1000 között tartalmazz 
 "indexeket". A maradékból(a még meg nem tanult szavak indexei) pedig véletlenszerüen 
