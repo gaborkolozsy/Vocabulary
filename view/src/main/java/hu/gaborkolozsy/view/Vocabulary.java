@@ -8,7 +8,6 @@ import hu.gaborkolozsy.controller.ConfigService;
 import hu.gaborkolozsy.controller.DataService;
 import hu.gaborkolozsy.controller.InfoService;
 import hu.gaborkolozsy.controller.LanguageCombinationsService;
-import hu.gaborkolozsy.controller.ListenerService;
 import hu.gaborkolozsy.controller.ProposalService;
 import hu.gaborkolozsy.controller.RaceService;
 import hu.gaborkolozsy.controller.VocabularyService;
@@ -24,11 +23,14 @@ import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -36,6 +38,7 @@ import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.ToolTipManager;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.event.HyperlinkEvent;
@@ -145,13 +148,12 @@ import javax.swing.event.HyperlinkEvent;
  * </ol>
  * 
  * @author Kolozsy Gábor (kolozsygabor@gmail.com)
- * @version 2.2.1
+ * @version 2.3.0
  * 
  * @see hu.gaborkolozsy.controller.DataService
  * @see hu.gaborkolozsy.controller.InfoService
  * @see hu.gaborkolozsy.controller.ConfigService
  * @see hu.gaborkolozsy.controller.LanguageCombinationsService
- * @see hu.gaborkolozsy.controller.ListenerService
  * @see hu.gaborkolozsy.controller.ProposalService
  * @see hu.gaborkolozsy.controller.RaceService
  * @see hu.gaborkolozsy.controller.VocabularyService
@@ -166,11 +168,14 @@ import javax.swing.event.HyperlinkEvent;
  * @see java.awt.Desktop
  * @see java.awt.event.KeyEvent;
  * @see java.awt.event.KeyListener
+ * @see java.awt.event.MouseAdapter;
+ * @see java.awt.event.MouseEvent
  * @see java.io.File
  * @see java.io.IOException
  * @see java.net.URI;
  * @see java.net.URISyntaxException
  * @see java.util.List
+ * @see java.util.concurrent.TimeUnit
  * @see java.util.regex.Pattern
  * @see javax.swing.Icon
  * @see javax.swing.ImageIcon
@@ -178,6 +183,7 @@ import javax.swing.event.HyperlinkEvent;
  * @see javax.swing.JFrame
  * @see javax.swing.JLabel
  * @see javax.swing.JOptionPane
+ * @see javax.swing.ToolTipManager
  * @see javax.swing.UIManager
  * @see javax.swing.UnsupportedLookAndFeelException
  * @see javax.swing.event.HyperlinkEvent
@@ -197,7 +203,6 @@ public class Vocabulary extends JFrame {
     private static final VocabularyService vs = new VocabularyService();
     private static final InfoService is = new InfoService();
     private static final ProposalService ps = new ProposalService();
-    private static final ListenerService ls = new ListenerService();
     private static RaceService rs;
     
     /** Amiről fordítunk. */
@@ -246,14 +251,14 @@ public class Vocabulary extends JFrame {
         if(!new File(DATAFILE).exists()) {
             welcomeWindow();
             
-            // kombonként a kezdöértékek
+            // initial values for combos
             ds = new DataService(lcs.getComboList());
             
             if (!new File("ENG-HUN.bin").exists()) {
                 iniToBin();
             }
         } else {
-            // a default kombohoz tartozó kezdöértékek
+            // initial values for default combo
             try {
                 ds = new DataService(DATAFILE, 
                                      lcs.getDefaultCombo(), 
@@ -269,6 +274,7 @@ public class Vocabulary extends JFrame {
         setStars();
         setInfosInWindow();
         
+        // add MIX if possible
         if(ds.countRounds(lcs.getComboList())) {
             languageComboBox.addItem("MIX");
         }
@@ -4637,7 +4643,24 @@ public class Vocabulary extends JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="show star if">
     private void showStarIf(JLabel label, Star star, int size, int round) {
-        label.addMouseListener(ls.getMouseListenerTimeDelay());
+        label.addMouseListener(new MouseAdapter() {
+            final int defaultDismissTimeout = ToolTipManager.sharedInstance()
+                    .getDismissDelay();
+            
+            final int dismissDelayMinutes = (int) TimeUnit.MINUTES.toMillis(1);
+            
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                ToolTipManager.sharedInstance()
+                              .setDismissDelay(dismissDelayMinutes);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                ToolTipManager.sharedInstance()
+                              .setDismissDelay(defaultDismissTimeout);
+            }
+        });
         
         if (size == 1000 || round >= 1) { 
             label.setIcon(star.getIcon("star_full"));
