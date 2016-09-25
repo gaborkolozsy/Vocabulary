@@ -32,13 +32,14 @@ public class About extends Info {
     /** A <b>programozas-oktatas</b> linkje. */
     private final String link = "http://www.programozas-oktatas.hu/x/java-tavoktatas/";
     /** A program verziószáma. */
-    private String version = "2.2.1";
+    private String version = "2.3.0";
     /** Az utolsó verzió dátuma. */
-    private String date = "2016.08.09";
+    private String date = "2016.09.25";
     private final String first = "2016.06.13";
     private final String second = "2016.07.27";
     private final String third = "2016.07.30";
     private final String fourth = "2016.08.07";
+    private final String fifth = "2016.08.09";
 
     /** Konstruktor. */
     public About() {
