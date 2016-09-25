@@ -29,14 +29,14 @@ public class ProposalService {
     /** {@code Config} objektum. */
     private final Config config = new Config();
     /** Az ideiglenesen bevezetett javaslat tároló a teszteléshez. */
-    private ProposalBox proposalBox = new ProposalBox();
+    private final ProposalBox proposalBox = new ProposalBox();
     
     /**
-     * Beállítja a {@code ProposalBox} objektumot.
-     * @param proposalBox a felhasználó javaslatait tartalmazó tároló
+     * Hozzáadja a {@code Proposa} objektumot a tárolóhoz.
+     * @param proposal a felhasználó javaslata
      */
-    public void setProposalBox(ProposalBox proposalBox) {
-        this.proposalBox = proposalBox;
+    public void addProposal(String proposal) {
+        this.proposalBox.addProposal(new Proposal(proposal));
     }
     
     /**
