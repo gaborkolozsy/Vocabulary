@@ -20,9 +20,12 @@ import hu.gaborkolozsy.view.abstractClasses.ext.Star4;
 import hu.gaborkolozsy.view.abstractClasses.ext.Star5;
 import hu.gaborkolozsy.view.abstractClasses.ext.Star6;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.regex.Pattern;
 import javax.swing.Icon;
@@ -33,6 +36,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.event.HyperlinkEvent;
 
 /**
  * Angol és német szókincs bővítésére alkalmas program.<br>
@@ -3506,7 +3510,22 @@ public class Vocabulary extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="greeting">
     private void welcomeWindow() {                                
         JEditorPane ep = new JEditorPane("text/html", is.getGreeting());
-        ep.addHyperlinkListener(ls.getHyperlinkListener());
+        ep.addHyperlinkListener((HyperlinkEvent e) -> {
+            if (e.getEventType().equals(HyperlinkEvent.EventType.ACTIVATED)) {
+                /** Process the click event on the link.
+                 * (for example with java.awt.Desktop.getDesktop().browse())
+                 */
+                try {
+                    // email
+                    Desktop.getDesktop().mail(new URI("mailto:" 
+                            + e.getDescription()
+                            + "?subject=Vocabulary&body=Hello!"));
+                } catch (IOException | URISyntaxException ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage(),
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
         ep.setEditable(false);
         ep.setBackground(getBackground());
         JOptionPane.showMessageDialog(rootPane, ep, "Greeting", 
@@ -4608,7 +4627,27 @@ public class Vocabulary extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="about">
     private void helpLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_helpLabelMouseClicked
         JEditorPane ep = new JEditorPane("text/html", is.getAbout());
-        ep.addHyperlinkListener(ls.getHyperlinkListener());
+        ep.addHyperlinkListener((HyperlinkEvent e) -> {
+            if (e.getEventType().equals(HyperlinkEvent.EventType.ACTIVATED)) {
+                /** Process the click event on the link.
+                 * (for example with java.awt.Desktop.getDesktop().browse())
+                 */
+                try {
+                    // url
+                    if (e.getURL() != null) {
+                        Desktop.getDesktop().browse(e.getURL().toURI());
+                    } else {
+                        // email
+                        Desktop.getDesktop()
+                                .mail(new URI("mailto:" + e.getDescription()
+                                        + "?subject=Vocabulary&body=Hello!"));
+                    }
+                } catch (IOException | URISyntaxException ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage(),
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
         ep.setEditable(false);
         ep.setBackground(getBackground());
         //JScrollPane jsp=new JScrollPane(ep);
