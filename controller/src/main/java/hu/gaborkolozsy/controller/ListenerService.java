@@ -5,12 +5,10 @@
 package hu.gaborkolozsy.controller;
 
 import hu.gaborkolozsy.model.ProposalBox;
-import hu.gaborkolozsy.model.listener.Hyperlinklistener;
 import hu.gaborkolozsy.model.listener.Keylistener;
 import hu.gaborkolozsy.model.listener.Mouselistener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
-import javax.swing.event.HyperlinkListener;
 
 /**
  * Esemény figyelők.
@@ -27,20 +25,10 @@ import javax.swing.event.HyperlinkListener;
  */
 public class ListenerService {
     
-    /** Hiperlink figyelő objektum. */
-    private final Hyperlinklistener hyperlinkListener = new Hyperlinklistener();
     /** Egér figyelő objektum. */
     private final Mouselistener mouseListener = new Mouselistener();
     /** Billentyűzetfigyelő objektum. */
     private final Keylistener keyListener = new Keylistener();
-    
-    /**
-     * Visszaad egy {@code HyperlinkListener} objektumot.
-     * @return {@code HyperlinkListener}
-     */
-    public HyperlinkListener getHyperlinkListener() {
-        return hyperlinkListener.getHyperLinkListener();
-    }
     
     /**
      * Visszaad egy {@code MouseListener} objektumot.

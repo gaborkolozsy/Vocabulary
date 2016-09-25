@@ -69,7 +69,7 @@ public class About extends Info {
                 + "<ul>"
                 +     "<li>csak ékezet nélküli karaktereket használj</li>"
                 +     "<li>a 'ß' karaktert \"ss\" karakterlánccal "
-                +         "helyetesítsd</li>"
+                +         "helyettesítsd</li>"
                 +     "<li>a rontott válaszokat a program a futam végén "
                 +         "újra kikérdezi</li>"
                 +     "<li>egy kérdést egy körben legalább 2x kell helyesen "

@@ -42,7 +42,7 @@ public class ProposalService {
     /**
      * Menti a javaslatokat kilépéskor vagy nyelvek cseréje ill váltásakor.
      * <br><br>
-     * Mac OS X-el ellentétben Windows operációs rendszeren a fájlnevek 
+     * Mac OS X-el ellentétben Windows operációs rendszeren a fájlnevek
      * nem tartalmazhatják a következő karakterek egyikét sem:<br>
      * <b>{@code \ / * ? " :  < > |}</b>
      * @param combo a nyelvkombináció
