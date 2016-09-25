@@ -22,6 +22,8 @@ import hu.gaborkolozsy.view.abstractClasses.ext.Star6;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
@@ -161,8 +163,13 @@ import javax.swing.event.HyperlinkEvent;
  * @see hu.gaborkolozsy.view.abstractClasses.ext.Star5
  * @see hu.gaborkolozsy.view.abstractClasses.ext.Star6
  * @see java.awt.Color
+ * @see java.awt.Desktop
+ * @see java.awt.event.KeyEvent;
+ * @see java.awt.event.KeyListener
  * @see java.io.File
  * @see java.io.IOException
+ * @see java.net.URI;
+ * @see java.net.URISyntaxException
  * @see java.util.List
  * @see java.util.regex.Pattern
  * @see javax.swing.Icon
@@ -173,6 +180,7 @@ import javax.swing.event.HyperlinkEvent;
  * @see javax.swing.JOptionPane
  * @see javax.swing.UIManager
  * @see javax.swing.UnsupportedLookAndFeelException
+ * @see javax.swing.event.HyperlinkEvent
  */   
 public class Vocabulary extends JFrame {
      
@@ -229,7 +237,7 @@ public class Vocabulary extends JFrame {
     public Vocabulary() {
         initComponents();
         setLocationRelativeTo(null);
-        setMaximumSize(new Dimension(1000, 280));
+        setMaximumSize(new Dimension(1000, 280)); // ???
         
         if (System.getProperty("os.name").startsWith("Win")) {
             setResizable(false);
@@ -265,7 +273,53 @@ public class Vocabulary extends JFrame {
             languageComboBox.addItem("MIX");
         }
         
-        answerTxtField.addKeyListener(ls.getKeyListener());
+        /** key listener (Ctrl + J) for proposal. */
+        answerTxtField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+                if (e.isControlDown() && 
+                    e.getKeyChar() != 'j' &&
+                    e.getKeyCode() == KeyEvent.VK_J) {  // or 74
+                    
+                    Icon icon = new ImageIcon(getClass()
+                        .getResource("/hu/gaborkolozsy/icons/pencil.png"));
+
+                    /** Itt nem kell de lehetne egy kombo box is. */
+                    //String[] empty = {"fordítás", "helyesírás"}; 
+
+                    boolean forma = false;
+                    while(!forma) {
+                        // a végén ... empty, empty[0]); az egy kombo box lenne
+                        String input = (String) JOptionPane.showInputDialog(
+                                null, "<html><body>"
+                              + "<b>problema=valami magyarazat </b>"
+                              + "</body></html>", 
+                                "Javaslat", JOptionPane.OK_CANCEL_OPTION, icon,
+                                null, null);
+
+                        if (input != null) {
+                            if (Pattern.matches("\\S+=\\S.*", input)) {
+                                ps.addProposal(input);
+                                forma = true;
+                            } else {
+                                JOptionPane.showMessageDialog(null, 
+                                        "Rossz formátum",
+                                        "Hiba", JOptionPane.ERROR_MESSAGE);
+                            }
+                        } else {
+                            forma = true;
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void keyTyped(KeyEvent e) {}
+
+            @Override
+            public void keyReleased(KeyEvent e) {}
+        });
     }
     
     /**
@@ -4077,7 +4131,6 @@ public class Vocabulary extends JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="save proposal">
     private static void saveProposalIfIs() {
-        ps.setProposalBox(ls.getProposalBox());
         try {
             ps.save(lcs.getCurrentCombo());
         } catch (IOException ex) {
