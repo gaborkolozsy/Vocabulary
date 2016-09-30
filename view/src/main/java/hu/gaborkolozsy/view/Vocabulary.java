@@ -20,7 +20,6 @@ import hu.gaborkolozsy.view.abstractClasses.ext.Star5;
 import hu.gaborkolozsy.view.abstractClasses.ext.Star6;
 import java.awt.Color;
 import java.awt.Desktop;
-import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
@@ -241,8 +240,6 @@ public class Vocabulary extends JFrame {
      */
     public Vocabulary() {
         initComponents();
-        setLocationRelativeTo(null);
-        setMaximumSize(new Dimension(1000, 280)); // ???
         
         if (System.getProperty("os.name").startsWith("Win")) {
             setResizable(false);
@@ -584,6 +581,7 @@ public class Vocabulary extends JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vocabulary");
+        setMaximumSize(new java.awt.Dimension(1000, 280));
         setMinimumSize(new java.awt.Dimension(900, 280));
 
         TabbedPane.setBackground(new java.awt.Color(255, 249, 236));
@@ -3561,6 +3559,7 @@ public class Vocabulary extends JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -4776,9 +4775,15 @@ public class Vocabulary extends JFrame {
         }//</editor-fold>
         
         /**
-         * Create and display the form.
+         * First show splash and than create and display the form.
          */
         java.awt.EventQueue.invokeLater(() -> {
+            try {
+                Thread.sleep(3000); // for splash
+            } catch (InterruptedException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", 
+                    JOptionPane.PLAIN_MESSAGE);
+            }
             new Vocabulary().setVisible(true);
         });
         
