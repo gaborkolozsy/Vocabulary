@@ -47,15 +47,13 @@ public class ConfigService {
      * @throws IOException fájl hiba esetén
      */
     public ConfigService(String file, String fileName) throws IOException {
-        this.keySet = config.getSet(file);
-        for (Object key: keySet) {
-            vocabulary.put((String) key, config.getValue((String) key, file));
-        }
+        fillVocabulary(file);
         
-        // az alávonások(_) cseréje szóközre
+        // az alulvonások(_) cseréje szóközre
         Map<String, Object> temporary = new HashMap<>();
         temporary.putAll(vocabulary);
         vocabulary.clear();
+        
         temporary.entrySet().stream().forEach((entry) -> {
             vocabulary.put(entry.getKey().replace("_", " "), entry.getValue());
         });
@@ -75,41 +73,46 @@ public class ConfigService {
     public ConfigService(String file1, String file2, String fileName) 
             throws IOException {
         
-        // --- kulcsok a ELSŐ fájlból --- \\
-        this.keySet = config.getSet(file1);
-        for (Object key: keySet) {
-            vocabulary.put((String) key, config.getValue((String) key, file1));
-        }
+        // kulcsok az ELSŐ fájlból
+        fillVocabulary(file1);
+        Map<String, String> language1 = underscoreToSpace();
         
-        // az alávonások(_) cseréje szóközre
-        Map<String, String> language1 = new HashMap<>();
-        vocabulary.entrySet().stream().forEach((entry) -> {
-            language1.put(
-                    (String) entry.getValue(), entry.getKey().replace("_", " "));
-        });
-        
-        // --- kulcsok a MÁSODIK fájlból --- \\
+        // kulcsok a MÁSODIK fájlból
         this.keySet.clear();
-        this.keySet = config.getSet(file2);
         vocabulary.clear();
-        for (Object key: keySet) {
-            vocabulary.put((String) key, config.getValue((String) key, file2));
-        }
-        
-        // az alávonások(_) cseréje szóközre
-        Map<String, String> language2 = new HashMap<>();
-        vocabulary.entrySet().stream().forEach((entry) -> {
-            language2.put(
-                    (String) entry.getValue(), entry.getKey().replace("_", " "));
-        });
+        fillVocabulary(file2);
+        Map<String, String> language2 = underscoreToSpace();
         
         // a kevert szószedet
         vocabulary.clear();
-        for (Map.Entry<String, String> entry : language1.entrySet()) {
+        language1.entrySet().stream().forEach((entry) -> {
             vocabulary.put(entry.getValue(), language2.get(entry.getKey()));
-        }
+        });
         
         saveVocabularyFromIniToBin(fileName);
+    }
+
+    /**
+     * A szószedet mappa feltöltése egy .ini fájból.
+     * @param file az .ini fajl neve
+     * @throws IOException fájl hiba esetén
+     */
+    private void fillVocabulary(String file) throws IOException {
+        this.keySet = config.getSet(file);
+        for (Object key: keySet) {
+            vocabulary.put((String) key, config.getValue((String) key, file));
+        }
+    }
+    
+    /**
+     * Az alulvonások(_) cseréje szóközre.
+     */
+    private Map<String, String> underscoreToSpace() {
+        Map<String, String> language = new HashMap<>();
+        vocabulary.entrySet().stream().forEach((entry) -> {
+            language.put((String) entry.getValue(), entry.getKey().replace("_", " "));
+        });
+        return language;
     }
 
     /**

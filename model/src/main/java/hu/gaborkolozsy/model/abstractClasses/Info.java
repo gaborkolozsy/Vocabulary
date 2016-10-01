@@ -18,7 +18,7 @@ package hu.gaborkolozsy.model.abstractClasses;
  * @see hu.gaborkolozsy.model.abstractClasses.ext.Greeting
  * @since 2.0.0
  */
-abstract public class Info {
+public abstract class Info {
     
     /** Az információs ablak tartalma. */
     protected String content;
