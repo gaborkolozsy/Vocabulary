@@ -4778,12 +4778,6 @@ public class Vocabulary extends JFrame {
          * First show splash and than create and display the form.
          */
         java.awt.EventQueue.invokeLater(() -> {
-            try {
-                Thread.sleep(3000); // for splash
-            } catch (InterruptedException ex) {
-                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", 
-                    JOptionPane.PLAIN_MESSAGE);
-            }
             new Vocabulary().setVisible(true);
         });
         
