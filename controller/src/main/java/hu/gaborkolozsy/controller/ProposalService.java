@@ -28,6 +28,7 @@ public class ProposalService {
     
     /** {@code Config} objektum. */
     private final Config config = new Config();
+    
     /** Az ideiglenesen bevezetett javaslat tároló a teszteléshez. */
     private final ProposalBox proposalBox = new ProposalBox();
     

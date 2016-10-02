@@ -4,44 +4,50 @@
  */
 package hu.gaborkolozsy.controller;
 
-import hu.gaborkolozsy.model.abstractClasses.Info;
-import hu.gaborkolozsy.model.abstractClasses.ext.About;
-import hu.gaborkolozsy.model.abstractClasses.ext.AddingItemToRaceComboBox;
-import hu.gaborkolozsy.model.abstractClasses.ext.Advice;
-import hu.gaborkolozsy.model.abstractClasses.ext.Congratulation;
-import hu.gaborkolozsy.model.abstractClasses.ext.CutItemFromRaceComboBox;
-import hu.gaborkolozsy.model.abstractClasses.ext.Extra;
-import hu.gaborkolozsy.model.abstractClasses.ext.Greeting;
+import hu.gaborkolozsy.model.info.Info;
+import hu.gaborkolozsy.model.info.ext.About;
+import hu.gaborkolozsy.model.info.ext.AddingItemToRaceComboBox;
+import hu.gaborkolozsy.model.info.ext.Advice;
+import hu.gaborkolozsy.model.info.ext.Congratulation;
+import hu.gaborkolozsy.model.info.ext.CutItemFromRaceComboBox;
+import hu.gaborkolozsy.model.info.ext.Extra;
+import hu.gaborkolozsy.model.info.ext.Greeting;
 
 /**
  * Információs ablakok megjelenítése.
  * 
  * @author Kolozsy Gábor
  * 
- * @see hu.gaborkolozsy.model.abstractClasses.Info
- * @see hu.gaborkolozsy.model.abstractClasses.ext.Extra
- * @see hu.gaborkolozsy.model.abstractClasses.ext.AddingItemToRaceComboBox
- * @see hu.gaborkolozsy.model.abstractClasses.ext.CutItemFromRaceComboBox
- * @see hu.gaborkolozsy.model.abstractClasses.ext.Congratulation
- * @see hu.gaborkolozsy.model.abstractClasses.ext.About
- * @see hu.gaborkolozsy.model.abstractClasses.ext.Advice
- * @see hu.gaborkolozsy.model.abstractClasses.ext.Greeting
+ * @see hu.gaborkolozsy.model.info.Info
+ * @see hu.gaborkolozsy.model.info.ext.About
+ * @see hu.gaborkolozsy.model.info.ext.AddingItemToRaceComboBox
+ * @see hu.gaborkolozsy.model.info.ext.Advice
+ * @see hu.gaborkolozsy.model.info.ext.Congratulation
+ * @see hu.gaborkolozsy.model.info.ext.CutItemFromRaceComboBox
+ * @see hu.gaborkolozsy.model.info.ext.Extra
+ * @see hu.gaborkolozsy.model.info.ext.Greeting
  * @since 2.0.0
  */
 public class InfoService {
     
     /** {@code Greeting} objektum. */ 
     private final Info greeting = new Greeting();
+    
     /** {@code About} objektum. */
     private final Info about = new About();
+    
     /** {@code Advice} objektum. */
     private final Info advice = new Advice();
+    
     /** {@code Congratulation}. */
     private Info congratulation;
+    
     /** {@code Extra}. */
     private Info extra;
+    
     /** {@code AddingItemToRaceComboBox}. */
     private Info addingItemToRaceComboBox;
+    
     /** {@code CutItemFromRaceComboBox}. */
     private Info cutItemFromRaceComboBox;
 

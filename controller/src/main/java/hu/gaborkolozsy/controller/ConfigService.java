@@ -31,10 +31,13 @@ public class ConfigService {
     
     /** A {@code Config} objektum. */
     private final Config config = new Config();
+    
     /** A {@code Binary} objektum. */
     private final Binary binary = new Binary();
+    
     /** A kulcs set az .ini fájlból. */
     private Set<Object> keySet = new HashSet<>();
+    
     /** Az aktuális szószedet mappa. */
     private final Map<String, Object> vocabulary = new HashMap<>();
 

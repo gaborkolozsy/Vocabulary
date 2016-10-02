@@ -7,17 +7,17 @@ package hu.gaborkolozsy.view;
 import hu.gaborkolozsy.controller.ConfigService;
 import hu.gaborkolozsy.controller.DataService;
 import hu.gaborkolozsy.controller.InfoService;
-import hu.gaborkolozsy.controller.LanguageCombinationsService;
+import hu.gaborkolozsy.controller.LanguagesService;
 import hu.gaborkolozsy.controller.ProposalService;
 import hu.gaborkolozsy.controller.RaceService;
 import hu.gaborkolozsy.controller.VocabularyService;
-import hu.gaborkolozsy.view.abstractClasses.Star;
-import hu.gaborkolozsy.view.abstractClasses.ext.Star1;
-import hu.gaborkolozsy.view.abstractClasses.ext.Star2;
-import hu.gaborkolozsy.view.abstractClasses.ext.Star3;
-import hu.gaborkolozsy.view.abstractClasses.ext.Star4;
-import hu.gaborkolozsy.view.abstractClasses.ext.Star5;
-import hu.gaborkolozsy.view.abstractClasses.ext.Star6;
+import hu.gaborkolozsy.view.star.Star;
+import hu.gaborkolozsy.view.star.ext.Star1;
+import hu.gaborkolozsy.view.star.ext.Star2;
+import hu.gaborkolozsy.view.star.ext.Star3;
+import hu.gaborkolozsy.view.star.ext.Star4;
+import hu.gaborkolozsy.view.star.ext.Star5;
+import hu.gaborkolozsy.view.star.ext.Star6;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.event.KeyEvent;
@@ -152,17 +152,17 @@ import javax.swing.event.HyperlinkEvent;
  * @see hu.gaborkolozsy.controller.DataService
  * @see hu.gaborkolozsy.controller.InfoService
  * @see hu.gaborkolozsy.controller.ConfigService
- * @see hu.gaborkolozsy.controller.LanguageCombinationsService
+ * @see hu.gaborkolozsy.controller.LanguagesService
  * @see hu.gaborkolozsy.controller.ProposalService
  * @see hu.gaborkolozsy.controller.RaceService
  * @see hu.gaborkolozsy.controller.VocabularyService
- * @see hu.gaborkolozsy.view.abstractClasses.Star
- * @see hu.gaborkolozsy.view.abstractClasses.ext.Star1
- * @see hu.gaborkolozsy.view.abstractClasses.ext.Star2
- * @see hu.gaborkolozsy.view.abstractClasses.ext.Star3
- * @see hu.gaborkolozsy.view.abstractClasses.ext.Star4
- * @see hu.gaborkolozsy.view.abstractClasses.ext.Star5
- * @see hu.gaborkolozsy.view.abstractClasses.ext.Star6
+ * @see hu.gaborkolozsy.view.star.Star
+ * @see hu.gaborkolozsy.view.star.ext.Star1
+ * @see hu.gaborkolozsy.view.star.ext.Star2
+ * @see hu.gaborkolozsy.view.star.ext.Star3
+ * @see hu.gaborkolozsy.view.star.ext.Star4
+ * @see hu.gaborkolozsy.view.star.ext.Star5
+ * @see hu.gaborkolozsy.view.star.ext.Star6
  * @see java.awt.Color
  * @see java.awt.Desktop
  * @see java.awt.event.KeyEvent;
@@ -191,13 +191,17 @@ public class Vocabulary extends JFrame {
      
     /** /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ */
     
+    /** Fájlok. */
     private static final String ENGLISHFILE = "English-1000.ini";
     private static final String GERMANFILE = "German-1000.ini";
     private static final String DATAFILE = "data.bin";
-    private static final String PATH = "/hu/gaborkolozsy/icons/";
     
+    /** Ikonok utvonala. */
+    private static final String PATH = "/hu/gaborkolozsy/icons/";
+   
+    /** Szervíz osztályok. */
     private static ConfigService cs;
-    private static final LanguageCombinationsService lcs = new LanguageCombinationsService();
+    private static final LanguagesService lcs = new LanguagesService();
     private static DataService ds;
     private static final VocabularyService vs = new VocabularyService();
     private static final InfoService is = new InfoService();
@@ -206,21 +210,26 @@ public class Vocabulary extends JFrame {
     
     /** Amiről fordítunk. */
     private static String from = lcs.getENGLISH();
+    
     /** Amire fordítunk. */
     private static String to = lcs.getHUNGARIAN();
     
     /** A fordítandó szó {@code keyList}-ben elfoglalt indexe. */
     private static int index;
+    
     /** Az index értékének tárolásához szükséges azonosító. pl: 111-HUNENG */
     private static String indexID = "";
+    
     /** Az index maximális értéke egy körben. 
      *  1 jelentése: 1x kell jól lefordítani a kiválasztott szót 1 körben */
     private static int IDXMAXVALUE = 2;
     
     /** A körben feldolgozott indexek százalékos értéke. */
     private static double fISz;
+    
     /** A körben feldolgozott indexek százalékos előző értéke. */
     private static double fISzPrev;
+    
     /** A fordított nyelvkombináción a feldolgozott indexek százalékos értéke. */
     private static double fISzByReverseKombo;
     
@@ -231,7 +240,7 @@ public class Vocabulary extends JFrame {
     private static String key;
     
     /** A futam kombo box kezdö max indexe. (1-nél megjelenö tételek 5;10) */
-    private static final int RACEINITIALMAXIDX = 1;
+    private static final int RACECOMBOBOXINITIALMAXIDX = 1;
     
     /** /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ */
     
@@ -241,25 +250,21 @@ public class Vocabulary extends JFrame {
     public Vocabulary() {
         initComponents();
         
-        if (System.getProperty("os.name").startsWith("Win")) {
-            setResizable(false);
-        }
-        
         if(!new File(DATAFILE).exists()) {
             welcomeWindow();
             
-            // initial values for combos
-            ds = new DataService(lcs.getComboList());
+            // initial values for stored data
+            ds = new DataService(lcs.getList());
             
             if (!new File("ENG-HUN.bin").exists()) {
                 iniToBin();
             }
         } else {
-            // initial values for default combo
+            // initial values by default combo
             try {
                 ds = new DataService(DATAFILE, 
                                      lcs.getDefaultCombo(), 
-                                     lcs.getReverseCombo());
+                                     lcs.reverseCombo());
             } catch (IOException | ClassNotFoundException ex) {
                 JOptionPane.showMessageDialog(rootPane, ex.getMessage(),
                         "Error", JOptionPane.ERROR_MESSAGE);
@@ -272,7 +277,7 @@ public class Vocabulary extends JFrame {
         setInfosInWindow();
         
         // add MIX if possible
-        if(ds.countRounds(lcs.getComboList())) {
+        if(ds.countRounds(lcs.getList())) {
             languageComboBox.addItem("MIX");
         }
         
@@ -583,6 +588,10 @@ public class Vocabulary extends JFrame {
         setTitle("Vocabulary");
         setMaximumSize(new java.awt.Dimension(1000, 280));
         setMinimumSize(new java.awt.Dimension(900, 280));
+
+	if (System.getProperty("os.name").startsWith("Win")) {
+            setResizable(false);
+        }
 
         TabbedPane.setBackground(new java.awt.Color(255, 249, 236));
         TabbedPane.setForeground(new java.awt.Color(51, 102, 255));
@@ -3668,7 +3677,7 @@ public class Vocabulary extends JFrame {
             lcs.setCurrentCombo(from, to);
             vocabularyUploadFromBin();
             ds.setIdxAndRoundByLanguageSwap(lcs.getCurrentCombo(), 
-                                            lcs.getReverseCombo());
+                                            lcs.reverseCombo());
             initRaceComboBox();
             setInfosInWindow();
             
@@ -4116,7 +4125,7 @@ public class Vocabulary extends JFrame {
             languageSwap(from, to);
             flagSwap(fromLabel.getIcon(), toLabel.getIcon());
 
-            ds.setIdxAndRoundByLanguageSwap(lcs.getCurrentCombo(), lcs.getReverseCombo());
+            ds.setIdxAndRoundByLanguageSwap(lcs.getCurrentCombo(), lcs.reverseCombo());
 
             initRaceComboBox();
             setInfosInWindow();
@@ -4190,10 +4199,10 @@ public class Vocabulary extends JFrame {
     private void initRaceComboBox() {
         String kombo = lcs.getCurrentCombo();
         int maxIndex = ds.getRaceComboBoxMaxIndex(kombo);
-        if (ds.containsRaceComboBoxBox(kombo) && maxIndex > RACEINITIALMAXIDX) {
+        if (ds.containsRaceComboBoxBox(kombo) && maxIndex > RACECOMBOBOXINITIALMAXIDX) {
             setRaceComboBoxItems(maxIndex);
         } else {
-            setRaceComboBoxItems(RACEINITIALMAXIDX);
+            setRaceComboBoxItems(RACECOMBOBOXINITIALMAXIDX);
         }
     }// </editor-fold> 
     
@@ -4609,7 +4618,7 @@ public class Vocabulary extends JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="set surprise stars">
     private void setStars() {
-        List<String> kombok = lcs.getComboList();
+        List<String> kombok = lcs.getList();
         ds.clearLearnedIdxs();
         kombok.stream().map((k) -> {
             ds.setLearnedIdxs(k);

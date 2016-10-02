@@ -22,14 +22,19 @@ public class RaceService {
     
     /** Az ideiglenes index lista. */
     private final List<Integer> temporary = new ArrayList<>();
+    
     /** A futam fordításra váró indexeinek listája. */
     private final List<Integer> raceIdxsList = new ArrayList<>();
+    
     /** Jó fordítás. */
     private double goodTranslation;
+    
     /** Rossz fordítás. */
     private double badTranslation;
+    
     /** Jó fordítás %-ban. */
     private int goodTranslationPercent;
+    
     /** Rossz fordítás %-ban. */
     private int badTranslationPercent;
     

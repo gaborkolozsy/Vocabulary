@@ -23,6 +23,7 @@ public class Performance implements Serializable {
     
     /** Serial version. */
     private static final long serialVersionUID = 1L;
+    
     /** "Azonos" szintű teljesítmények száma. */
     private int counter;
 

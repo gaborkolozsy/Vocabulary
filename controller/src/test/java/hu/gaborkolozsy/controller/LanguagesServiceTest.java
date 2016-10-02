@@ -14,14 +14,14 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- * A {@code LanguageCombinationsService} objektum tesztje.
+ * A {@code LanguagesService} objektum tesztje.
  * @author Kolozsy Gábor
  * @version 1.0
  */
-public class LanguageCombinationsServiceTest {
+public class LanguagesServiceTest {
     
-    /** {@code LanguageCombinationsService} objektum. */
-    private static LanguageCombinationsService instance;
+    /** {@code LanguagesService} objektum. */
+    private static LanguagesService instance;
     
     /** A nyelvkombinációk listája. */
     private static final List<String> languageCombinations = new ArrayList<>();
@@ -33,7 +33,7 @@ public class LanguageCombinationsServiceTest {
      * Minden teszt metódus előtt lefut.
      * Konstruktor.
      */
-    public LanguageCombinationsServiceTest() {}
+    public LanguagesServiceTest() {}
     
     /**
      * Lefut a tesztek futása előtt 1x.
@@ -70,7 +70,7 @@ public class LanguageCombinationsServiceTest {
      */
     @Before
     public void setUp() {
-        instance = new LanguageCombinationsService();
+        instance = new LanguagesService();
     }
     
     /**
@@ -80,7 +80,7 @@ public class LanguageCombinationsServiceTest {
     public void tearDown() {}
 
     /**
-     * Test of getHUNGARIAN method, of class LanguageCombinationsService.
+     * Test of getHUNGARIAN method, of class LanguagesService.
      */
     @Test
     public void testGetHUNGARIAN() {
@@ -90,7 +90,7 @@ public class LanguageCombinationsServiceTest {
     }
 
     /**
-     * Test of getENGLISH method, of class LanguageCombinationsService.
+     * Test of getENGLISH method, of class LanguagesService.
      */
     @Test
     public void testGetENGLISH() {
@@ -100,7 +100,7 @@ public class LanguageCombinationsServiceTest {
     }
 
     /**
-     * Test of getGERMAN method, of class LanguageCombinationsService.
+     * Test of getGERMAN method, of class LanguagesService.
      */
     @Test
     public void testGetGERMAN() {
@@ -110,7 +110,7 @@ public class LanguageCombinationsServiceTest {
     }
 
     /**
-     * Test of getDefaultCombo method, of class LanguageCombinationsService.
+     * Test of getDefaultCombo method, of class LanguagesService.
      */
     @Test
     public void testGetDefaultCombo() {
@@ -120,7 +120,7 @@ public class LanguageCombinationsServiceTest {
     }
 
     /**
-     * Test of getCurrentCombo method, of class LanguageCombinationsService.
+     * Test of getCurrentCombo method, of class LanguagesService.
      */
     @Test
     public void testGetCurrentCombo() {
@@ -130,7 +130,7 @@ public class LanguageCombinationsServiceTest {
     }
     
     /**
-     * Test of setCurrentCombo method, of class LanguageCombinationsService.
+     * Test of setCurrentCombo method, of class LanguagesService.
      */
     @Test
     public void testSetCurrentCombo() {
@@ -141,22 +141,22 @@ public class LanguageCombinationsServiceTest {
     }
     
     /**
-     * Test of getReverseCombo method, of class LanguageCombinationsService.
+     * Test of reverseCombo method, of class LanguagesService.
      */
     @Test
     public void testGetReverseCombo() {
         instance.setCurrentCombo("first", "second");
-        String result = instance.getReverseCombo();
+        String result = instance.reverseCombo();
         assertEquals("second-first", result);
         assertFalse("secondfirst".equals(result));
     }
     
     /**
-     * Test of getComboList method, of class LanguageCombinationsService.
+     * Test of getList method, of class LanguagesService.
      */
     @Test
     public void testGetComboList() {
-        List<String> result = instance.getComboList();
+        List<String> result = instance.getList();
         assertEquals(languageCombinations, result);
         
         result.remove(0);
@@ -164,7 +164,7 @@ public class LanguageCombinationsServiceTest {
     }
 
     /**
-     * Test of makeComboList method, of class LanguageCombinationsService.
+     * Test of makeList method, of class LanguagesService.
      */
     @Test
     public void testMakeComboList() {
@@ -172,7 +172,7 @@ public class LanguageCombinationsServiceTest {
         test.add("1");
         test.add("2");
         test.add("3");
-        List<String> result = instance.makeComboList(test);
+        List<String> result = instance.makeList(test);
         assertEquals(testCombinations, result);
         
         result.remove(0);
