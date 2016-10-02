@@ -2,9 +2,9 @@
  * Copyright (c) 2016, Gábor Kolozsy. All rights reserved.
  * 
  */
-package hu.gaborkolozsy.model.abstractClasses.ext;
+package hu.gaborkolozsy.model.info.ext;
 
-import hu.gaborkolozsy.model.abstractClasses.Info;
+import hu.gaborkolozsy.model.info.Info;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  * 
  * @author Kolozsy Gábor
  * 
- * @see hu.gaborkolozsy.model.abstractClasses.Info
+ * @see hu.gaborkolozsy.model.info.Info
  * @see javax.swing.Icon
  * @see javax.swing.ImageIcon
  * @since 2.0.0
@@ -23,6 +23,7 @@ public class Advice extends Info {
     /** Az icon. */
     private final Icon advisor = new ImageIcon(getClass()
                 .getResource("/hu/gaborkolozsy/icons/advise.png"));
+    
     /** A felhasználónév. */
     private final String name = System.getProperty("user.name");
     

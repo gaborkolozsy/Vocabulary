@@ -2,9 +2,9 @@
  * Copyright (c) 2016, Gábor Kolozsy. All rights reserved.
  * 
  */
-package hu.gaborkolozsy.model.abstractClasses.ext;
+package hu.gaborkolozsy.model.info.ext;
 
-import hu.gaborkolozsy.model.abstractClasses.Info;
+import hu.gaborkolozsy.model.info.Info;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  * 
  * @author Kolozsy Gábor
  * 
- * @see hu.gaborkolozsy.model.abstractClasses.Info
+ * @see hu.gaborkolozsy.model.info.Info
  * @see javax.swing.Icon
  * @see javax.swing.ImageIcon
  * @since 0.1.0

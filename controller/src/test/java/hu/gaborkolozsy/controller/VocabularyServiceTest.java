@@ -26,14 +26,19 @@ public class VocabularyServiceTest {
     
     /** {@code Binary} objektum. */
     private static final Binary binary = new Binary();
+    
     /** {@code VocabularyService} objektum. */
     private static VocabularyService instance;
+    
     /** A fájl neve. */
     private static final String FILENAME  = "test.bin";
+    
     /** A "test" fájlba kerülő mappa. */
     private static final Map<String, Object> map = new HashMap<>();
+    
     /** A megfordított mappa. */
     private static final Map<String, Object> reverseMap = new HashMap<>();
+    
     /** A mappa kulcslistája. */
     private static final List<String> keyList = new ArrayList<>();
     

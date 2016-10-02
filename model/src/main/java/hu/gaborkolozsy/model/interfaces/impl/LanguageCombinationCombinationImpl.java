@@ -2,7 +2,12 @@
  * Copyright (c) 2016, Gábor Kolozsy. All rights reserved.
  * 
  */
-package hu.gaborkolozsy.model.abstractClasses;
+package hu.gaborkolozsy.model.interfaces.impl;
+
+import hu.gaborkolozsy.model.Languages;
+import hu.gaborkolozsy.model.interfaces.Combination;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A programból elérhető nyelvkombinációk.
@@ -40,55 +45,72 @@ package hu.gaborkolozsy.model.abstractClasses;
  * </ol>
  * 
  * @author Kolozsy Gábor
+ * 
+ * @see hu.gaborkolozsy.model.Languages;
+ * @see hu.gaborkolozsy.model.interfaces.Combination;
+ * @see java.util.ArrayList;
+ * @see java.util.List;
  * @since 2.0.0
  */
-public abstract class LanguageCombination {
-    
-    /** A magyar nyelv rövidítése. */
-    public final String HUNGARIAN = "HUN";
-    /** Az angol nyelv rövidítése. */
-    public final String ENGLISH = "ENG";
-    /** A német nyelv rövidítése. */
-    public final String GERMAN = "GER";
+public abstract class LanguageCombinationCombinationImpl extends Languages implements Combination {
+
     /** Alapertelmezett nyelvkombináció. */
-    public final String DEFAULT = "ENG-HUN";
+    protected final String DEFAULT;
+
     /** Az aktuális nyelvkombináció. */
-    public String currentCombo = DEFAULT;
+    protected String currentCombo;
+    
+    /** Az elérhető nyelvkombinációk listája. */
+    protected List<String> comboList = new ArrayList<>();
+    
+    /**
+     * Konstuktor.
+     */
+    public LanguageCombinationCombinationImpl() {
+        this.DEFAULT = "ENG-HUN";
+        this.currentCombo = DEFAULT;
+    }
 
     /**
-     * Visszaadja a magyar nyelv rövidítését.
-     * @return "HUN"
-     */
-    public abstract String getHUNGARIAN();
-    
-    /**
-     * Visszaadja az angol nyelv rövidítését.
-     * @return "ENG"
-     */
-    public abstract String getENGLISH();
-    
-    /**
-     * Visszaadja a német nyelv rövidítését.
-     * @return "GER"
-     */
-    public abstract String getGERMAN();
-    
-    /**
      * Visszaadja az alapértelmezett nyelvkombinációt.
-     * @return az alapértelmezett nyelvkombináció
+     * @return alapértelmezett nyelvkombináció
      */
-    public abstract String getDefaultCombo();
+    public String getDefaultCombo() {
+        return DEFAULT;
+    }
     
     /**
      * Visszaadja az aktuális nyelvkombinációt.
      * @return az aktuális nyelvkombináció
      */
-    public abstract String getCurrentCombo();
-
+    public String getCurrentCombo() {
+        return currentCombo;
+    }
+    
     /**
-     * Beállítja az aktuális nyelvkombinációt.
+     * Beállítja a nyelvkombinációt.
      * @param from amiről fordítunk
-     * @param to amire fordítunk
+     * @param to amire fordítunk  
      */
-    public abstract void setCurrentCombo(String from, String to);
+    public void setCurrentCombo(String from, String to) {
+        currentCombo = from + "-" + to;
+    }
+    
+    /**
+     * Visszaadja az aktuális nyelvkombináció fordítottját.
+     * @return az aktuális nyelvkombonáció fordítottja
+     */
+    @Override
+    public String reverseCombo() {
+        String[] str = currentCombo.split("-");
+        return str[1] + "-" + str[0];
+    }
+    
+    /**
+     * Visszaadja az elérhető nyelvkombinációk listáját.
+     * @return nyelvkombinációk listája
+     */
+    public List<String> getList() {
+        return comboList;
+    }
 }

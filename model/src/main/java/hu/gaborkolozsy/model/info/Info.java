@@ -2,7 +2,7 @@
  * Copyright (c) 2016, Gábor Kolozsy. All rights reserved.
  * 
  */
-package hu.gaborkolozsy.model.abstractClasses;
+package hu.gaborkolozsy.model.info;
 
 /**
  * Egy információs ablak tartalma.
@@ -18,7 +18,7 @@ package hu.gaborkolozsy.model.abstractClasses;
  * @see hu.gaborkolozsy.model.abstractClasses.ext.Greeting
  * @since 2.0.0
  */
-public abstract class Info {
+public class Info {
     
     /** Az információs ablak tartalma. */
     protected String content;
