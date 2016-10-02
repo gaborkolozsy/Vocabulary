@@ -98,13 +98,13 @@ réteg csak a `Model`réteggel van kapcsolatban.
 * `view`- <dependency> 
               <groupId>hu.gaborkolozsy</groupId> 
               <artifactId>controller</artifactId> 
-              <version>2.2.1</version>
+              <version>2.3.0</version>
           </dependency>
 
 * `controller`- <dependency> 
                     <groupId>hu.gaborkolozsy</groupId> 
                     <artifactId>model</artifactId> 
-                    <version>2.2.1</version>
+                    <version>2.3.0</version>
                 </dependency>  
               - <dependency>
                     <groupId>junit</groupId>
