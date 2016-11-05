@@ -267,7 +267,14 @@ public class Vocabulary extends JFrame {
     /**
      * A futam kombo box kezdö max indexe. (1-nél megjelenö tételek 5;10)
      */
-    private static final int RACECOMBOBOXINITIALMAXIDX = 1;
+    private static final int RACE_COMBO_BOX_INITIAL_MAX_IDX = 1;
+    
+    /**
+     * Colors
+     */
+    private static final Color BLACK = Color.black;
+    private static final Color MY_GRAY = new Color(153, 153, 153);
+    private static final Color MY_BLUE = new Color(51, 102, 255);
 
     /**
      * /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
@@ -316,7 +323,6 @@ public class Vocabulary extends JFrame {
         answerTxtField.addKeyListener(new KeyListener() {
             @Override
             public void keyPressed(KeyEvent e) {
-
                 if (e.isControlDown()
                         && e.getKeyChar() != 'j'
                         && e.getKeyCode() == KeyEvent.VK_J) {  // or 74
@@ -3792,7 +3798,7 @@ public class Vocabulary extends JFrame {
             if (startButton.getText().equals(" Újra")) {
                 askLabel.setText("kérdés");
                 answerTxtField.setText("válasz");
-                answerTxtField.setForeground(Color.black);
+                answerTxtField.setForeground(BLACK);
                 goodResultLabel.setText("0");
                 badResultLabel.setText("0");
                 goodPercentResultLabel.setText("0%");
@@ -3805,7 +3811,7 @@ public class Vocabulary extends JFrame {
                     deleteLEDFlag();
                 }
 
-                startButton.setForeground(new Color(51, 102, 255));
+                startButton.setForeground(MY_BLUE);
                 startButton.setIcon(new ImageIcon(getClass().getResource(PATH
                         + "lockstart.png")));
                 startButton.setText(" Start");
@@ -3819,7 +3825,7 @@ public class Vocabulary extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="answer">
 	private void answerTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerTxtFieldActionPerformed
             if (startButton.getText().equals(" run...")) {
-                if (answerTxtField.getForeground() == Color.black) {
+                if (answerTxtField.getForeground() == BLACK) {
                     if (vs.getVocabularyValue(key).equals(answerTxtField.getText())) {
                         // green
                         answerTxtField
@@ -3875,7 +3881,7 @@ public class Vocabulary extends JFrame {
                     int keyListSize = vs.getKeyListSize();
                     fISz = ds.getActivComboProcessing(keyListSize);
                     if (fISz > fISzPrev) {
-                        activLEDs((int) fISz, new Color(51, 102, 255));
+                        activLEDs((int) fISz, MY_BLUE);
                     }
 
                     if (fISz == 100.0) {
@@ -3899,7 +3905,6 @@ public class Vocabulary extends JFrame {
                         showLEDFlag();
                     }
 
-                    rs.calculateTranslationsInPercent();
                     badPercentResultLabel.setText(rs.getBadTranslationPercent() + "%");
                     goodPercentResultLabel.setText(rs.getGoodTranslationPercent() + "%");
 
@@ -3912,28 +3917,27 @@ public class Vocabulary extends JFrame {
                 } else {
                     ds.addLarnedIdxsToDataContainer(lcs.getCurrentCombo());
 
-                    startButton.setForeground(new Color(0, 0, 0));
+                    startButton.setForeground(BLACK);
                     startButton.setIcon(new ImageIcon(getClass()
                             .getResource(PATH + "replay.png")));
                     startButton.setText(" Újra");
 
-                    int szazalek = rs.getGoodTranslationPercent();
-                    if (szazalek < 70
+                    int percent = rs.getGoodTranslationPercent();
+                    if (percent < 70
                             && raceComboBox.getSelectedIndex() >= 1) {
                         adviceInfo();
                     }
 
                     int futamSelectedIndex = raceComboBox.getSelectedIndex();
-                    String kulcs = lcs.getCurrentCombo() + futamSelectedIndex;
-                    int teljesitmeny = ds.getPerformanceValue(kulcs);
-                    if (szazalek >= 90 && (teljesitmeny >= 0 && teljesitmeny < 3)) {
-                        ds.addingPerformanceValue(kulcs);
+                    String localKey = lcs.getCurrentCombo() + futamSelectedIndex;
+                    int performance = ds.getPerformanceValue(localKey);
+                    if (percent >= 90 && (performance >= 0 && performance < 3)) {
+                        ds.addingPerformanceValue(localKey);
 
-                        if (szazalek == 100
-                                && !ds.containsPerformance(kulcs + szazalek)) {
+                        if (percent == 100 && 
+                            !ds.containsPerformance(localKey + percent)) {
 
-                            ds.addingPerformanceValue(kulcs + szazalek);
-
+                            ds.addingPerformanceValue(localKey + percent);
                             ds.addingCongrat();
                             congratulationInfo(raceComboBox.getSelectedIndex(),
                                     ds.getCongratulation());
@@ -3947,8 +3951,8 @@ public class Vocabulary extends JFrame {
                     int keyListSize = vs.getKeyListSize();
                     if (ds.getUnlearned(keyListSize) > 100) {
                         if (futamSelectedIndex == raceComboBox.getItemCount() - 1) {
-                            teljesitmeny = ds.getPerformanceValue(kulcs);
-                            if (teljesitmeny == 3) {
+                            performance = ds.getPerformanceValue(localKey);
+                            if (performance == 3) {
                                 ds.setRaceComboBoxMaxIndex(lcs.getCurrentCombo(),
                                         futamSelectedIndex + 1);
                                 setRaceComboBoxItems(ds.getRaceComboBoxMaxIndex(
@@ -4018,7 +4022,7 @@ public class Vocabulary extends JFrame {
 
                     askLabel.setText("kérdés");
                     answerTxtField.setText("válasz");
-                    answerTxtField.setForeground(Color.black);
+                    answerTxtField.setForeground(BLACK);
                     goodResultLabel.setText("0");
                     badResultLabel.setText("0");
                     goodPercentResultLabel.setText("0%");
@@ -4028,7 +4032,7 @@ public class Vocabulary extends JFrame {
 
                     new Thread(() -> {
                         for (int i = 100; i >= 0; i--) {
-                            activLEDs(i, new Color(153, 153, 153));
+                            activLEDs(i, MY_GRAY);
 
                             try {
                                 Thread.sleep(10);
@@ -4096,7 +4100,7 @@ public class Vocabulary extends JFrame {
         key = vs.getKeyListElem(index);
         askLabel.setText(key);
         answerTxtField.setText("");
-        answerTxtField.setForeground(Color.black);
+        answerTxtField.setForeground(BLACK);
 
         // index kezdö érték
         indexID = index + "-" + lcs.getCurrentCombo();
@@ -4217,8 +4221,8 @@ public class Vocabulary extends JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="race combo box blocked">
 	private void raceComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raceComboBoxActionPerformed
-            if (startButton.getText().equals(" run...")
-                    || startButton.getText().equals(" Újra")) {
+            if (startButton.getText().equals(" run...") || 
+                startButton.getText().equals(" Újra")) {
 
                 raceComboBox.setSelectedItem(newIdxInRace + "");
                 Icon lock = new ImageIcon(getClass().getResource(PATH + "lock.png"));
@@ -4236,10 +4240,12 @@ public class Vocabulary extends JFrame {
     private void initRaceComboBox() {
         String kombo = lcs.getCurrentCombo();
         int maxIndex = ds.getRaceComboBoxMaxIndex(kombo);
-        if (ds.containsRaceComboBoxBox(kombo) && maxIndex > RACECOMBOBOXINITIALMAXIDX) {
+        if (ds.containsRaceComboBoxBox(kombo) && 
+            maxIndex > RACE_COMBO_BOX_INITIAL_MAX_IDX) {
+            
             setRaceComboBoxItems(maxIndex);
         } else {
-            setRaceComboBoxItems(RACECOMBOBOXINITIALMAXIDX);
+            setRaceComboBoxItems(RACE_COMBO_BOX_INITIAL_MAX_IDX);
         }
     }// </editor-fold>
 
@@ -4253,7 +4259,6 @@ public class Vocabulary extends JFrame {
         for (int i = 0; i <= maxIndex; i++) {
             raceComboBox.addItem(ds.getRaceComboBoxItem(i));
         }
-
         raceComboBox.setSelectedIndex(raceComboBox.getItemCount() - 2);
     }// </editor-fold>
 
@@ -4283,16 +4288,16 @@ public class Vocabulary extends JFrame {
 
         roundResultLabel.setText(ds.getRound() + "");
 
-        int torlesMax = (int) Math.max(fISz, fISzByReverseKombo);
+        int deleteMax = (int) Math.max(fISz, fISzByReverseKombo);
         fISz = ds.getActivComboProcessing(keyListSize);
         fISzByReverseKombo = ds.getReverseComboProcessing(keyListSize);
 
         // idöeltolással és "egyszerre" törli/szinezi mindkét oldalt
         new Thread(() -> {
             // delete
-            for (int i = torlesMax; i >= 0; i--) {
-                activLEDs(i, new Color(153, 153, 153));
-                passiveLEDs(i, new Color(153, 153, 153));
+            for (int i = deleteMax; i >= 0; i--) {
+                activLEDs(i, MY_GRAY);
+                passiveLEDs(i, MY_GRAY);
 
                 try {
                     Thread.sleep(10);
@@ -4304,11 +4309,11 @@ public class Vocabulary extends JFrame {
 
             // szinezés 0-tól(ha 0, akkor is bemegy)
             for (int i = 0; i <= fISz; i++) {
-                activLEDs(i, new Color(51, 102, 255));
+                activLEDs(i, MY_BLUE);
 
                 new Thread(() -> {
                     for (int j = 0; j <= fISzByReverseKombo; j++) {
-                        passiveLEDs(j, new Color(51, 102, 255));
+                        passiveLEDs(j, MY_BLUE);
 
                         try {
                             Thread.sleep(10);
@@ -4387,11 +4392,11 @@ public class Vocabulary extends JFrame {
     private void deleteLEDFlag() {
         new Thread(() -> {
             for (int i = 50; i >= 1; i--) {
-                activLEDs(i, new Color(153, 153, 153));
+                activLEDs(i, MY_GRAY);
 
                 new Thread(() -> {
                     for (int j = 51; j <= 100; j++) {
-                        activLEDs(j, new Color(153, 153, 153));
+                        activLEDs(j, MY_GRAY);
 
                         try {
                             Thread.sleep(10);
@@ -4421,306 +4426,106 @@ public class Vocabulary extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="activ led line(left)">
     private void activLEDs(int x, Color color) {
         switch (x) {
-            case 1:
-                jTextField1.setBackground(color);
-                break;
-            case 2:
-                jTextField2.setBackground(color);
-                break;
-            case 3:
-                jTextField3.setBackground(color);
-                break;
-            case 4:
-                jTextField4.setBackground(color);
-                break;
-            case 5:
-                jTextField5.setBackground(color);
-                break;
-            case 6:
-                jTextField6.setBackground(color);
-                break;
-            case 7:
-                jTextField7.setBackground(color);
-                break;
-            case 8:
-                jTextField8.setBackground(color);
-                break;
-            case 9:
-                jTextField9.setBackground(color);
-                break;
-            case 10:
-                jTextField10.setBackground(color);
-                break;
-            case 11:
-                jTextField11.setBackground(color);
-                break;
-            case 12:
-                jTextField12.setBackground(color);
-                break;
-            case 13:
-                jTextField13.setBackground(color);
-                break;
-            case 14:
-                jTextField14.setBackground(color);
-                break;
-            case 15:
-                jTextField15.setBackground(color);
-                break;
-            case 16:
-                jTextField16.setBackground(color);
-                break;
-            case 17:
-                jTextField17.setBackground(color);
-                break;
-            case 18:
-                jTextField18.setBackground(color);
-                break;
-            case 19:
-                jTextField19.setBackground(color);
-                break;
-            case 20:
-                jTextField20.setBackground(color);
-                break;
-            case 21:
-                jTextField21.setBackground(color);
-                break;
-            case 22:
-                jTextField22.setBackground(color);
-                break;
-            case 23:
-                jTextField23.setBackground(color);
-                break;
-            case 24:
-                jTextField24.setBackground(color);
-                break;
-            case 25:
-                jTextField25.setBackground(color);
-                break;
-            case 26:
-                jTextField26.setBackground(color);
-                break;
-            case 27:
-                jTextField27.setBackground(color);
-                break;
-            case 28:
-                jTextField28.setBackground(color);
-                break;
-            case 29:
-                jTextField29.setBackground(color);
-                break;
-            case 30:
-                jTextField30.setBackground(color);
-                break;
-            case 31:
-                jTextField31.setBackground(color);
-                break;
-            case 32:
-                jTextField32.setBackground(color);
-                break;
-            case 33:
-                jTextField33.setBackground(color);
-                break;
-            case 34:
-                jTextField34.setBackground(color);
-                break;
-            case 35:
-                jTextField35.setBackground(color);
-                break;
-            case 36:
-                jTextField36.setBackground(color);
-                break;
-            case 37:
-                jTextField37.setBackground(color);
-                break;
-            case 38:
-                jTextField38.setBackground(color);
-                break;
-            case 39:
-                jTextField39.setBackground(color);
-                break;
-            case 40:
-                jTextField40.setBackground(color);
-                break;
-            case 41:
-                jTextField41.setBackground(color);
-                break;
-            case 42:
-                jTextField42.setBackground(color);
-                break;
-            case 43:
-                jTextField43.setBackground(color);
-                break;
-            case 44:
-                jTextField44.setBackground(color);
-                break;
-            case 45:
-                jTextField45.setBackground(color);
-                break;
-            case 46:
-                jTextField46.setBackground(color);
-                break;
-            case 47:
-                jTextField47.setBackground(color);
-                break;
-            case 48:
-                jTextField48.setBackground(color);
-                break;
-            case 49:
-                jTextField49.setBackground(color);
-                break;
-            case 50:
-                jTextField50.setBackground(color);
-                break;
-            case 51:
-                jTextField51.setBackground(color);
-                break;
-            case 52:
-                jTextField52.setBackground(color);
-                break;
-            case 53:
-                jTextField53.setBackground(color);
-                break;
-            case 54:
-                jTextField54.setBackground(color);
-                break;
-            case 55:
-                jTextField55.setBackground(color);
-                break;
-            case 56:
-                jTextField56.setBackground(color);
-                break;
-            case 57:
-                jTextField57.setBackground(color);
-                break;
-            case 58:
-                jTextField58.setBackground(color);
-                break;
-            case 59:
-                jTextField59.setBackground(color);
-                break;
-            case 60:
-                jTextField60.setBackground(color);
-                break;
-            case 61:
-                jTextField61.setBackground(color);
-                break;
-            case 62:
-                jTextField62.setBackground(color);
-                break;
-            case 63:
-                jTextField63.setBackground(color);
-                break;
-            case 64:
-                jTextField64.setBackground(color);
-                break;
-            case 65:
-                jTextField65.setBackground(color);
-                break;
-            case 66:
-                jTextField66.setBackground(color);
-                break;
-            case 67:
-                jTextField67.setBackground(color);
-                break;
-            case 68:
-                jTextField68.setBackground(color);
-                break;
-            case 69:
-                jTextField69.setBackground(color);
-                break;
-            case 70:
-                jTextField70.setBackground(color);
-                break;
-            case 71:
-                jTextField71.setBackground(color);
-                break;
-            case 72:
-                jTextField72.setBackground(color);
-                break;
-            case 73:
-                jTextField73.setBackground(color);
-                break;
-            case 74:
-                jTextField74.setBackground(color);
-                break;
-            case 75:
-                jTextField75.setBackground(color);
-                break;
-            case 76:
-                jTextField76.setBackground(color);
-                break;
-            case 77:
-                jTextField77.setBackground(color);
-                break;
-            case 78:
-                jTextField78.setBackground(color);
-                break;
-            case 79:
-                jTextField79.setBackground(color);
-                break;
-            case 80:
-                jTextField80.setBackground(color);
-                break;
-            case 81:
-                jTextField81.setBackground(color);
-                break;
-            case 82:
-                jTextField82.setBackground(color);
-                break;
-            case 83:
-                jTextField83.setBackground(color);
-                break;
-            case 84:
-                jTextField84.setBackground(color);
-                break;
-            case 85:
-                jTextField85.setBackground(color);
-                break;
-            case 86:
-                jTextField86.setBackground(color);
-                break;
-            case 87:
-                jTextField87.setBackground(color);
-                break;
-            case 88:
-                jTextField88.setBackground(color);
-                break;
-            case 89:
-                jTextField89.setBackground(color);
-                break;
-            case 90:
-                jTextField90.setBackground(color);
-                break;
-            case 91:
-                jTextField91.setBackground(color);
-                break;
-            case 92:
-                jTextField92.setBackground(color);
-                break;
-            case 93:
-                jTextField93.setBackground(color);
-                break;
-            case 94:
-                jTextField94.setBackground(color);
-                break;
-            case 95:
-                jTextField95.setBackground(color);
-                break;
-            case 96:
-                jTextField96.setBackground(color);
-                break;
-            case 97:
-                jTextField97.setBackground(color);
-                break;
-            case 98:
-                jTextField98.setBackground(color);
-                break;
-            case 99:
-                jTextField99.setBackground(color);
-                break;
-            case 100:
-                jTextField100.setBackground(color);
-                break;
+            case 1: jTextField1.setBackground(color); break;
+            case 2: jTextField2.setBackground(color); break;
+            case 3: jTextField3.setBackground(color); break;
+            case 4: jTextField4.setBackground(color); break;
+            case 5: jTextField5.setBackground(color); break;
+            case 6: jTextField6.setBackground(color); break;
+            case 7: jTextField7.setBackground(color); break;
+            case 8: jTextField8.setBackground(color); break;
+            case 9: jTextField9.setBackground(color); break;
+            case 10: jTextField10.setBackground(color); break;
+            case 11: jTextField11.setBackground(color); break;
+            case 12: jTextField12.setBackground(color); break;
+            case 13: jTextField13.setBackground(color); break;
+            case 14: jTextField14.setBackground(color); break;
+            case 15: jTextField15.setBackground(color); break;
+            case 16: jTextField16.setBackground(color); break;
+            case 17: jTextField17.setBackground(color); break;
+            case 18: jTextField18.setBackground(color); break;
+            case 19: jTextField19.setBackground(color); break;
+            case 20: jTextField20.setBackground(color); break;
+            case 21: jTextField21.setBackground(color); break;
+            case 22: jTextField22.setBackground(color); break;
+            case 23: jTextField23.setBackground(color); break;
+            case 24: jTextField24.setBackground(color); break;
+            case 25: jTextField25.setBackground(color); break;
+            case 26: jTextField26.setBackground(color); break;
+            case 27: jTextField27.setBackground(color); break;
+            case 28: jTextField28.setBackground(color); break;
+            case 29: jTextField29.setBackground(color); break;
+            case 30: jTextField30.setBackground(color); break;
+            case 31: jTextField31.setBackground(color); break;
+            case 32: jTextField32.setBackground(color); break;
+            case 33: jTextField33.setBackground(color); break;
+            case 34: jTextField34.setBackground(color); break;
+            case 35: jTextField35.setBackground(color); break;
+            case 36: jTextField36.setBackground(color); break;
+            case 37: jTextField37.setBackground(color); break;
+            case 38: jTextField38.setBackground(color); break;
+            case 39: jTextField39.setBackground(color); break;
+            case 40: jTextField40.setBackground(color); break;
+            case 41: jTextField41.setBackground(color); break;
+            case 42: jTextField42.setBackground(color); break;
+            case 43: jTextField43.setBackground(color); break;
+            case 44: jTextField44.setBackground(color); break;
+            case 45: jTextField45.setBackground(color); break;
+            case 46: jTextField46.setBackground(color); break;
+            case 47: jTextField47.setBackground(color); break;
+            case 48: jTextField48.setBackground(color); break;
+            case 49: jTextField49.setBackground(color); break;
+            case 50: jTextField50.setBackground(color); break;
+            case 51: jTextField51.setBackground(color); break;
+            case 52: jTextField52.setBackground(color); break;
+            case 53: jTextField53.setBackground(color); break;
+            case 54: jTextField54.setBackground(color); break;
+            case 55: jTextField55.setBackground(color); break;
+            case 56: jTextField56.setBackground(color); break;
+            case 57: jTextField57.setBackground(color); break;
+            case 58: jTextField58.setBackground(color); break;
+            case 59: jTextField59.setBackground(color); break;
+            case 60: jTextField60.setBackground(color); break;
+            case 61: jTextField61.setBackground(color); break;
+            case 62: jTextField62.setBackground(color); break;
+            case 63: jTextField63.setBackground(color); break;
+            case 64: jTextField64.setBackground(color); break;
+            case 65: jTextField65.setBackground(color); break;
+            case 66: jTextField66.setBackground(color); break;
+            case 67: jTextField67.setBackground(color); break;
+            case 68: jTextField68.setBackground(color); break;
+            case 69: jTextField69.setBackground(color); break;
+            case 70: jTextField70.setBackground(color); break;
+            case 71: jTextField71.setBackground(color); break;
+            case 72: jTextField72.setBackground(color); break;
+            case 73: jTextField73.setBackground(color); break;
+            case 74: jTextField74.setBackground(color); break;
+            case 75: jTextField75.setBackground(color); break;
+            case 76: jTextField76.setBackground(color); break;
+            case 77: jTextField77.setBackground(color); break;
+            case 78: jTextField78.setBackground(color); break;
+            case 79: jTextField79.setBackground(color); break;
+            case 80: jTextField80.setBackground(color); break;
+            case 81: jTextField81.setBackground(color); break;
+            case 82: jTextField82.setBackground(color); break;
+            case 83: jTextField83.setBackground(color); break;
+            case 84: jTextField84.setBackground(color); break;
+            case 85: jTextField85.setBackground(color); break;
+            case 86: jTextField86.setBackground(color); break;
+            case 87: jTextField87.setBackground(color); break;
+            case 88: jTextField88.setBackground(color); break;
+            case 89: jTextField89.setBackground(color); break;
+            case 90: jTextField90.setBackground(color); break;
+            case 91: jTextField91.setBackground(color); break;
+            case 92: jTextField92.setBackground(color); break;
+            case 93: jTextField93.setBackground(color); break;
+            case 94: jTextField94.setBackground(color); break;
+            case 95: jTextField95.setBackground(color); break;
+            case 96: jTextField96.setBackground(color); break;
+            case 97: jTextField97.setBackground(color); break;
+            case 98: jTextField98.setBackground(color); break;
+            case 99: jTextField99.setBackground(color); break;
+            case 100: jTextField100.setBackground(color); break;
         }
     }// </editor-fold>
 
@@ -4731,306 +4536,106 @@ public class Vocabulary extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="passive led line(right)">
     private void passiveLEDs(int x, Color color) {
         switch (x) {
-            case 100:
-                jTextField101.setBackground(color);
-                break;
-            case 99:
-                jTextField102.setBackground(color);
-                break;
-            case 98:
-                jTextField103.setBackground(color);
-                break;
-            case 97:
-                jTextField104.setBackground(color);
-                break;
-            case 96:
-                jTextField105.setBackground(color);
-                break;
-            case 95:
-                jTextField106.setBackground(color);
-                break;
-            case 94:
-                jTextField107.setBackground(color);
-                break;
-            case 93:
-                jTextField108.setBackground(color);
-                break;
-            case 92:
-                jTextField109.setBackground(color);
-                break;
-            case 91:
-                jTextField110.setBackground(color);
-                break;
-            case 90:
-                jTextField111.setBackground(color);
-                break;
-            case 89:
-                jTextField112.setBackground(color);
-                break;
-            case 88:
-                jTextField113.setBackground(color);
-                break;
-            case 87:
-                jTextField114.setBackground(color);
-                break;
-            case 86:
-                jTextField115.setBackground(color);
-                break;
-            case 85:
-                jTextField116.setBackground(color);
-                break;
-            case 84:
-                jTextField117.setBackground(color);
-                break;
-            case 83:
-                jTextField118.setBackground(color);
-                break;
-            case 82:
-                jTextField119.setBackground(color);
-                break;
-            case 81:
-                jTextField120.setBackground(color);
-                break;
-            case 80:
-                jTextField121.setBackground(color);
-                break;
-            case 79:
-                jTextField122.setBackground(color);
-                break;
-            case 78:
-                jTextField123.setBackground(color);
-                break;
-            case 77:
-                jTextField124.setBackground(color);
-                break;
-            case 76:
-                jTextField125.setBackground(color);
-                break;
-            case 75:
-                jTextField126.setBackground(color);
-                break;
-            case 74:
-                jTextField127.setBackground(color);
-                break;
-            case 73:
-                jTextField128.setBackground(color);
-                break;
-            case 72:
-                jTextField129.setBackground(color);
-                break;
-            case 71:
-                jTextField130.setBackground(color);
-                break;
-            case 70:
-                jTextField131.setBackground(color);
-                break;
-            case 69:
-                jTextField132.setBackground(color);
-                break;
-            case 68:
-                jTextField133.setBackground(color);
-                break;
-            case 67:
-                jTextField134.setBackground(color);
-                break;
-            case 66:
-                jTextField135.setBackground(color);
-                break;
-            case 65:
-                jTextField136.setBackground(color);
-                break;
-            case 64:
-                jTextField137.setBackground(color);
-                break;
-            case 63:
-                jTextField138.setBackground(color);
-                break;
-            case 62:
-                jTextField139.setBackground(color);
-                break;
-            case 61:
-                jTextField140.setBackground(color);
-                break;
-            case 60:
-                jTextField141.setBackground(color);
-                break;
-            case 59:
-                jTextField142.setBackground(color);
-                break;
-            case 58:
-                jTextField143.setBackground(color);
-                break;
-            case 57:
-                jTextField144.setBackground(color);
-                break;
-            case 56:
-                jTextField145.setBackground(color);
-                break;
-            case 55:
-                jTextField146.setBackground(color);
-                break;
-            case 54:
-                jTextField147.setBackground(color);
-                break;
-            case 53:
-                jTextField148.setBackground(color);
-                break;
-            case 52:
-                jTextField149.setBackground(color);
-                break;
-            case 51:
-                jTextField150.setBackground(color);
-                break;
-            case 50:
-                jTextField151.setBackground(color);
-                break;
-            case 49:
-                jTextField152.setBackground(color);
-                break;
-            case 48:
-                jTextField153.setBackground(color);
-                break;
-            case 47:
-                jTextField154.setBackground(color);
-                break;
-            case 46:
-                jTextField155.setBackground(color);
-                break;
-            case 45:
-                jTextField156.setBackground(color);
-                break;
-            case 44:
-                jTextField157.setBackground(color);
-                break;
-            case 43:
-                jTextField158.setBackground(color);
-                break;
-            case 42:
-                jTextField159.setBackground(color);
-                break;
-            case 41:
-                jTextField160.setBackground(color);
-                break;
-            case 40:
-                jTextField161.setBackground(color);
-                break;
-            case 39:
-                jTextField162.setBackground(color);
-                break;
-            case 38:
-                jTextField163.setBackground(color);
-                break;
-            case 37:
-                jTextField164.setBackground(color);
-                break;
-            case 36:
-                jTextField165.setBackground(color);
-                break;
-            case 35:
-                jTextField166.setBackground(color);
-                break;
-            case 34:
-                jTextField167.setBackground(color);
-                break;
-            case 33:
-                jTextField168.setBackground(color);
-                break;
-            case 32:
-                jTextField169.setBackground(color);
-                break;
-            case 31:
-                jTextField170.setBackground(color);
-                break;
-            case 30:
-                jTextField171.setBackground(color);
-                break;
-            case 29:
-                jTextField172.setBackground(color);
-                break;
-            case 28:
-                jTextField173.setBackground(color);
-                break;
-            case 27:
-                jTextField174.setBackground(color);
-                break;
-            case 26:
-                jTextField175.setBackground(color);
-                break;
-            case 25:
-                jTextField176.setBackground(color);
-                break;
-            case 24:
-                jTextField177.setBackground(color);
-                break;
-            case 23:
-                jTextField178.setBackground(color);
-                break;
-            case 22:
-                jTextField179.setBackground(color);
-                break;
-            case 21:
-                jTextField180.setBackground(color);
-                break;
-            case 20:
-                jTextField181.setBackground(color);
-                break;
-            case 19:
-                jTextField182.setBackground(color);
-                break;
-            case 18:
-                jTextField183.setBackground(color);
-                break;
-            case 17:
-                jTextField184.setBackground(color);
-                break;
-            case 16:
-                jTextField185.setBackground(color);
-                break;
-            case 15:
-                jTextField186.setBackground(color);
-                break;
-            case 14:
-                jTextField187.setBackground(color);
-                break;
-            case 13:
-                jTextField188.setBackground(color);
-                break;
-            case 12:
-                jTextField189.setBackground(color);
-                break;
-            case 11:
-                jTextField190.setBackground(color);
-                break;
-            case 10:
-                jTextField191.setBackground(color);
-                break;
-            case 9:
-                jTextField192.setBackground(color);
-                break;
-            case 8:
-                jTextField193.setBackground(color);
-                break;
-            case 7:
-                jTextField194.setBackground(color);
-                break;
-            case 6:
-                jTextField195.setBackground(color);
-                break;
-            case 5:
-                jTextField196.setBackground(color);
-                break;
-            case 4:
-                jTextField197.setBackground(color);
-                break;
-            case 3:
-                jTextField198.setBackground(color);
-                break;
-            case 2:
-                jTextField199.setBackground(color);
-                break;
-            case 1:
-                jTextField200.setBackground(color);
-                break;
+            case 100: jTextField101.setBackground(color); break;
+            case 99: jTextField102.setBackground(color); break;
+            case 98: jTextField103.setBackground(color); break;
+            case 97: jTextField104.setBackground(color); break;
+            case 96: jTextField105.setBackground(color); break;
+            case 95: jTextField106.setBackground(color); break;
+            case 94: jTextField107.setBackground(color); break;
+            case 93: jTextField108.setBackground(color); break;
+            case 92: jTextField109.setBackground(color); break;
+            case 91: jTextField110.setBackground(color); break;
+            case 90: jTextField111.setBackground(color); break;
+            case 89: jTextField112.setBackground(color); break;
+            case 88: jTextField113.setBackground(color); break;
+            case 87: jTextField114.setBackground(color); break;
+            case 86: jTextField115.setBackground(color); break;
+            case 85: jTextField116.setBackground(color); break;
+            case 84: jTextField117.setBackground(color); break;
+            case 83: jTextField118.setBackground(color); break;
+            case 82: jTextField119.setBackground(color); break;
+            case 81: jTextField120.setBackground(color); break;
+            case 80: jTextField121.setBackground(color); break;
+            case 79: jTextField122.setBackground(color); break;
+            case 78: jTextField123.setBackground(color); break;
+            case 77: jTextField124.setBackground(color); break;
+            case 76: jTextField125.setBackground(color); break;
+            case 75: jTextField126.setBackground(color); break;
+            case 74: jTextField127.setBackground(color); break;
+            case 73: jTextField128.setBackground(color); break;
+            case 72: jTextField129.setBackground(color); break;
+            case 71: jTextField130.setBackground(color); break;
+            case 70: jTextField131.setBackground(color); break;
+            case 69: jTextField132.setBackground(color); break;
+            case 68: jTextField133.setBackground(color); break;
+            case 67: jTextField134.setBackground(color); break;
+            case 66: jTextField135.setBackground(color); break;
+            case 65: jTextField136.setBackground(color); break;
+            case 64: jTextField137.setBackground(color); break;
+            case 63: jTextField138.setBackground(color); break;
+            case 62: jTextField139.setBackground(color); break;
+            case 61: jTextField140.setBackground(color); break;
+            case 60: jTextField141.setBackground(color); break;
+            case 59: jTextField142.setBackground(color); break;
+            case 58: jTextField143.setBackground(color); break;
+            case 57: jTextField144.setBackground(color); break;
+            case 56: jTextField145.setBackground(color); break;
+            case 55: jTextField146.setBackground(color); break;
+            case 54: jTextField147.setBackground(color); break;
+            case 53: jTextField148.setBackground(color); break;
+            case 52: jTextField149.setBackground(color); break;
+            case 51: jTextField150.setBackground(color); break;
+            case 50: jTextField151.setBackground(color); break;
+            case 49: jTextField152.setBackground(color); break;
+            case 48: jTextField153.setBackground(color); break;
+            case 47: jTextField154.setBackground(color); break;
+            case 46: jTextField155.setBackground(color); break;
+            case 45: jTextField156.setBackground(color); break;
+            case 44: jTextField157.setBackground(color); break;
+            case 43: jTextField158.setBackground(color); break;
+            case 42: jTextField159.setBackground(color); break;
+            case 41: jTextField160.setBackground(color); break;
+            case 40: jTextField161.setBackground(color); break;
+            case 39: jTextField162.setBackground(color); break;
+            case 38: jTextField163.setBackground(color); break;
+            case 37: jTextField164.setBackground(color); break;
+            case 36: jTextField165.setBackground(color); break;
+            case 35: jTextField166.setBackground(color); break;
+            case 34: jTextField167.setBackground(color); break;
+            case 33: jTextField168.setBackground(color); break;
+            case 32: jTextField169.setBackground(color); break;
+            case 31: jTextField170.setBackground(color); break;
+            case 30: jTextField171.setBackground(color); break;
+            case 29: jTextField172.setBackground(color); break;
+            case 28: jTextField173.setBackground(color); break;
+            case 27: jTextField174.setBackground(color); break;
+            case 26: jTextField175.setBackground(color); break;
+            case 25: jTextField176.setBackground(color); break;
+            case 24: jTextField177.setBackground(color); break;
+            case 23: jTextField178.setBackground(color); break;
+            case 22: jTextField179.setBackground(color); break;
+            case 21: jTextField180.setBackground(color); break;
+            case 20: jTextField181.setBackground(color); break;
+            case 19: jTextField182.setBackground(color); break;
+            case 18: jTextField183.setBackground(color); break;
+            case 17: jTextField184.setBackground(color); break;
+            case 16: jTextField185.setBackground(color); break;
+            case 15: jTextField186.setBackground(color); break;
+            case 14: jTextField187.setBackground(color); break;
+            case 13: jTextField188.setBackground(color); break;
+            case 12: jTextField189.setBackground(color); break;
+            case 11: jTextField190.setBackground(color); break;
+            case 10: jTextField191.setBackground(color); break;
+            case 9: jTextField192.setBackground(color); break;
+            case 8: jTextField193.setBackground(color); break;
+            case 7: jTextField194.setBackground(color); break;
+            case 6: jTextField195.setBackground(color); break;
+            case 5: jTextField196.setBackground(color); break;
+            case 4: jTextField197.setBackground(color); break;
+            case 3: jTextField198.setBackground(color); break;
+            case 2: jTextField199.setBackground(color); break;
+            case 1: jTextField200.setBackground(color); break;
         }
     }// </editor-fold>
 
@@ -5040,9 +4645,9 @@ public class Vocabulary extends JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="set surprise stars">
     private void setStars() {
-        List<String> kombok = lcs.getList();
+        List<String> combos = lcs.getList();
         ds.clearLearnedIdxs();
-        kombok.stream().map((k) -> {
+        combos.stream().map((k) -> {
             ds.setLearnedIdxs(k);
             ds.setRound(k);
             return k;
@@ -5058,24 +4663,12 @@ public class Vocabulary extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="choose star">
     private void chooseStar(String kombo, int size, int round) {
         switch (kombo.toUpperCase()) {
-            case "ENG-HUN":
-                showStarIf(star1, new Star1(), size, round);
-                break;
-            case "GER-HUN":
-                showStarIf(star2, new Star2(), size, round);
-                break;
-            case "ENG-GER":
-                showStarIf(star3, new Star3(), size, round);
-                break;
-            case "HUN-ENG":
-                showStarIf(star4, new Star4(), size, round);
-                break;
-            case "HUN-GER":
-                showStarIf(star5, new Star5(), size, round);
-                break;
-            case "GER-ENG":
-                showStarIf(star6, new Star6(), size, round);
-                break;
+            case "ENG-HUN": showStarIf(star1, new Star1(), size, round); break;
+            case "GER-HUN": showStarIf(star2, new Star2(), size, round); break;
+            case "ENG-GER": showStarIf(star3, new Star3(), size, round); break;
+            case "HUN-ENG": showStarIf(star4, new Star4(), size, round); break;
+            case "HUN-GER": showStarIf(star5, new Star5(), size, round); break;
+            case "GER-ENG": showStarIf(star6, new Star6(), size, round); break;
         }
     }// </editor-fold>
 
@@ -5126,24 +4719,12 @@ public class Vocabulary extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="remove stars">
     private void removeStars(String kombo) {
         switch (kombo) {
-            case "ENG-HUN":
-                star1.setIcon(null);
-                break;
-            case "GER-HUN":
-                star2.setIcon(null);
-                break;
-            case "ENG-GER":
-                star3.setIcon(null);
-                break;
-            case "HUN-ENG":
-                star4.setIcon(null);
-                break;
-            case "HUN-GER":
-                star5.setIcon(null);
-                break;
-            case "GER-ENG":
-                star6.setIcon(null);
-                break;
+            case "ENG-HUN": star1.setIcon(null); break;
+            case "GER-HUN": star2.setIcon(null); break;
+            case "ENG-GER": star3.setIcon(null); break;
+            case "HUN-ENG": star4.setIcon(null); break;
+            case "HUN-GER": star5.setIcon(null); break;
+            case "GER-ENG": star6.setIcon(null); break;
         }
     }// </editor-fold>
 
