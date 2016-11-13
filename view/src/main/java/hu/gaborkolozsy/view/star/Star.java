@@ -2,7 +2,7 @@
  * Copyright (c) 2016, Gábor Kolozsy. All rights reserved.
  * 
  */
-package hu.gaborkolozsy.view.abstractClasses;
+package hu.gaborkolozsy.view.star;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -14,17 +14,26 @@ import javax.swing.ImageIcon;
  * @author Kolozsy Gábor
  * @version 0.1.0
  * 
+ * @see hu.gaborkolozsy.view.star.ext.Star1
+ * @see hu.gaborkolozsy.view.star.ext.Star2
+ * @see hu.gaborkolozsy.view.star.ext.Star3
+ * @see hu.gaborkolozsy.view.star.ext.Star4
+ * @see hu.gaborkolozsy.view.star.ext.Star5
+ * @see hu.gaborkolozsy.view.star.ext.Star6
  * @see javax.swing.Icon
  * @see javax.swing.ImageIcon
  */
-public abstract class Star {
+public class Star {
     
     /** Az első felirat. */
     protected String toolTipText1;
+    
     /** A második felirat. */
     protected String toolTipText2;
+    
     /** A harmadik felirat. */
     protected String toolTipText3;
+    
     /** A negyedik felirat. */
     protected String toolTipText4;
 

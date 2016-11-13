@@ -22,16 +22,15 @@ public class RaceService {
     
     /** Az ideiglenes index lista. */
     private final List<Integer> temporary = new ArrayList<>();
+    
     /** A futam fordításra váró indexeinek listája. */
     private final List<Integer> raceIdxsList = new ArrayList<>();
+    
     /** Jó fordítás. */
     private double goodTranslation;
+    
     /** Rossz fordítás. */
     private double badTranslation;
-    /** Jó fordítás %-ban. */
-    private int goodTranslationPercent;
-    /** Rossz fordítás %-ban. */
-    private int badTranslationPercent;
     
     /**
      * Konstruktor.<br>
@@ -135,7 +134,7 @@ public class RaceService {
      * @return jó fordítások százalékosan
      */
     public int getGoodTranslationPercent() {
-        return goodTranslationPercent;
+        return (int) (goodTranslation / (goodTranslation + badTranslation) * 100);
     }
     
     /**
@@ -143,18 +142,6 @@ public class RaceService {
      * @return rossz fordítások százalékosan
      */
     public int getBadTranslationPercent() {
-        return badTranslationPercent;
-    }
-    
-    /**
-     * Beállítja a <b>goodTranslationPercent</b> és 
-     * <b>badTranslationPercent</b> adattagokat.
-     */
-    public void calculateTranslationsInPercent() {
-        this.goodTranslationPercent = (int) (goodTranslation /
-                (goodTranslation + badTranslation) * 100);
-        
-        this.badTranslationPercent = (int) (badTranslation /
-                (goodTranslation + badTranslation) * 100);
+        return (int) (badTranslation / (goodTranslation + badTranslation) * 100);
     }
 }

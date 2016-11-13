@@ -7,7 +7,7 @@ package hu.gaborkolozsy.model.interfaces;
 import java.util.Map;
 
 /**
- * A {@code Container} interface.
+ * Tároló interface.
  * 
  * @author Kolozsy Gábor
  * 
@@ -58,8 +58,8 @@ public interface Container<V> {
     /**
      * Törli a kiválasztott kulcsot.
      * @param key kulcs
-     * @return a törölt {@code V} objektum vagy {@code null} 
-     * ha nem tartalmazta a tároló a kiválasztott kulcsot
+     * @return a törölt {@code V} objektum vagy {@code null} ha nem tartalmazta
+     * a tároló a kiválasztott kulcsot
      */
     V remove(String key);
 }

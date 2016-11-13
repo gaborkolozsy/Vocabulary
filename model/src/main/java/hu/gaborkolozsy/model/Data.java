@@ -95,10 +95,13 @@ public class Data implements Serializable {
     
     /** Serial version. */
     private static final long serialVersionUID = 1L;
+    
     /** A kulccsal megjelölt adatokhoz. */
     private Map<String, Integer> map = new HashMap<>();
+    
     /** Az indexekhez. */
     private List<Integer> list = new ArrayList<>();
+    
     /** A gratulációkhoz. */
     private int value;
 

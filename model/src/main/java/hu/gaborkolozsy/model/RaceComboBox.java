@@ -57,6 +57,7 @@ public class RaceComboBox implements Serializable {
     
     /** Serial version. */
     private static final long serialVersionUID = 1L;
+    
     /** A futam legnagyobb indexe. */
     private int maxIndex;
 

@@ -28,21 +28,22 @@ public class ProposalService {
     
     /** {@code Config} objektum. */
     private final Config config = new Config();
+    
     /** Az ideiglenesen bevezetett javaslat tároló a teszteléshez. */
-    private ProposalBox proposalBox = new ProposalBox();
+    private final ProposalBox proposalBox = new ProposalBox();
     
     /**
-     * Beállítja a {@code ProposalBox} objektumot.
-     * @param proposalBox a felhasználó javaslatait tartalmazó tároló
+     * Hozzáadja a {@code Proposa} objektumot a tárolóhoz.
+     * @param proposal a felhasználó javaslata
      */
-    public void setProposalBox(ProposalBox proposalBox) {
-        this.proposalBox = proposalBox;
+    public void addProposal(String proposal) {
+        this.proposalBox.addProposal(new Proposal(proposal));
     }
     
     /**
      * Menti a javaslatokat kilépéskor vagy nyelvek cseréje ill váltásakor.
      * <br><br>
-     * Mac OS X-el ellentétben Windows operációs rendszeren a fájlnevek 
+     * Mac OS X-el ellentétben Windows operációs rendszeren a fájlnevek
      * nem tartalmazhatják a következő karakterek egyikét sem:<br>
      * <b>{@code \ / * ? " :  < > |}</b>
      * @param combo a nyelvkombináció

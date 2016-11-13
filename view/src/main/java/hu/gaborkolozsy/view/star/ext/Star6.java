@@ -2,9 +2,9 @@
  * Copyright (c) 2016, Gábor Kolozsy. All rights reserved.
  * 
  */
-package hu.gaborkolozsy.view.abstractClasses.ext;
+package hu.gaborkolozsy.view.star.ext;
 
-import hu.gaborkolozsy.view.abstractClasses.Star;
+import hu.gaborkolozsy.view.star.Star;
 
 /**
  * A GER-ENG nyelvkombináció csillagának feliratai.
@@ -12,7 +12,7 @@ import hu.gaborkolozsy.view.abstractClasses.Star;
  * @author Kolozsy Gábor
  * @version 0.1.0
  * 
- * @see hu.gaborkolozsy.view.abstractClasses.Star
+ * @see hu.gaborkolozsy.view.star.Star
  */
 public class Star6 extends Star {
     

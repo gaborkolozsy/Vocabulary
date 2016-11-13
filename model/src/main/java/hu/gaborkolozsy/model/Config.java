@@ -72,6 +72,7 @@ public class Config {
     }
     
     /**
+     * @deprecated 
      * Returns <b>true</b> if and only if the specified object is a key 
      * in this hashtable by specified file.
      * @param key the key
@@ -82,16 +83,19 @@ public class Config {
      * @throws IOException if data not loaded
      * @throws NullPointerException if the key is {@code null}
      */
+    @Deprecated
     public boolean isKey(String key, String fileName) throws IOException {
         properties.load(new FileInputStream(fileName));
         return properties.containsKey(key);
     }
     
     /**
+     * @deprecated 
      * Return <b>true</b> if the specified file exists, <b>false</b> otherwise
      * @param fileName the file name
      * @return <b>true</b> if the specified file exists
      */
+    @Deprecated
     public boolean fileExists(String fileName) {
         return new File(fileName).exists();
     }

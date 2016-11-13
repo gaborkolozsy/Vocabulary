@@ -30,8 +30,10 @@ public class VocabularyService {
     
     /** A {@code Binary} objektum. */
     private final Binary binary = new Binary();
+    
     /** Az aktuális szószedet mappa. */
     private Map<String, Object> vocabulary = new HashMap<>();
+    
     /** Az aktuális fordítandó kulcs lista. */
     private final List<String> keyList = new ArrayList<>();
 
