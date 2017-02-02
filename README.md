@@ -182,7 +182,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 #### `List`-ben tárolt adat.
 
-* `learnedIdxs`<sup id="ref-learnedIdxs" class="reference"><a href="#note-learnedIdxs">`[1]`</a></sup> - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
+* `learnedIdxs`[<sup id="ref-learnedIdxs" title="Lásd lábjegyzet">`[1]`</sup>](<a href="#note-learnedIdxs"></a>) - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
 
 #### `Integer`-ként tárolt adatok.
 
