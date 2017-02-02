@@ -219,10 +219,9 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 # `Figyelmeztetés`
 
 * A `View` modul gyökerében található **`data.bin`** fájl törlése az adatok 
-  elvesztésével jár!<br>
+  elvesztésével jár!<br><br>
 
-
-#### Lábjegyzet
+# Lábjegyzet
 
 **`[1]`** - Nem szavakat tárol a program hanem a listában elfoglalt indexeiket. Ezen
 indexek mindig ugyanahhoz a szóhoz tartoznak. A már megtanult szavak indexeit a 
