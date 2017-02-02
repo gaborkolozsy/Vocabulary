@@ -182,7 +182,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 #### `List`-ben tárolt adat.
 
-* `learnedIdxs¹` - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
+* `learnedIdxs¹` - a **körben** már<sub>2</sub> ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
 
 #### `Integer`-ként tárolt adatok.
 
@@ -204,7 +204,7 @@ lehetséges következő futamokban már nem kérdezi ki ugyanazon körben.
 
 #### `RegExp` minták - a tesztelés megkönnyítésére kiadható "parancsok" a válasz mezőben, ha a **Start** gombon a "Start" felirat olvasható -
 
-1. `#answer [1-2]` - 1 körben N alakalommal kell lefordítani helyesen egy szót
+1. `#answer [1-2]` - 1 **körben** N alakalommal kell lefordítani helyesen egy szót
 2. `#\\d{3}`- beállítja az aktuális nyelvkombináción a tanult indexek lista méretét és ennek megfelelően a "jutalom csillag" is megjelenik
 3. `#race [0-6]`- beállítja a `Futam` combo box maximális indexét
 4. `#add (20|30|40|50|100)`- hozzáadja a kiválasztott tételt a `Futam`combo boxhoz
@@ -231,3 +231,5 @@ lehetséges következő futamokban már nem kérdezi ki ugyanazon körben.
 
 * A `View` modul gyökerében található **`data.bin`** fájl törlése az adatok 
   elvesztésével jár!
+
+* 2 blabla
