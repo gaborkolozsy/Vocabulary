@@ -182,7 +182,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 #### `List`-ben tárolt adat.
 
-* `learnedIdxs`[<sup id="ref-learnedIdxs" title="Lásd lábjegyzet">`[1]`</sup>](<a href="#note-learnedIdxs"></a>) - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
+* `learnedIdxs`<sup title="Lásd Lábjegyzet">`[1]`</sup> - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
 
 #### `Integer`-ként tárolt adatok.
 
@@ -224,7 +224,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 # Lábjegyzet
 
-<li id="note-learnedIdxs"><span class="note"><a href="#ref-learnedIdxs">↑</a></span></li>**`[1]`**. - Nem szavakat tárol a program hanem a listában elfoglalt indexeiket. Ezen
+**`[1]`** - Nem szavakat tárol a program hanem a listában elfoglalt indexeiket. Ezen
 indexek mindig ugyanahhoz a szóhoz tartoznak. A már megtanult szavak indexeit a 
 program törli egy ideiglenesen létrehozott tárolóból ami 0-1000 között tartalmazz 
 "indexeket". A maradékból(a még meg nem tanult szavak indexei) pedig véletlenszerüen 
