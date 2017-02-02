@@ -182,23 +182,12 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 #### `List`-ben tárolt adat.
 
-* `learnedIdxs¹` - a **körben** már<sub>2</sub> ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
+* `learnedIdxs¹` - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
 
 #### `Integer`-ként tárolt adatok.
 
 * `round` - a teljesített körök száma nyelvpáronként
 * `congratulation` - az összes megszerzett gratulációk száma<br><br>
-
-**`[1]`**. - Nem szavakat tárol a program hanem a listában elfoglalt indexeiket. Ezen
-indexek mindig ugyanahhoz a szóhoz tartoznak. A már megtanult szavak indexeit a 
-program törli egy ideiglenesen létrehozott tárolóból ami 0-1000 között tartalmazz 
-"indexeket". A maradékból(a még meg nem tanult szavak indexei) pedig véletlenszerüen 
-választja ki a futamszámnak megfelelő számú indexet. Ezen indexek alatt található 
-szavak kerülnek a **keyList**-ből a **kérdés** mezőbe és ezen szavakhoz(kulcs) 
-tartozó értékekkel(**VocabularyService** **vocabulary** **Map** adattagja) hasonlítja 
-össze a program a **válasz** mezőben található szavakat.<br>
-A helyes válaszok számát figyelembe véve az indexeket eltárolja a program és a 
-lehetséges következő futamokban már nem kérdezi ki ugyanazon körben.
 
 ## Egyéb
 
@@ -232,4 +221,14 @@ lehetséges következő futamokban már nem kérdezi ki ugyanazon körben.
 * A `View` modul gyökerében található **`data.bin`** fájl törlése az adatok 
   elvesztésével jár!
 
-* 2 blabla
+
+**`[1]`**. - Nem szavakat tárol a program hanem a listában elfoglalt indexeiket. Ezen
+indexek mindig ugyanahhoz a szóhoz tartoznak. A már megtanult szavak indexeit a 
+program törli egy ideiglenesen létrehozott tárolóból ami 0-1000 között tartalmazz 
+"indexeket". A maradékból(a még meg nem tanult szavak indexei) pedig véletlenszerüen 
+választja ki a futamszámnak megfelelő számú indexet. Ezen indexek alatt található 
+szavak kerülnek a **keyList**-ből a **kérdés** mezőbe és ezen szavakhoz(kulcs) 
+tartozó értékekkel(**VocabularyService** **vocabulary** **Map** adattagja) hasonlítja 
+össze a program a **válasz** mezőben található szavakat.<br>
+A helyes válaszok számát figyelembe véve az indexeket eltárolja a program és a 
+lehetséges következő futamokban már nem kérdezi ki ugyanazon körben.
