@@ -124,7 +124,7 @@ réteg csak a `Model`réteggel van kapcsolatban.
 
 A `view` modul gyökerében található a kézzel megszerkesztett két `.ini` fájl. 
 Ezeket a program a `ConfigService` osztályban alakítja át és menti bináris fájlba. 
-A felhasználó már nem találkozik majd velük, így azt megváltoztatni nem tudja.
+A "felhasználó" már nem találkozik majd velük, így azt megváltoztatni nem tudja.
 
 * `English-1000.ini`
 * `German-1000.ini`
@@ -182,12 +182,12 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 #### `List`-ben tárolt adat.
 
-* `learnedIdxs¹` - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
+* `learnedIdxs`<sup id="ref-learnedIdxs" class="reference"><a href="#note-learnedIdxs">`[1]`</a></sup> - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
 
 #### `Integer`-ként tárolt adatok.
 
 * `round` - a teljesített körök száma nyelvpáronként
-* `congratulation` - az összes megszerzett gratulációk száma<br><br>
+* `congratulation` - az összes megszerzett gratulációk száma<br>
 
 ## Egyéb
 
@@ -222,7 +222,9 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
   elvesztésével jár!
 
 
-**`[1]`**. - Nem szavakat tárol a program hanem a listában elfoglalt indexeiket. Ezen
+# Lábjegyzet
+
+<li id="note-learnedIdxs"><span class="note"><a href="#ref-learnedIdxs">↑</a></span></li>**`[1]`**. - Nem szavakat tárol a program hanem a listában elfoglalt indexeiket. Ezen
 indexek mindig ugyanahhoz a szóhoz tartoznak. A már megtanult szavak indexeit a 
 program törli egy ideiglenesen létrehozott tárolóból ami 0-1000 között tartalmazz 
 "indexeket". A maradékból(a még meg nem tanult szavak indexei) pedig véletlenszerüen 
