@@ -4,7 +4,7 @@
 
 # Leírás
 
-### Angol és német szókincs bővítésére alkalmas program. 1000 szót tartalmaz.
+### Angol és német szókincs bővítésére alkalmas program.
 
 A program feltesz egy kérdést az egyik nyelven, és meg kell válaszolni a másikon. 
 Egy sorozatnyi ilyen kérdés-válasz neve a programban "**Futam**".
