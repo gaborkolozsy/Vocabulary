@@ -21,7 +21,7 @@
     * [Adatok](#adatok)
         * [Az adatok kezelése: `DataService`](#az-adatokat-a-DataService-osztály-kezeli.)
         * [A `Container` interface-t megvalósító osztályok](#a-Container-interface-t-megvalósító-osztályok.)
-        * [`List`-ben tárolt adat](#list-ben-tárolt-adat.)
+        * [`List`-ben tárolt adat](#list-ben-tárolt-adat)
         * [`Integer`-ként tárolt adatok](#Integer-ként-tárolt-adatok.)
     * [Egyéb](#egyéb)
         * [`RegExp` minták a teszteléshez](#`RegExp`-minták-a-tesztelés-megkönnyítésére-kiadható-parancsok-a-válasz-mezőben,-ha-a-Start-gombon-a-Start-felirat-olvasható-)
@@ -190,7 +190,7 @@ ill. a nyelvkombináció megváltozásakor.
 <br>
 ## Adatok
 
-### Az adatokat a `DataService` osztály kezeli.
+#### Az adatokat a `DataService` osztály kezeli.
 
 Az adatok a program használatakor keletkeznek és a `data.bin` fájlban tárolódnak.
 
