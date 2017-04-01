@@ -19,13 +19,13 @@
     * [Függőségek](#függőségek) 
     * [Fájlok](#fájlok)
     * [Adatok](#adatok)
-        * [Az adatok kezelése: `DataService`](#az-adatokat-a-DataService-osztály-kezeli)
-        * [A `Container` interface-t megvalósító osztályok](#a-Container-interface-t-megvalósító-osztályok)
+        * [Az adatok kezelése: `DataService`](#az-adatokat-a-dataservice-osztály-kezeli)
+        * [A `Container` interface-t megvalósító osztályok](#a-container-interface-t-megvalósító-osztályok)
         * [`List`-ben tárolt adat](#list-ben-tárolt-adat)
         * [`Integer`-ként tárolt adatok](#integer-ként-tárolt-adatok)
     * [Egyéb](#egyéb)
         * [`RegExp` minták a teszteléshez](#regexp-minták-a-teszteléshez)
-        * [`String`-ek a teszteléshez](#string-ek-a-tesztelés-megkönnyítésére-kiadható-parancsok-a-válasz-mezőben,-ha-a-Start-gombon-a-Start-felirat-olvasható)
+        * [`String`-ek a teszteléshez](#string-ek-a-tesztelés-megkönnyítésére-kiadható-parancsok-a-válasz-mezőben,-ha-a-Start-gombon-a-start-felirat-olvasható)
 * [Terv](#terv)
 * [Figyelmeztetés](#figyelmeztetés)
 * [Lábjegyzet](#lábjegyzet)
@@ -235,8 +235,9 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 #### `RegExp` minták a teszteléshez.
 
-* A tesztelés megkönnyítésére kiadható parancsok a válasz mezőben ha a Start gombon a Start felirat olvasható.
+A tesztelés megkönnyítésére kiadható parancsok a válasz mezőben ha a Start gombon a Start felirat olvasható.
 
+<br>
 1. `#answer [1-2]` - 1 **körben** N alakalommal kell lefordítani helyesen egy szót
 2. `#\\d{3}`- beállítja az aktuális nyelvkombináción a tanult indexek lista méretét és ennek megfelelően a "jutalom csillag" is megjelenik
 3. `#race [0-6]`- beállítja a `Futam` combo box maximális indexét
