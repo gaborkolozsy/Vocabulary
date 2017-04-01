@@ -64,8 +64,6 @@ Az aktuális információ elérhető a programban(pl.: **131/1000**).
 A három szószedet fájl tehát hat különböző és elérhető nyelvkombinációt takar.
 
 <br>
-[⬆︎](#tartalom)
-<br>
 ## Használat
 
 A "**Start**" gombra való kattintás után elindul a kérdezz-felelek. Ha a válaszmezőbe 
@@ -107,8 +105,6 @@ futamban.
    csak a kör teljesítésekor megkapott csillag után olvasható.
 
 <br>
-[⬆︎](#tartalom)
-<br>
 ## Gyorsbillentyű
 
 * Ha a kurzor a válasz mezőben van, akkor "**Ctrl** + **J**" billentyűkombinációval 
@@ -117,6 +113,8 @@ futamban.
   ill. kilépéskor. A programban megtalálható email címre kattintva a fájl akár 
   mellékletként el is küldhető (ha van beállított email kliens). 
 
+<br>
+[⬆︎](#tartalom)
 <br>
 ## Informálás
 
@@ -134,8 +132,6 @@ történt. A szülő `pom`(***Vocabulary***) moduljai valósítják meg a `MVC` 
 modell elkülönülő három rétegét. A `View`réteg csak a `Controller`, a `Controller`
 réteg csak a `Model`réteggel van kapcsolatban.
 
-<br>
-[⬆︎](#tartalom)
 <br>
 ## Függőségek
 
