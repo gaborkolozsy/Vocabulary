@@ -6,7 +6,7 @@
 ![](http://gitlab.com/KolozsyGabor/Vocabulary/raw/master/view/src/main/resources/hu/gaborkolozsy/images/Vocabulary.png "Screenshot")
 
 <br>
-## A tábla tartalma
+## Tartalom
 
 * [Screenshot](#screenshot)
 * [Leírás](#leírás)
@@ -23,7 +23,7 @@
         * [A `Container` interface-t megvalósító osztályok](#a-container-interface-t-megvalósító-osztályok)
         * [`List`-ben tárolt adat](#list-ben-tárolt-adat)
         * [`Integer`-ként tárolt adatok](#integer-ként-tárolt-adatok)
-    * [Egyéb](#egyéb)
+    * [Tesztelhetőség](#tesztelhetőség)
         * [`RegExp` minták a teszteléshez](#regexp-minták-a-teszteléshez)
         * [`String`-ek a teszteléshez](#string-ek-a-teszteléshez)
 * [Terv](#terv)
@@ -64,6 +64,8 @@ Az aktuális információ elérhető a programban(pl.: **131/1000**).
 A három szószedet fájl tehát hat különböző és elérhető nyelvkombinációt takar.
 
 <br>
+[⬆︎](#tartalom)
+<br>
 ## Használat
 
 A "**Start**" gombra való kattintás után elindul a kérdezz-felelek. Ha a válaszmezőbe 
@@ -79,6 +81,8 @@ reszetelésre kerülnek a futam egyes információi.
 A szavakat körönként **legalább 2x** kell helyesen lefordítani, **legalább két különböző** 
 futamban. 
 
+<br>
+[⬆︎](#tartalom)
 <br>
 ## Szabályok
 
@@ -102,6 +106,8 @@ futamban.
    ill. **Romhányi József** verseket tartalmaznak részletekben. A teljes változat 
    csak a kör teljesítésekor megkapott csillag után olvasható.
 
+<br>
+[⬆︎](#tartalom)
 <br>
 ## Gyorsbillentyű
 
@@ -128,6 +134,8 @@ történt. A szülő `pom`(***Vocabulary***) moduljai valósítják meg a `MVC` 
 modell elkülönülő három rétegét. A `View`réteg csak a `Controller`, a `Controller`
 réteg csak a `Model`réteggel van kapcsolatban.
 
+<br>
+[⬆︎](#tartalom)
 <br>
 ## Függőségek
 
@@ -160,6 +168,8 @@ réteg csak a `Model`réteggel van kapcsolatban.
       </dependency>
 
 <br>
+[⬆︎](#tartalom)
+<br>
 ## Fájlok
 
 A `view` modul gyökerében található a kézzel megszerkesztett két `.ini` fájl. 
@@ -188,6 +198,8 @@ ill. a nyelvkombináció megváltozásakor.
 * `proposal(XXX-YYY, 1970.01.01 123456).ini` 
 
 <br>
+[⬆︎](#tartalom)
+<br>
 ## Adatok
 
 #### Az adatokat a `DataService` osztály kezeli.
@@ -204,7 +216,7 @@ tanult szavak indexeit tároló listához.
 * A futamon elért legalább 90%-os teljesítmények száma. 3-nál növeli a program a **Futam** 
 combo box indexét.(lásd feljebb)
 
-* A tanult szavak indexeinek listája.(lásd lejebb)
+* A tanult szavak indexeinek listája. [Lásd lejebb](#list-ben-tárolt-adat) 
 
 * Körök száma, hogy a program indításkor ellenőrizze van-e olyan nyelvpár ami már 
 legalább 1x teljesítve lett. Teszi ezt azért, mert ha legalább 2 igen, akkor hozzáadja
@@ -223,7 +235,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 #### `List`-ben tárolt adat.
 
-* [`learnedIdxs`](#lábjegyzet)<sup title="Lásd lábjegyzet">[`1`]</sup> - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
+* `learnedIdxs`<sup title="Lásd lábjegyzet">[`1`](#lábjegyzet)</sup> - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
 
 #### `Integer`-ként tárolt adatok.
 
@@ -231,11 +243,13 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 * `congratulation` - az összes megszerzett gratulációk száma<br>
 
 <br>
-## Egyéb
+[⬆︎](#tartalom)
+<br>
+## Tesztelhetőség
+
+### A tesztelés megkönnyítésére kiadható "parancsok" a válasz mezőben ha a **`Start`** gombon a "Start" felirat olvasható.
 
 #### `RegExp` minták a teszteléshez.
-
-A tesztelés megkönnyítésére kiadható "parancsok" a válasz mezőben ha a **Start** gombon a "Start" felirat olvasható.
 
 1. `#answer [1-2]` - 1 **körben** N alakalommal kell lefordítani helyesen egy szót
 2. `#\\d{3}`- beállítja az aktuális nyelvkombináción a tanult indexek lista méretét és ennek megfelelően a "jutalom csillag" is megjelenik
@@ -245,8 +259,6 @@ A tesztelés megkönnyítésére kiadható "parancsok" a válasz mezőben ha a *
 
 #### `String`-ek a teszteléshez 
 
-A tesztelés megkönnyítésére kiadható "parancsok" a válasz mezőben, ha a **Start** gombon a "Start" felirat olvasható.
-
 1. `#reset`- reszeteli az aktuális nyelvkombinációt
 2. `#round++`- növeli az aktális nyelvkombináción a teljesített körök számát
 3. `#show flag` - lefut a kör végén megjelenő "LED zászló"
@@ -255,6 +267,8 @@ A tesztelés megkönnyítésére kiadható "parancsok" a válasz mezőben, ha a 
 6. `#delete MIX` - törli a "MIX" feliratot a `Nyelv`combo boxból
 7. `show my congrat` - informál az összegyűjtött gratulációk számáról
 
+<br>
+[⬆︎](#tartalom)
 <br>
 # Terv
  
@@ -284,4 +298,4 @@ A helyes válaszok számát figyelembe véve az indexeket eltárolja a program �
 lehetséges következő futamokban már nem kérdezi ki ugyanazon körben.
 
 <br>
-* [⬆︎](#a-tábla-tartalma)
+[⬆︎](#tartalom)
