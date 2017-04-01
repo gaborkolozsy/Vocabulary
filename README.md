@@ -1,11 +1,9 @@
 # Vocabulary - `Maven` alapú `pom` projekt Java nyelven
 
-<br>
 ## Screenshot
 
 ![](http://gitlab.com/KolozsyGabor/Vocabulary/raw/master/view/src/main/resources/hu/gaborkolozsy/images/Vocabulary.png "Screenshot")
 
-<br>
 ## Tartalom
 
 * [Screenshot](#screenshot)
@@ -33,7 +31,7 @@
 <br>
 # Leírás
 
-### Angol és német szókincs bővítésére alkalmas program.
+## Angol és német szókincs bővítésére alkalmas program.
 
 A program feltesz egy kérdést az egyik nyelven, és meg kell válaszolni a másikon. 
 Egy sorozatnyi ilyen kérdés-válasz neve a programban "**Futam**".
@@ -63,7 +61,6 @@ Az aktuális információ elérhető a programban(pl.: **131/1000**).
 
 A három szószedet fájl tehát hat különböző és elérhető nyelvkombinációt takar.
 
-<br>
 ## Használat
 
 A "**Start**" gombra való kattintás után elindul a kérdezz-felelek. Ha a válaszmezőbe 
@@ -79,15 +76,11 @@ reszetelésre kerülnek a futam egyes információi.
 A szavakat körönként **legalább 2x** kell helyesen lefordítani, **legalább két különböző** 
 futamban. 
 
-<br>
-[⬆︎](#tartalom)
-<br>
 ## Szabályok
 
 1. Csak ékezet nélküli betűk használhatóak.
 2. A **`'ß'`** karaktert **`'ss'`** karakterrel kell helyetesíteni.
 
-<br>
 ## Jutalmazás
 
 1. Nyelvkombinációkként és futamszámonként az első 100%-os teljesítményhez egy 
@@ -104,7 +97,6 @@ futamban.
    ill. **Romhányi József** verseket tartalmaznak részletekben. A teljes változat 
    csak a kör teljesítésekor megkapott csillag után olvasható.
 
-<br>
 ## Gyorsbillentyű
 
 * Ha a kurzor a válasz mezőben van, akkor "**Ctrl** + **J**" billentyűkombinációval 
@@ -113,9 +105,6 @@ futamban.
   ill. kilépéskor. A programban megtalálható email címre kattintva a fájl akár 
   mellékletként el is küldhető (ha van beállított email kliens). 
 
-<br>
-[⬆︎](#tartalom)
-<br>
 ## Informálás
 
 A program felugró ablakokban informálja a felhasználót a következőkről:
@@ -125,6 +114,9 @@ A program felugró ablakokban informálja a felhasználót a következőkről:
 * Tanács
 
 <br>
+[⬆︎](#tartalom)
+<br>
+
 # Felépítés
 
 A programszerkezet felépítése a `MVC`(Model-View-Controller) architektúra alapján 
@@ -132,7 +124,6 @@ történt. A szülő `pom`(***Vocabulary***) moduljai valósítják meg a `MVC` 
 modell elkülönülő három rétegét. A `View`réteg csak a `Controller`, a `Controller`
 réteg csak a `Model`réteggel van kapcsolatban.
 
-<br>
 ## Függőségek
 
 * `view`
@@ -163,9 +154,6 @@ réteg csak a `Model`réteggel van kapcsolatban.
         <scope>test</scope>
       </dependency>
 
-<br>
-[⬆︎](#tartalom)
-<br>
 ## Fájlok
 
 A `view` modul gyökerében található a kézzel megszerkesztett két `.ini` fájl. 
@@ -196,6 +184,7 @@ ill. a nyelvkombináció megváltozásakor.
 <br>
 [⬆︎](#tartalom)
 <br>
+
 ## Adatok
 
 #### Az adatokat a `DataService` osztály kezeli.
@@ -231,16 +220,13 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 #### `List`-ben tárolt adat.
 
-* `learnedIdxs`<sup title="Lásd lábjegyzet">[*1*](#lábjegyzet)</sup> - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
+* `learnedIdxs`*<sup title="Lásd lábjegyzet">[1](#lábjegyzet)</sup>* - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
 
 #### `Integer`-ként tárolt adatok.
 
 * `round` - a teljesített körök száma nyelvpáronként
 * `congratulation` - az összes megszerzett gratulációk száma<br>
 
-<br>
-[⬆︎](#tartalom)
-<br>
 ## Tesztelhetőség
 
 ### A tesztelés megkönnyítésére kiadható "parancsok" a válasz mezőben ha a **`Start`** gombon a "Start" felirat olvasható.
@@ -266,6 +252,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 <br>
 [⬆︎](#tartalom)
 <br>
+
 # Terv
  
 * Akasztófa játék
@@ -273,7 +260,6 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 * Saját szószedet feltöltése
 * Gyorsbillentyűre segítség
 
-<br>
 # `Figyelmeztetés`
 
 * A `View` modul gyökerében található **`data.bin`** fájl törlése az adatok 
