@@ -220,7 +220,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 #### `List`-ben tárolt adat.
 
-* `learnedIdxs`[<sup title="Lásd lábjegyzet">[1](#lábjegyzet)</sup>] - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
+* `learnedIdxs`<sup title="Lásd lábjegyzet">[[1](#lábjegyzet)]</sup> - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
 
 #### `Integer`-ként tárolt adatok.
 
@@ -260,6 +260,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 * Saját szószedet feltöltése
 * Gyorsbillentyűre segítség
 
+<br>
 # `Figyelmeztetés`
 
 * A `View` modul gyökerében található **`data.bin`** fájl törlése az adatok 
