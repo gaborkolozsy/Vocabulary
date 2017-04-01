@@ -19,13 +19,13 @@
     * [Függőségek](#függőségek) 
     * [Fájlok](#fájlok)
     * [Adatok](#adatok)
-        * [Az adatok kezelése: `DataService`](#az adatokat a `DataService` osztály kezeli.)
-        * [A `Container` interface-t megvalósító osztályok](#a `Container` interface-t megvalósító osztályok.)
-        * [`List`-ben tárolt adat](#`List`-ben tárolt adat.)
-        * [`Integer`-ként tárolt adatok](#`Integer`-ként tárolt adatok.)
+        * [Az adatok kezelése: `DataService`](#az-adatokat-a-`DataService`-osztály-kezeli.)
+        * [A `Container` interface-t megvalósító osztályok](#a-`Container`-interface-t-megvalósító-osztályok.)
+        * [`List`-ben tárolt adat](#`List`-ben-tárolt-adat.)
+        * [`Integer`-ként tárolt adatok](#`Integer`-ként-tárolt-adatok.)
     * [Egyéb](#egyéb)
-        * [`RegExp` minták a teszteléshez](#`RegExp` minták - a tesztelés megkönnyítésére kiadható parancsok a válasz mezőben, ha a Start gombon a Start felirat olvasható -)
-        * [`String`-ek a teszteléshez](#`String`-ek - a tesztelés megkönnyítésére kiadható \"parancsok\" a válasz mezőben, ha a Start gombon a \"Start\" felirat olvasható -)
+        * [`RegExp` minták a teszteléshez](#`RegExp`-minták-a-tesztelés-megkönnyítésére-kiadható-parancsok-a-válasz-mezőben,-ha-a-Start-gombon-a-Start-felirat-olvasható-)
+        * [`String`-ek a teszteléshez](#`String`-ek-a-tesztelés-megkönnyítésére-kiadható-\"parancsok\"-a-válasz-mezőben,-ha-a-Start-gombon-a-\"Start\"-felirat-olvasható-)
 * [Terv](#terv)
 * [Figyelmeztetés](#figyelmeztetés)
 * [Lábjegyzet](#lábjegyzet)
@@ -268,7 +268,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 <br><br>
 # Lábjegyzet
 
-* [`1⬆`](#`list`-ben tárolt adat.) - Nem szavakat tárol a program hanem a listában elfoglalt indexeiket. Ezen
+* [`1⬆`](#`list`-ben-tárolt-adat) Nem szavakat tárol a program hanem a listában elfoglalt indexeiket. Ezen
 indexek mindig ugyanahhoz a szóhoz tartoznak. A már megtanult szavak indexeit a 
 program törli egy ideiglenesen létrehozott tárolóból ami 0-1000 között tartalmazz 
 "indexeket". A maradékból(a még meg nem tanult szavak indexei) pedig véletlenszerüen 
