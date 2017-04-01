@@ -280,4 +280,4 @@ A helyes válaszok számát figyelembe véve az indexeket eltárolja a program �
 lehetséges következő futamokban már nem kérdezi ki ugyanazon körben.
 
 <br>
-* [⬆︎](#a tábla tartalma)
+* [⬆︎](#a-tábla-tartalma)
