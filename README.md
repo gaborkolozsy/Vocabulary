@@ -190,7 +190,7 @@ ill. a nyelvkombináció megváltozásakor.
 <br>
 ## Adatok
 
-#### Az adatokat a `DataService` osztály kezeli.
+### Az adatokat a `DataService` osztály kezeli.
 
 Az adatok a program használatakor keletkeznek és a `data.bin` fájlban tárolódnak.
 
