@@ -233,7 +233,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 <br>
 ## Egyéb
 
-#### `RegExp` minták a teszteléshez
+#### `RegExp` minták a teszteléshez.
 
 * A tesztelés megkönnyítésére kiadható parancsok a válasz mezőben ha a Start gombon a Start felirat olvasható.
 
