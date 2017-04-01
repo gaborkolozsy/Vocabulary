@@ -1,7 +1,36 @@
 # Vocabulary - `Maven` alapú `pom` projekt Java nyelven
 
-![](http://gitlab.com/KolozsyGabor/Vocabulary/raw/master/view/src/main/resources/hu/gaborkolozsy/images/Vocabulary.png)
+<br>
+## Screenshot
 
+![](http://gitlab.com/KolozsyGabor/Vocabulary/raw/master/view/src/main/resources/hu/gaborkolozsy/images/Vocabulary.png "Screenshot")
+
+<br>
+## A tábla tartalma
+
+* [Screenshot](#screenshot)
+* [Leírás](#leirás)
+    * [Használat](#használat)
+    * [Szabályok](#szabályok)
+    * [Jutalmazás](#jutalmazás)
+    * [Gyorsbillentyű](#Gyorsbillentyű)
+    * [Informálás](#Informálás)
+* [Felépítés](#felépítés)
+    * [Függőségek](#Függőségek) 
+    * [Fájlok](#Fájlok)
+    * [Adatok](#Adatok)
+        * [Az adatok kezelése: `DataService`](#Az adatokat a `DataService` osztály kezeli.)
+        * [A `Container` interface-t megvalósító osztályok](#A `Container` interface-t megvalósító osztályok.)
+        * [`List`-ben tárolt adat](#`List`-ben tárolt adat.)
+        * [`Integer`-ként tárolt adatok](#`Integer`-ként tárolt adatok.)
+    * [Egyéb](#egyéb)
+        * [`RegExp` minták a teszteléshez](#`RegExp` minták - a tesztelés megkönnyítésére kiadható parancsok a válasz mezőben, ha a Start gombon a Start felirat olvasható -)
+        * [`String`-ek a teszteléshez](#`String`-ek - a tesztelés megkönnyítésére kiadható \"parancsok\" a válasz mezőben, ha a Start gombon a \"Start\" felirat olvasható -)
+* [Terv](#terv)
+* [Figyelmeztetés](#figyelmeztetés)
+* [Lábjegyzet](#lábjegyzet)
+
+<br>
 # Leírás
 
 ### Angol és német szókincs bővítésére alkalmas program.
@@ -34,6 +63,7 @@ Az aktuális információ elérhető a programban(pl.: **131/1000**).
 
 A három szószedet fájl tehát hat különböző és elérhető nyelvkombinációt takar.
 
+<br>
 ## Használat
 
 A "**Start**" gombra való kattintás után elindul a kérdezz-felelek. Ha a válaszmezőbe 
@@ -49,11 +79,13 @@ reszetelésre kerülnek a futam egyes információi.
 A szavakat körönként **legalább 2x** kell helyesen lefordítani, **legalább két különböző** 
 futamban. 
 
+<br>
 ## Szabályok
 
 1. Csak ékezet nélküli betűk használhatóak.
 2. A **`'ß'`** karaktert **`'ss'`** karakterrel kell helyetesíteni.
 
+<br>
 ## Jutalmazás
 
 1. Nyelvkombinációkként és futamszámonként az első 100%-os teljesítményhez egy 
@@ -70,6 +102,7 @@ futamban.
    ill. **Romhányi József** verseket tartalmaznak részletekben. A teljes változat 
    csak a kör teljesítésekor megkapott csillag után olvasható.
 
+<br>
 ## Gyorsbillentyű
 
 * Ha a kurzor a válasz mezőben van, akkor "**Ctrl** + **J**" billentyűkombinációval 
@@ -78,6 +111,7 @@ futamban.
   ill. kilépéskor. A programban megtalálható email címre kattintva a fájl akár 
   mellékletként el is küldhető (ha van beállított email kliens). 
 
+<br>
 ## Informálás
 
 A program felugró ablakokban informálja a felhasználót a következőkről:
@@ -86,6 +120,7 @@ A program felugró ablakokban informálja a felhasználót a következőkről:
 * Figyelmeztetés
 * Tanács
 
+<br>
 # Felépítés
 
 A programszerkezet felépítése a `MVC`(Model-View-Controller) architektúra alapján 
@@ -93,33 +128,38 @@ történt. A szülő `pom`(***Vocabulary***) moduljai valósítják meg a `MVC` 
 modell elkülönülő három rétegét. A `View`réteg csak a `Controller`, a `Controller`
 réteg csak a `Model`réteggel van kapcsolatban.
 
+<br>
 ## Függőségek
 
-* `view`- <dependency> 
-              <groupId>hu.gaborkolozsy</groupId> 
-              <artifactId>controller</artifactId> 
-              <version>2.3.0</version>
-          </dependency>
+* `view`
+    * <dependency> 
+        <groupId>hu.gaborkolozsy</groupId> 
+        <artifactId>controller</artifactId> 
+        <version>2.3.0</version>
+      </dependency>
 
-* `controller`- <dependency> 
-                    <groupId>hu.gaborkolozsy</groupId> 
-                    <artifactId>model</artifactId> 
-                    <version>2.3.0</version>
-                </dependency>  
-              - <dependency>
-                    <groupId>junit</groupId>
-                    <artifactId>junit</artifactId>
-                    <version>4.10</version>
-                    <scope>test</scope>
-                </dependency>
+* `controller`
+    * <dependency> 
+        <groupId>hu.gaborkolozsy</groupId> 
+        <artifactId>model</artifactId> 
+        <version>2.3.0</version>
+      </dependency>  
+    * <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.10</version>
+        <scope>test</scope>
+      </dependency>
 
-* `model`- <dependency>
-               <groupId>junit</groupId>
-               <artifactId>junit</artifactId>
-               <version>4.10</version>
-               <scope>test</scope>
-           </dependency>
+* `model`
+    * <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.10</version>
+        <scope>test</scope>
+      </dependency>
 
+<br>
 ## Fájlok
 
 A `view` modul gyökerében található a kézzel megszerkesztett két `.ini` fájl. 
@@ -147,6 +187,7 @@ ill. a nyelvkombináció megváltozásakor.
 
 * `proposal(XXX-YYY, 1970.01.01 123456).ini` 
 
+<br>
 ## Adatok
 
 #### Az adatokat a `DataService` osztály kezeli.
@@ -182,16 +223,17 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 #### `List`-ben tárolt adat.
 
-* `learnedIdxs`<sup title="Lásd Lábjegyzet">`[1]`</sup> - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
+* [`learnedIdxs`](#lábjegyzet)<sup title="Lásd Lábjegyzet">[`1`]</sup> - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
 
 #### `Integer`-ként tárolt adatok.
 
 * `round` - a teljesített körök száma nyelvpáronként
 * `congratulation` - az összes megszerzett gratulációk száma<br>
 
+<br>
 ## Egyéb
 
-#### `RegExp` minták - a tesztelés megkönnyítésére kiadható "parancsok" a válasz mezőben, ha a **Start** gombon a "Start" felirat olvasható -
+#### `RegExp` minták - a tesztelés megkönnyítésére kiadható parancsok a válasz mezőben, ha a Start gombon a Start felirat olvasható -
 
 1. `#answer [1-2]` - 1 **körben** N alakalommal kell lefordítani helyesen egy szót
 2. `#\\d{3}`- beállítja az aktuális nyelvkombináción a tanult indexek lista méretét és ennek megfelelően a "jutalom csillag" is megjelenik
@@ -209,6 +251,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 6. `#delete MIX` - törli a "MIX" feliratot a `Nyelv`combo boxból
 7. `show my congrat` - informál az összegyűjtött gratulációk számáról
 
+<br>
 # Terv
  
 * Akasztófa játék
@@ -216,14 +259,16 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 * Saját szószedet feltöltése
 * Gyorsbillentyűre segítség
 
+<br>
 # `Figyelmeztetés`
 
 * A `View` modul gyökerében található **`data.bin`** fájl törlése az adatok 
-  elvesztésével jár!<br><br>
+  elvesztésével jár!
 
+<br><br>
 # Lábjegyzet
 
-**`[1]`** - Nem szavakat tárol a program hanem a listában elfoglalt indexeiket. Ezen
+* [`1⬆︎︎`](#`List`-ben tárolt adat.) - Nem szavakat tárol a program hanem a listában elfoglalt indexeiket. Ezen
 indexek mindig ugyanahhoz a szóhoz tartoznak. A már megtanult szavak indexeit a 
 program törli egy ideiglenesen létrehozott tárolóból ami 0-1000 között tartalmazz 
 "indexeket". A maradékból(a még meg nem tanult szavak indexei) pedig véletlenszerüen 
@@ -233,3 +278,6 @@ tartozó értékekkel(**VocabularyService** **vocabulary** **Map** adattagja) ha
 össze a program a **válasz** mezőben található szavakat.<br>
 A helyes válaszok számát figyelembe véve az indexeket eltárolja a program és a 
 lehetséges következő futamokban már nem kérdezi ki ugyanazon körben.
+
+<br>
+* [⬆︎︎](#A tábla tartalma)
