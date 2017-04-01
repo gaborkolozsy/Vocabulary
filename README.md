@@ -24,7 +24,7 @@
         * [`List`-ben tárolt adat](#list-ben-tárolt-adat)
         * [`Integer`-ként tárolt adatok](#integer-ként-tárolt-adatok)
     * [Egyéb](#egyéb)
-        * [`RegExp` minták a teszteléshez](#regExp-minták-a-teszteléshez)
+        * [`RegExp` minták a teszteléshez](#regexp-minták-a-teszteléshez)
         * [`String`-ek a teszteléshez](#string-ek-a-tesztelés-megkönnyítésére-kiadható-\"parancsok\"-a-válasz-mezőben,-ha-a-Start-gombon-a-\"Start\"-felirat-olvasható)
 * [Terv](#terv)
 * [Figyelmeztetés](#figyelmeztetés)
