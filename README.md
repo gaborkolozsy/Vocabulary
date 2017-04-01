@@ -24,8 +24,8 @@
         * [`List`-ben tárolt adat](#list-ben-tárolt-adat)
         * [`Integer`-ként tárolt adatok](#integer-ként-tárolt-adatok)
     * [Egyéb](#egyéb)
-        * [`RegExp` minták a teszteléshez](#`RegExp`-minták-a-tesztelés-megkönnyítésére-kiadható-parancsok-a-válasz-mezőben,-ha-a-Start-gombon-a-Start-felirat-olvasható-)
-        * [`String`-ek a teszteléshez](#`String`-ek-a-tesztelés-megkönnyítésére-kiadható-\"parancsok\"-a-válasz-mezőben,-ha-a-Start-gombon-a-\"Start\"-felirat-olvasható-)
+        * [`RegExp` minták a teszteléshez](#regExp-minták-a-tesztelés-megkönnyítésére-kiadható-parancsok-a-válasz-mezőben,-ha-a-Start-gombon-a-Start-felirat-olvasható-)
+        * [`String`-ek a teszteléshez](#string-ek-a-tesztelés-megkönnyítésére-kiadható-\"parancsok\"-a-válasz-mezőben,-ha-a-Start-gombon-a-\"Start\"-felirat-olvasható-)
 * [Terv](#terv)
 * [Figyelmeztetés](#figyelmeztetés)
 * [Lábjegyzet](#lábjegyzet)
@@ -223,7 +223,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 #### `List`-ben tárolt adat.
 
-* [`learnedIdxs`](#lábjegyzet)<sup title="Lásd Lábjegyzet">[`1`]</sup> - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
+* [`learnedIdxs`](#lábjegyzet)<sup title="Lásd lábjegyzet">[`1`]</sup> - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
 
 #### `Integer`-ként tárolt adatok.
 
