@@ -220,7 +220,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 #### `List`-ben tárolt adat.
 
-* `learnedIdxs`*<sup title="Lásd lábjegyzet">[1](#lábjegyzet)</sup>* - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
+* `learnedIdxs`[<sup title="Lásd lábjegyzet">[1](#lábjegyzet)</sup>] - a **körben** már ***"megtanult"*** szavak, listában elfoglalt helye szerinti indexeiket tárolja
 
 #### `Integer`-ként tárolt adatok.
 
@@ -279,5 +279,3 @@ tartozó értékekkel(**VocabularyService** **vocabulary** **Map** adattagja) ha
 A helyes válaszok számát figyelembe véve az indexeket eltárolja a program és a 
 lehetséges következő futamokban már nem kérdezi ki ugyanazon körben.
 
-<br>
-[⬆︎](#tartalom)
