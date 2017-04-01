@@ -16,14 +16,14 @@
 * [Felépítés](#felépítés)
     * [Függőségek](#függőségek) 
     * [Fájlok](#fájlok)
-    * [Adatok](#adatok)
-        * [Az adatok kezelése: `DataService`](#az-adatokat-a-dataservice-osztály-kezeli)
-        * [A `Container` interface-t megvalósító osztályok](#a-container-interface-t-megvalósító-osztályok)
-        * [`List`-ben tárolt adat](#list-ben-tárolt-adat)
-        * [`Integer`-ként tárolt adatok](#integer-ként-tárolt-adatok)
-    * [Tesztelhetőség](#tesztelhetőség)
-        * [`RegExp` minták a teszteléshez](#regexp-minták-a-teszteléshez)
-        * [`String`-ek a teszteléshez](#string-ek-a-teszteléshez)
+* [Adatok](#adatok)
+    * [Az adatok kezelése: `DataService`](#az-adatokat-a-dataservice-osztály-kezeli)
+    * [A `Container` interface-t megvalósító osztályok](#a-container-interface-t-megvalósító-osztályok)
+    * [`List`-ben tárolt adat](#list-ben-tárolt-adat)
+    * [`Integer`-ként tárolt adatok](#integer-ként-tárolt-adatok)
+* [Tesztelhetőség](#tesztelhetőség)
+    * [`RegExp` minták a teszteléshez](#regexp-minták-a-teszteléshez)
+    * [`String`-ek a teszteléshez](#string-ek-a-teszteléshez)
 * [Terv](#terv)
 * [Figyelmeztetés](#figyelmeztetés)
 * [Lábjegyzet](#lábjegyzet)
@@ -61,7 +61,7 @@ Az aktuális információ elérhető a programban(pl.: **131/1000**).
 
 A három szószedet fájl tehát hat különböző és elérhető nyelvkombinációt takar.
 
-## Használat
+#### Használat
 
 A "**Start**" gombra való kattintás után elindul a kérdezz-felelek. Ha a válaszmezőbe 
 gépelt fordítás helyes, akkor az `Enter` lenyomása után zöld színű lesz az. 
@@ -76,12 +76,12 @@ reszetelésre kerülnek a futam egyes információi.
 A szavakat körönként **legalább 2x** kell helyesen lefordítani, **legalább két különböző** 
 futamban. 
 
-## Szabályok
+#### Szabályok
 
 1. Csak ékezet nélküli betűk használhatóak.
 2. A **`'ß'`** karaktert **`'ss'`** karakterrel kell helyetesíteni.
 
-## Jutalmazás
+#### Jutalmazás
 
 1. Nyelvkombinációkként és futamszámonként az első 100%-os teljesítményhez egy 
    felugró kis ablakban gratulál a program. Ebből 42-t lehet összegyüjteni
@@ -97,7 +97,7 @@ futamban.
    ill. **Romhányi József** verseket tartalmaznak részletekben. A teljes változat 
    csak a kör teljesítésekor megkapott csillag után olvasható.
 
-## Gyorsbillentyű
+#### Gyorsbillentyű
 
 * Ha a kurzor a válasz mezőben van, akkor "**Ctrl** + **J**" billentyűkombinációval 
   a felhasználó javaslatot(fordítási, stb.) tehet. A program a javaslatokat `.ini` 
@@ -105,7 +105,7 @@ futamban.
   ill. kilépéskor. A programban megtalálható email címre kattintva a fájl akár 
   mellékletként el is küldhető (ha van beállított email kliens). 
 
-## Informálás
+#### Informálás
 
 A program felugró ablakokban informálja a felhasználót a következőkről:
 
@@ -124,37 +124,14 @@ történt. A szülő `pom`(***Vocabulary***) moduljai valósítják meg a `MVC` 
 modell elkülönülő három rétegét. A `View`réteg csak a `Controller`, a `Controller`
 réteg csak a `Model`réteggel van kapcsolatban.
 
-## Függőségek
+#### Függőségek
+Modul | Függőség(ek)
+:--:|:--:
+`model` | junit junit 4.10 test
+`view` | hu.gaborkolozsy controller 2.3.0
+`controller` | hu.gaborkolozsy model 2.3.0,                                     junit junit 4.10 test
 
-* `view`
-    * <dependency> 
-        <groupId>hu.gaborkolozsy</groupId> 
-        <artifactId>controller</artifactId> 
-        <version>2.3.0</version>
-      </dependency>
-
-* `controller`
-    * <dependency> 
-        <groupId>hu.gaborkolozsy</groupId> 
-        <artifactId>model</artifactId> 
-        <version>2.3.0</version>
-      </dependency>  
-    * <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.10</version>
-        <scope>test</scope>
-      </dependency>
-
-* `model`
-    * <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.10</version>
-        <scope>test</scope>
-      </dependency>
-
-## Fájlok
+#### Fájlok
 
 A `view` modul gyökerében található a kézzel megszerkesztett két `.ini` fájl. 
 Ezeket a program a `ConfigService` osztályban alakítja át és menti bináris fájlba. 
@@ -179,13 +156,13 @@ leállításkor(**Vocabulary main**).
 A javaslatok szintén ide kerülnek. A `ProposalService` osztály menti kilépéskor 
 ill. a nyelvkombináció megváltozásakor.
 
-* `proposal(XXX-YYY, 1970.01.01 123456).ini` 
+* `proposal(ABC-XYZ, 1970.01.01 123456).ini` 
 
 <br>
 [⬆︎](#tartalom)
 <br>
 
-## Adatok
+# Adatok
 
 #### Az adatokat a `DataService` osztály kezeli.
 
@@ -227,7 +204,8 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 * `round` - a teljesített körök száma nyelvpáronként
 * `congratulation` - az összes megszerzett gratulációk száma<br>
 
-## Tesztelhetőség
+<br>
+# Tesztelhetőség
 
 ### A tesztelés megkönnyítésére kiadható "parancsok" a válasz mezőben ha a **`Start`** gombon a "Start" felirat olvasható.
 
@@ -266,10 +244,10 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 * A `View` modul gyökerében található **`data.bin`** fájl törlése az adatok 
   elvesztésével jár!
 
-<br><br>
-# Lábjegyzet
-
-* [`1⬆`](#list-ben-tárolt-adat) Nem szavakat tárol a program hanem a listában elfoglalt indexeiket. Ezen
+<br>
+##### Lábjegyzet
+---
+[`1⬆`](#list-ben-tárolt-adat) Nem szavakat tárol a program hanem a listában elfoglalt indexeiket. Ezen
 indexek mindig ugyanahhoz a szóhoz tartoznak. A már megtanult szavak indexeit a 
 program törli egy ideiglenesen létrehozott tárolóból ami 0-1000 között tartalmazz 
 "indexeket". A maradékból(a még meg nem tanult szavak indexei) pedig véletlenszerüen 
