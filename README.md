@@ -25,7 +25,7 @@
         * [`Integer`-ként tárolt adatok](#integer-ként-tárolt-adatok)
     * [Egyéb](#egyéb)
         * [`RegExp` minták a teszteléshez](#regexp-minták-a-teszteléshez)
-        * [`String`-ek a teszteléshez](#string-ek-a-tesztelés-megkönnyítésére-kiadható-parancsok-a-válasz-mezőben-ha-a-start-gombon-a-start-felirat-olvasható)
+        * [`String`-ek a teszteléshez](#string-ek-a-teszteléshez)
 * [Terv](#terv)
 * [Figyelmeztetés](#figyelmeztetés)
 * [Lábjegyzet](#lábjegyzet)
@@ -235,16 +235,17 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 #### `RegExp` minták a teszteléshez.
 
-A tesztelés megkönnyítésére kiadható parancsok a válasz mezőben ha a Start gombon a Start felirat olvasható.
+A tesztelés megkönnyítésére kiadható "parancsok" a válasz mezőben ha a **Start** gombon a "Start" felirat olvasható.
 
-<br>
 1. `#answer [1-2]` - 1 **körben** N alakalommal kell lefordítani helyesen egy szót
 2. `#\\d{3}`- beállítja az aktuális nyelvkombináción a tanult indexek lista méretét és ennek megfelelően a "jutalom csillag" is megjelenik
 3. `#race [0-6]`- beállítja a `Futam` combo box maximális indexét
 4. `#add (20|30|40|50|100)`- hozzáadja a kiválasztott tételt a `Futam`combo boxhoz
 5. `#delete (20|30|40|50|100)` - törli a kiválasztott tételt a `Futam`combo boxból
 
-#### `String`-ek a tesztelés megkönnyítésére kiadható "parancsok" a válasz mezőben, ha a **Start** gombon a "Start" felirat olvasható.
+#### `String`-ek a teszteléshez 
+
+A tesztelés megkönnyítésére kiadható "parancsok" a válasz mezőben, ha a **Start** gombon a "Start" felirat olvasható.
 
 1. `#reset`- reszeteli az aktuális nyelvkombinációt
 2. `#round++`- növeli az aktális nyelvkombináción a teljesített körök számát
