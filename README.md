@@ -33,47 +33,47 @@
 
 ## Angol és német szókincs bővítésére alkalmas program.
 
-A program feltesz egy kérdést az egyik nyelven, és meg kell válaszolni a másikon. 
+>A program feltesz egy kérdést az egyik nyelven, és meg kell válaszolni a másikon. 
 Egy sorozatnyi ilyen kérdés-válasz neve a programban "**Futam**".
 
-A program, egy egyszer megjelenő üdvözlő ablakkal és alapértelmezetten az "**ENG-HUN**"
+>A program, egy egyszer megjelenő üdvözlő ablakkal és alapértelmezetten az "**ENG-HUN**"
 nyelvkombinációval indul. Ezt megváltoztatni a "**Nyelv**" combo box-ból ill. a 
 "**Csere**" gombra való kattintással lehet.
 
-A "**Futam**" combo box-ból választható ki, hogy egy futam alkalmával mennyi legyen
+>A "**Futam**" combo box-ból választható ki, hogy egy futam alkalmával mennyi legyen
 a fordítandó szavak száma. Kezdetben ez csak `5` és `10` lehet. A "folyamatos" jó 
 teljesítmény(**T%**) eredményeként ezek kiegészülnek a `20`, `30`, `40`, `50` és `100`-as 
 tételekkel. pl.: `10`-es futam **90 ≤ T ≤ 100 3x** = `20`-as tétel hozzáadva stb.
 
-A "**view**" modul gyökerében található két, kézzel szerkesztett `.ini` fájlban 
+>A "**view**" modul gyökerében található két, kézzel szerkesztett `.ini` fájlban 
 ugyanaz az 1000 magyar szó került lefordításra mind német mind angol nyelvre.
 A program ezekből készít `.bin` kiterjesztésű fájlokat az első indítás alkalmával. 
 A továbbiakban onnan tölti be a használni kívánt szószedetet.
 
-Az alapból három `.bin` kiterjesztésű szószedetből elöször csak kettő érhető el
+>Az alapból három `.bin` kiterjesztésű szószedetből elöször csak kettő érhető el
 (de az első indításkor létrehozza mindhármat). 
 A kevert ***MIX*** nyelv, "**ENG-GER**" és annak fordítottja, "**GER-ENG**" szószedetek csak akkor, 
 ha a felhasználó teljesített legalább egy-egy ***"kört"*** két különböző nyelvkombináción.
 
-A "**Kör**" itt azt jelenti, hogy a nyelvpáron elérhető minden szót legalább
+>A "**Kör**" itt azt jelenti, hogy a nyelvpáron elérhető minden szót legalább
 2x jól lefordított a felhasználó.<br>
 Az aktuális információ elérhető a programban(pl.: **131/1000**).
 
-A három szószedet fájl tehát hat különböző és elérhető nyelvkombinációt takar.
+>A három szószedet fájl tehát hat különböző és elérhető nyelvkombinációt takar.
 
 #### Használat
 
-A "**Start**" gombra való kattintás után elindul a kérdezz-felelek. Ha a válaszmezőbe 
+>A "**Start**" gombra való kattintás után elindul a kérdezz-felelek. Ha a válaszmezőbe 
 gépelt fordítás helyes, akkor az `Enter` lenyomása után zöld színű lesz az. 
 Máskülönben megjelenik a helyes fordítás pirossal. Az `Enter` ismételt lenyomásával 
 kérhető a következő fordítandó szó.
 
-A rontott szavak a futam végén újra sorra kerülnek. Ez megy mindaddig amíg minden 
+>A rontott szavak a futam végén újra sorra kerülnek. Ez megy mindaddig amíg minden 
 a futamban fordításra váró szó helyesen le nem lesz fordítva. A következő futam az 
 "**Újra**" feliratú gombra való kattintással kezdeményezhető. Ezzel egyidőben 
 reszetelésre kerülnek a futam egyes információi.
 
-A szavakat körönként **legalább 2x** kell helyesen lefordítani, **legalább két különböző** 
+>A szavakat körönként **legalább 2x** kell helyesen lefordítani, **legalább két különböző** 
 futamban. 
 
 #### Szabályok
@@ -99,11 +99,11 @@ futamban.
 
 #### Gyorsbillentyű
 
-* Ha a kurzor a válasz mezőben van, akkor "**Ctrl** + **J**" billentyűkombinációval 
-  a felhasználó javaslatot(fordítási, stb.) tehet. A program a javaslatokat `.ini` 
-  kiterjesztésű fájlba menti nyelvkombinációnként, nyelv váltás és csere alkalmával 
-  ill. kilépéskor. A programban megtalálható email címre kattintva a fájl akár 
-  mellékletként el is küldhető (ha van beállított email kliens). 
+>Ha a kurzor a válasz mezőben van, akkor "**Ctrl** + **J**" billentyűkombinációval 
+a felhasználó javaslatot(fordítási, stb.) tehet. A program a javaslatokat `.ini` 
+kiterjesztésű fájlba menti nyelvkombinációnként, nyelv váltás és csere alkalmával 
+ill. kilépéskor. A programban megtalálható email címre kattintva a fájl akár 
+mellékletként el is küldhető (ha van beállított email kliens). 
 
 #### Informálás
 
@@ -119,7 +119,7 @@ A program felugró ablakokban informálja a felhasználót a következőkről:
 
 # Felépítés
 
-A programszerkezet felépítése a `MVC`(Model-View-Controller) architektúra alapján 
+>A programszerkezet felépítése a `MVC`(Model-View-Controller) architektúra alapján 
 történt. A szülő `pom`(***Vocabulary***) moduljai valósítják meg a `MVC` tervezési 
 modell elkülönülő három rétegét. A `View`réteg csak a `Controller`, a `Controller`
 réteg csak a `Model`réteggel van kapcsolatban.
@@ -166,7 +166,7 @@ ill. a nyelvkombináció megváltozásakor.
 
 #### Az adatokat a `DataService` osztály kezeli.
 
-Az adatok a program használatakor keletkeznek és a `data.bin` fájlban tárolódnak.
+    Az adatok a program használatakor keletkeznek és a "data.bin" fájlban tárolódnak.
 
 * A tanult szavak azonosító indexei, hogy ne kérdezze ki a program többször körönként 
 mint a beállított érték(itt 2). Ha az érték 2, akkor törlödik és hozzáadodik a 
@@ -246,7 +246,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 <br>
 ##### Lábjegyzet
 ---
-[`1⬆`](#list-ben-tárolt-adat) Nem szavakat tárol a program hanem a listában elfoglalt indexeiket. Ezen
+>[`1⬆`](#list-ben-tárolt-adat) Nem szavakat tárol a program hanem a listában elfoglalt indexeiket. Ezen
 indexek mindig ugyanahhoz a szóhoz tartoznak. A már megtanult szavak indexeit a 
 program törli egy ideiglenesen létrehozott tárolóból ami 0-1000 között tartalmazz 
 "indexeket". A maradékból(a még meg nem tanult szavak indexei) pedig véletlenszerüen 
