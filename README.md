@@ -125,12 +125,11 @@ modell elkülönülő három rétegét. A `View`réteg csak a `Controller`, a `C
 réteg csak a `Model`réteggel van kapcsolatban.
 
 #### Függőségek
-Modul          Függőség(ek)
--------------  ------------
-`model`        junit junit 4.10 test
-`view`         hu.gaborkolozsy controller 2.3.0
-`controller`   hu.gaborkolozsy model 2.3.0
-               junit junit 4.10 test
+Modul           | Függőség(ek)
+:-------------: | :------------:
+`model`         | junit junit 4.10 test
+`view`          | hu.gaborkolozsy controller 2.3.0
+`controller`    | hu.gaborkolozsy model 2.3.0, junit junit 4.10 test
 
 #### Fájlok
 
@@ -242,8 +241,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 <br>
 # `Figyelmeztetés`
 
-* A `View` modul gyökerében található **`data.bin`** fájl törlése az adatok 
-  elvesztésével jár!
+    A "View" modul gyökerében található "data.bin" fájl törlése az adatok elvesztésével jár!
 
 <br>
 ##### Lábjegyzet
