@@ -2,7 +2,7 @@
 
 ## Screenshot
 
-![](http://gitlab.com/KolozsyGabor/Vocabulary/raw/master/view/src/main/resources/hu/gaborkolozsy/images/Vocabulary.png "Screenshot")
+![](http://gitlab.com/gaborkolozsy/Vocabulary/raw/master/view/src/main/resources/hu/gaborkolozsy/images/Vocabulary.png "Screenshot")
 
 ## Tartalom
 
