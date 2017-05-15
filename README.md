@@ -188,7 +188,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 * `DataContainerImpl` - tárol minden adatot
 * `IndexValueContainerImpl` - a szavak listában elfoglalt helye szerinti index(minden indításkor ua.) értéke(**0, 1, 2**)
-* `RaceComboBoxContainerImpl` - a futam combo box legmagasabb indexét tárolja nyelvpáronként
+* `RaceComboBoxContainerImpl` - a `Futam` combo box legmagasabb indexét tárolja nyelvpáronként
 * `PerformanceContainerImpl` - az egyes futamszámokon elért teljesítmény(**T > 90%**) számát tárolja nyelvpáronként
 
 #### `List`-ben tárolt adat.
@@ -209,8 +209,8 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 1. `#answer [1-2]` - 1 **körben** N alakalommal kell lefordítani helyesen egy szót
 2. `#\\d{3}`- beállítja az aktuális nyelvkombináción a tanult indexek lista méretét és ennek megfelelően a "jutalom csillag" is megjelenik
 3. `#race [0-6]`- beállítja a `Futam` combo box maximális indexét
-4. `#add (20|30|40|50|100)`- hozzáadja a kiválasztott tételt a `Futam`combo boxhoz
-5. `#delete (20|30|40|50|100)` - törli a kiválasztott tételt a `Futam`combo boxból
+4. `#add (20|30|40|50|100)`- hozzáadja a kiválasztott tételt a `Futam` combo boxhoz
+5. `#delete (20|30|40|50|100)` - törli a kiválasztott tételt a `Futam` combo boxból
 
 #### `String`-ek a teszteléshez 
 
@@ -218,8 +218,8 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 2. `#round++`- növeli az aktális nyelvkombináción a teljesített körök számát
 3. `#show flag` - lefut a kör végén megjelenő "LED zászló"
 4. `#delete flag`- törli a "LED zászló"-t
-5. `#add MIX` - hozzáadja a "MIX" feliratott a `Nyelv`combo boxhoz és így elérhető a "**ENG-GER**" és a "**GER-ENG**" nyelvkombináció
-6. `#delete MIX` - törli a "MIX" feliratot a `Nyelv`combo boxból
+5. `#add MIX` - hozzáadja a "MIX" feliratott a `Nyelv` combo boxhoz és így elérhető a "**ENG-GER**" és a "**GER-ENG**" nyelvkombináció
+6. `#delete MIX` - törli a "MIX" feliratot a `Nyelv` combo boxból
 7. `show my congrat` - informál az összegyűjtött gratulációk számáról
 
 [⬆︎](#tartalom)
