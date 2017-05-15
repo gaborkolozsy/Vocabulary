@@ -150,7 +150,7 @@ leállításkor(**Vocabulary main**).
 
    * `data.bin`
 
-* A javaslatok szintén ide kerülnek. A `ProposalService` osztály menti kilépéskor 
+* A javaslatok ide kerülnek. A `ProposalService` osztály menti kilépéskor 
 ill. a nyelvkombináció megváltozásakor.
 
    * `proposal(ABC-XYZ, 1970.01.01 123456).ini` 
@@ -242,7 +242,7 @@ program törli egy ideiglenesen létrehozott tárolóból ami 0-1000 között ta
 "indexeket". A maradékból(a még meg nem tanult szavak indexei) pedig véletlenszerüen 
 választja ki a futamszámnak megfelelő számú indexet. Ezen indexek alatt található 
 szavak kerülnek a **keyList**-ből a **kérdés** mezőbe és ezen szavakhoz(kulcs) 
-tartozó értékekkel(**VocabularyService** **vocabulary** **Map** adattagja) hasonlítja 
+tartozó értékekkel(**VocabularyService** **vocabulary** adattagja) hasonlítja 
 össze a program a **válasz** mezőben található szavakat.<br>
 A helyes válaszok számát figyelembe véve az indexeket eltárolja a program és a 
 lehetséges következő futamokban már nem kérdezi ki ugyanazon körben.
