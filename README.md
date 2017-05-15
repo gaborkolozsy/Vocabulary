@@ -28,7 +28,6 @@
 * [Figyelmeztetés](#figyelmeztetés)
 * [Lábjegyzet](#lábjegyzet)
 
-<br>
 # Leírás
 
 ## Angol és német szókincs bővítésére alkalmas program.
@@ -113,9 +112,7 @@ A program felugró ablakokban informálja a felhasználót a következőkről:
 * Figyelmeztetés
 * Tanács
 
-<br>
 [⬆︎](#tartalom)
-<br>
 
 # Felépítés
 
@@ -133,34 +130,32 @@ Modul           | Függőség(ek)
 
 #### Fájlok
 
-A `view` modul gyökerében található a kézzel megszerkesztett két `.ini` fájl. 
+* A `view` modul gyökerében található a kézzel megszerkesztett két `.ini` fájl. 
 Ezeket a program a `ConfigService` osztályban alakítja át és menti bináris fájlba. 
 A "felhasználó" már nem találkozik majd velük, így azt megváltoztatni nem tudja.
 
-* `English-1000.ini`
-* `German-1000.ini`
+   * `English-1000.ini`
+   * `German-1000.ini`
 
-A hibalehetőségek csökkentése érdekében csak a következő fájlok kerülnek a ***"végleges"*** 
+* A hibalehetőségek csökkentése érdekében csak a következő fájlok kerülnek a ***"végleges"*** 
 verzióba. Ezen fájlokat a `VocabularyService` osztály olvassa be.
 
-* `ENG-HUN.bin` (alapértelmezett)
-* `GER-HUN.bin`
-* `ENG-GER.bin`
+   * `ENG-HUN.bin` (alapértelmezett)
+   * `GER-HUN.bin`
+   * `ENG-GER.bin`
 
-A program ide menti a felhasználó elért eredményeit, adatait is. A `DataService` 
+* A program ide menti a felhasználó elért eredményeit, adatait is. A `DataService` 
 osztály olvassa be indításkor(**Vocabulary konstruktor**) és írja ki 
 leállításkor(**Vocabulary main**).
 
-* `data.bin`
+   * `data.bin`
 
-A javaslatok szintén ide kerülnek. A `ProposalService` osztály menti kilépéskor 
+* A javaslatok szintén ide kerülnek. A `ProposalService` osztály menti kilépéskor 
 ill. a nyelvkombináció megváltozásakor.
 
-* `proposal(ABC-XYZ, 1970.01.01 123456).ini` 
+   * `proposal(ABC-XYZ, 1970.01.01 123456).ini` 
 
-<br>
 [⬆︎](#tartalom)
-<br>
 
 # Adatok
 
@@ -186,7 +181,7 @@ a **Nyelv** combo box-hoz a **MIX** feliratott. Így onnantól bármikor elérhe
 a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
 * Gratulációk száma. A nyelvpárok futamszámain elért első 100%-os eredményért jár.
-`6` nyelvpár és `7` futamszám esetén az összegyűjthető gratulációk száma `42`.
+`6` nyelvpár és `7` futamszám esetén az összegyűjthető gratulációk száma `42`. [Lásd feljebb](#jutalmazás)
 
 #### A `Container` interface-t megvalósító osztályok.
 
@@ -204,7 +199,6 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 * `round` - a teljesített körök száma nyelvpáronként
 * `congratulation` - az összes megszerzett gratulációk száma<br>
 
-<br>
 # Tesztelhetőség
 
 ### A tesztelés megkönnyítésére kiadható "parancsok" a válasz mezőben ha a **`Start`** gombon a "Start" felirat olvasható.
@@ -227,9 +221,7 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 6. `#delete MIX` - törli a "MIX" feliratot a `Nyelv`combo boxból
 7. `show my congrat` - informál az összegyűjtött gratulációk számáról
 
-<br>
 [⬆︎](#tartalom)
-<br>
 
 # Terv
  
@@ -238,14 +230,12 @@ a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 * Saját szószedet feltöltése
 * Gyorsbillentyűre segítség
 
-<br>
 # `Figyelmeztetés`
 
     A "View" modul gyökerében található "data.bin" fájl törlése az adatok elvesztésével jár!
 
-<br>
 ##### Lábjegyzet
----
+
 >[`1⬆`](#list-ben-tárolt-adat) Nem szavakat tárol a program hanem a listában elfoglalt indexeiket. Ezen
 indexek mindig ugyanahhoz a szóhoz tartoznak. A már megtanult szavak indexeit a 
 program törli egy ideiglenesen létrehozott tárolóból ami 0-1000 között tartalmazz 
@@ -257,3 +247,18 @@ tartozó értékekkel(**VocabularyService** **vocabulary** **Map** adattagja) ha
 A helyes válaszok számát figyelembe véve az indexeket eltárolja a program és a 
 lehetséges következő futamokban már nem kérdezi ki ugyanazon körben.
 
+# &nbsp;
+<br>
+<p align="center">
+    <sup>
+        <strong>Information about me on </strong>
+    </sup>
+    <a href="https://www.linkedin.com/in/g%C3%A1bor-kolozsy-950484115/">
+        <img src="https://img.shields.io/badge/Linked-In-red.svg?colorA=000000&colorB=0077b5">
+    </a>
+</p>
+<p align="center">
+    <a href="https://github.com/gaborkolozsy">
+        <img src="https://cloud.githubusercontent.com/assets/23102020/26025948/88e8d276-37f2-11e7-8e53-a25c0624a8da.png" width="50">
+    </a>
+</p>
