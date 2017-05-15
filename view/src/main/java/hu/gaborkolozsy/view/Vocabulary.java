@@ -1,7 +1,19 @@
 /*
- * Copyright (c) 2016, Gábor Kolozsy. All rights reserved.
+ * Copyright (c) 2016, Gabor Kolozsy
  *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 package hu.gaborkolozsy.view;
 
 import hu.gaborkolozsy.controller.ConfigService;
@@ -146,50 +158,46 @@ import javax.swing.event.HyperlinkEvent;
  *
  * @author Kolozsy Gábor (kolozsygabor@gmail.com)
  * @version 2.3.0
- *
- * @see hu.gaborkolozsy.controller.DataService
- * @see hu.gaborkolozsy.controller.InfoService
- * @see hu.gaborkolozsy.controller.ConfigService
- * @see hu.gaborkolozsy.controller.LanguagesService
- * @see hu.gaborkolozsy.controller.ProposalService
- * @see hu.gaborkolozsy.controller.RaceService
- * @see hu.gaborkolozsy.controller.VocabularyService
- * @see hu.gaborkolozsy.view.star.Star
- * @see hu.gaborkolozsy.view.star.ext.Star1
- * @see hu.gaborkolozsy.view.star.ext.Star2
- * @see hu.gaborkolozsy.view.star.ext.Star3
- * @see hu.gaborkolozsy.view.star.ext.Star4
- * @see hu.gaborkolozsy.view.star.ext.Star5
- * @see hu.gaborkolozsy.view.star.ext.Star6
- * @see java.awt.Color
- * @see java.awt.Desktop
- * @see java.awt.event.KeyEvent;
- * @see java.awt.event.KeyListener
- * @see java.awt.event.MouseAdapter;
- * @see java.awt.event.MouseEvent
- * @see java.io.File
- * @see java.io.IOException
- * @see java.net.URI;
- * @see java.net.URISyntaxException
- * @see java.util.List
- * @see java.util.concurrent.TimeUnit
- * @see java.util.regex.Pattern
- * @see javax.swing.Icon
- * @see javax.swing.ImageIcon
- * @see javax.swing.JEditorPane
- * @see javax.swing.JFrame
- * @see javax.swing.JLabel
- * @see javax.swing.JOptionPane
- * @see javax.swing.ToolTipManager
- * @see javax.swing.UIManager
- * @see javax.swing.UnsupportedLookAndFeelException
- * @see javax.swing.event.HyperlinkEvent
+ * @see DataService
+ * @see InfoService
+ * @see ConfigService
+ * @see LanguagesService
+ * @see ProposalService
+ * @see RaceService
+ * @see VocabularyService
+ * @see Star
+ * @see Star1
+ * @see Star2
+ * @see Star3
+ * @see Star4
+ * @see Star5
+ * @see Star6
+ * @see Color
+ * @see Desktop
+ * @see KeyEvent;
+ * @see KeyListener
+ * @see MouseAdapter;
+ * @see MouseEvent
+ * @see File
+ * @see IOException
+ * @see URI;
+ * @see URISyntaxException
+ * @see List
+ * @see TimeUnit
+ * @see Pattern
+ * @see Icon
+ * @see ImageIcon
+ * @see JEditorPane
+ * @see JFrame
+ * @see JLabel
+ * @see JOptionPane
+ * @see ToolTipManager
+ * @see UIManager
+ * @see UnsupportedLookAndFeelException
+ * @see HyperlinkEvent
  */
 public class Vocabulary extends JFrame {
 
-    /**
-     * /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
-     */
     /**
      * Fájlok.
      */
@@ -276,10 +284,6 @@ public class Vocabulary extends JFrame {
     private static final Color MY_GRAY = new Color(153, 153, 153);
     private static final Color MY_BLUE = new Color(51, 102, 255);
 
-    /**
-     * /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
-     */
-    
     /**
      * Creates new form window.
      */
