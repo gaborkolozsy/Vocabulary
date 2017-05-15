@@ -2,11 +2,11 @@
 
 ## Képernyőkép
 
-![](http://gitlab.com/gaborkolozsy/Vocabulary/raw/master/view/src/main/resources/hu/gaborkolozsy/images/Vocabulary.png "Screenshot")
+![](https://cloud.githubusercontent.com/assets/23102020/26070555/522ee78e-39a5-11e7-969a-800d23570445.png "Screenshot")
 
 ## Tartalom
 
-* [Screenshot](#screenshot)
+* [Képernyőkép](#képernyőkép)
 * [Leírás](#leírás)
     * [Használat](#használat)
     * [Szabályok](#szabályok)
