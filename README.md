@@ -1,6 +1,6 @@
 # Vocabulary - `Maven` alapú `pom` projekt Java nyelven
 
-## Screenshot
+## Képernyőkép
 
 ![](http://gitlab.com/gaborkolozsy/Vocabulary/raw/master/view/src/main/resources/hu/gaborkolozsy/images/Vocabulary.png "Screenshot")
 
