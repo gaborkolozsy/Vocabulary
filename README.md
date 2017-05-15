@@ -27,6 +27,7 @@
 * [Terv](#terv)
 * [Figyelmeztetés](#figyelmeztetés)
 * [Lábjegyzet](#lábjegyzet)
+* [License](LICENSE.txt)
 
 # Leírás
 
