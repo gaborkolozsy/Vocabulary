@@ -165,7 +165,7 @@ ill. a nyelvkombináció megváltozásakor.
     Az adatok a program használatakor keletkeznek és a "data.bin" fájlban tárolódnak.
 
 * A tanult szavak azonosító indexei, hogy ne kérdezze ki a program többször körönként 
-mint a beállított érték(itt 2). Ha az érték 2, akkor törlödik és hozzáadodik a 
+mint a beállított érték(itt 2). Ha az érték 2, akkor törlödik az átmeneti tárolóból és hozzáadódik a 
 tanult szavak indexeit tároló listához.
 
 * A **Futam** combo box legmagasabb indexe, hogy indításkor a már egyszer megkapott plusz
