@@ -172,7 +172,7 @@ tanult szavak indexeit tároló listához.
 (`20`, `30`, `40`, `50`, `100`) futamszámok elérhetőek legyenek.
 
 * A futamon elért legalább 90%-os teljesítmények száma. 3-nál növeli a program a **Futam** 
-combo box indexét.[Lásd feljebb](a-"futam"-combo-box-ból-választható-ki)
+combo box indexét.[Lásd feljebb](a-futam-combo-box-ból-választható-ki)
 
 * A tanult szavak indexeinek listája. [Lásd lejebb](#list-ben-tárolt-adat) 
 
