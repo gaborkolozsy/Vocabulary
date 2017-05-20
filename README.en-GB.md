@@ -2,7 +2,7 @@
 
 ## Screenshot
 
-![](http://gitlab.com/KolozsyGabor/Vocabulary/raw/master/view/src/main/resources/hu/gaborkolozsy/images/Vocabulary.png "Screenshot")
+![](https://cloud.githubusercontent.com/assets/23102020/26070555/522ee78e-39a5-11e7-969a-800d23570445.png "Screenshot")
 
 ## Table of Contents
 
