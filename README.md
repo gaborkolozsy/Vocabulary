@@ -176,8 +176,8 @@ combo box indexét.[Lásd feljebb](#angol-és-német-szókincs-bővítésére-al
 
 * A tanult szavak indexeinek listája. [Lásd lejebb](#list-ben-tárolt-adat) 
 
-* Körök száma, hogy a program indításkor ellenőrizze van-e olyan nyelvpár ami már 
-legalább 1x teljesítve lett. Teszi ezt azért, mert ha legalább 2 igen, akkor hozzáadja
+* Körök száma. A program indításkor ellenőrzi, hogy van-e olyan nyelvpár ami már 
+legalább 1x teljesítve lett. Ha talál legalább két különböző ilyen nyelvpárt, akkor hozzáadja
 a **Nyelv** combo box-hoz a **MIX** feliratott. Így onnantól bármikor elérhető lesz
 a **ENG-GER** nyelvkombináció ill. annak fordítottja.
 
