@@ -23,7 +23,7 @@
     * [Data store in `Integer`](#data-store-in-integer)
 * [Testability](#testability)
     * [`RegExp` pattern for test](#regexp-pattern-for-test)
-    * [`String`'s for test](#strings-for-test)
+    * [`String`s for test](#strings-for-test)
 * [Plan](#plan)
 * [Warning](#warning)
 * [Footnote](#footnote)
