@@ -23,7 +23,7 @@
     * [Data store in `Integer`](#data-store-in-integer)
 * [Testability](#testability)
     * [`RegExp` pattern for test](#regexp-pattern-for-test)
-    * [`String`'s for test](#string-'s-for-test)
+    * [`String`'s for test](#strings-for-test)
 * [Plan](#plan)
 * [Warning](#warning)
 * [Footnote](#footnote)
@@ -170,7 +170,7 @@ After the lap it will clear and the procedure starts again.
 the achieved plus numbers of round(e.g. `20`, `30`, `40`, `50`, `100`) should be available.
 
 * The number between of the 90% and 100% achievements. The application will increase the
-highest index of the **Round** combo box.(see above)
+highest index of the **Round** combo box.[See above](#description)
 
 * The list of the indexes of the learned words. [See below](#data-store-in-list)
 
@@ -209,7 +209,7 @@ anytime the **ENG-GER** language combination or the reverse of it.
 4. `#add (20|30|40|50|100)`- adds the specified item to the `Round` combo box
 5. `#delete (20|30|40|50|100)` - deletes the specified item from the `Round` combo box
 
-#### `String`'s for test.
+#### `String`s for test.
 
 1. `#reset`- resets all of the data on the actual language combination
 2. `#round++`- increases the number of the completed lap the actual language combination
