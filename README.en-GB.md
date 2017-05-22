@@ -8,7 +8,7 @@
 
 * [Screenshot](#screenshot)
 * [Description](#description)
-    * [Using](#using)
+    * [Usage](#usage)
     * [Rules](#rules)
     * [Prize](#prize)
     * [Shortcut](#shortcut)
@@ -61,7 +61,7 @@ e.g. in "**Lap**" field **131/1000**.
 
 >Sum of the three vocabulary files all combination available from the application.
 
-#### Using
+#### Usage
 
 >After clicking the "**Start**" button start the Q & A session. Type the answer and
 click `Enter`. If the answer in the answerfield is good then its color will be green.
