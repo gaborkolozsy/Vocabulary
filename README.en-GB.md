@@ -41,7 +41,7 @@ is "**ENG-HUN**". It can be changed from "**Language**"(Nyelv) combo box or to
 click to the "**Change**"(Csere) button.
 
 >From "**Round**" combo box one can choose how many words have to be asked in a round. It's default
-values are `5` és `10`. As a result of a continually good achievement(**A%**), they are
+values are `5` and `10`. As a result of a continually good achievement(**A%**), they are
 supplemented with the `20`, `30`, `40`, `50` and `100` items.
 (e.g. if 3 times in `10` round **90 ≤ A ≤ 100** then adding the `20` item to combo box)
 
